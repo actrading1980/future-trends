@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch",
+      "WebSearch",
+      "mcp__exa__search",
+      "mcp__exa__find_similar",
+      "mcp__exa__web_search_exa",
+      "mcp__fetch__fetch",
+      "mcp__filesystem__read_file",
+      "mcp__filesystem__write_file",
+      "mcp__sqlite__read_query",
+      "mcp__sqlite__write_query"
+    ]
+  }
+}

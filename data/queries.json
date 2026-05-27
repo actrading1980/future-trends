@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "name": "AI/ML",
+      "arxiv": "cat:cs.AI+OR+cat:cs.LG&sortBy=submittedDate&sortOrder=descending&max_results=20",
+      "github": "q=machine+learning+OR+llm+OR+transformer&sort=stars&order=desc&per_page=20",
+      "uspto": "patent_date:[NOW-7DAYS+TO+NOW]&q=%22machine+learning%22+OR+%22large+language+model%22"
+    },
+    {
+      "name": "Quantum Computing",
+      "arxiv": "cat:quant-ph+OR+cat:cs.ET&sortBy=submittedDate&sortOrder=descending&max_results=20",
+      "github": "q=quantum+computing+OR+qiskit+OR+cirq&sort=stars&order=desc&per_page=20",
+      "uspto": "patent_date:[NOW-7DAYS+TO+NOW]&q=%22quantum+computing%22+OR+%22qubit%22"
+    },
+    {
+      "name": "Gene Editing / Biotech",
+      "arxiv": "cat:q-bio.GN+OR+cat:q-bio.QM&sortBy=submittedDate&sortOrder=descending&max_results=20",
+      "github": "q=crispr+OR+gene+editing+OR+bioinformatics&sort=stars&order=desc&per_page=20",
+      "uspto": "patent_date:[NOW-7DAYS+TO+NOW]&q=%22CRISPR%22+OR+%22gene+editing%22+OR+%22mRNA%22"
+    },
+    {
+      "name": "Clean Energy",
+      "arxiv": "cat:eess.SY+OR+cat:physics.app-ph&sortBy=submittedDate&sortOrder=descending&max_results=20",
+      "github": "q=solar+energy+OR+battery+OR+grid+storage&sort=stars&order=desc&per_page=20",
+      "uspto": "patent_date:[NOW-7DAYS+TO+NOW]&q=%22solid+state+battery%22+OR+%22perovskite+solar%22"
+    },
+    {
+      "name": "Advanced Semiconductors",
+      "arxiv": "cat:cs.AR+OR+cat:eess.SP&sortBy=submittedDate&sortOrder=descending&max_results=20",
+      "github": "q=chip+design+OR+RISC-V+OR+neuromorphic&sort=stars&order=desc&per_page=20",
+      "uspto": "patent_date:[NOW-7DAYS+TO+NOW]&q=%22semiconductor%22+AND+%223nm%22+OR+%22chiplet%22"
+    }
+  ]
+}

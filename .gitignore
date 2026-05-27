@@ -1,0 +1,7 @@
+.env
+data/fa.db
+logs/
+reports/phase0/
+__pycache__/
+*.pyc
+$env:TEMP

@@ -85,7 +85,9 @@ mantener score_analistas = 50, flag `analistas_conflicto: true`.
 
 ## Fase 3 — Scoring de empresas
 
-Para las 3-5 tendencias con mayor puntuación combinada:
+Reporta TODAS las tendencias donde hayas encontrado al menos 2 catalizadores materiales en las ultimas 48h. Un catalizador material es: anuncio regulatorio, earnings con guidance change, hito tecnico verificable, M&A, o publicacion con impacto comercial demostrable. El numero de tendencias es variable — 3 algunos dias, 10 otros. NO hay cuota minima ni maxima.
+
+Para cada tendencia que supere ese umbral:
 
 1. Identifica empresas del universo (data/companies.json) con exposición a esa tendencia
 2. Asigna intensidad de exposure:

@@ -141,8 +141,8 @@ for line in m.group(1).strip().splitlines():
         continue
     if scenario not in ('BULLISH','STRONG_BULLISH','NEUTRAL','BEARISH'):
         scenario = 'BULLISH' if score >= 70 else ('BEARISH' if score < 30 else 'NEUTRAL')
-    db.execute('INSERT OR REPLACE INTO tech_scores (ticker, score, trend_name, intensity, scenario, conflicto, date) VALUES (?,?,?,?,?,?,?)',
-        (ticker, score, 'daily_run', intensity, scenario, 0, date))
+    db.execute('INSERT OR REPLACE INTO tech_scores (ticker, score, trend_name, intensity, scenario, conflicto, date, prompt_version) VALUES (?,?,?,?,?,?,?,?)',
+        (ticker, score, 'daily_run', intensity, scenario, 0, date, 'v2'))
     inserted += 1
 
 db.commit()
@@ -158,5 +158,20 @@ $ParseScript = $ParseScript -creplace 'REPORT_PATH', ($ReportFile -replace '\\',
 $ParseScript = $ParseScript -creplace 'REPORT_DATE', $DateIso
 $ParseResult = python3 -c $ParseScript 2>&1
 Log "INFO: $ParseResult"
+
+# 9. Guardar precios de cierre del dia
+Log "INFO: descargando precios de cierre..."
+$PriceResult = python3 "$ProjectDir\scripts\fetch_prices.py" $DateIso 2>&1
+Log "INFO: $PriceResult"
+
+# 10. Generar informe comparativo
+Log "INFO: generando comparativo..."
+$CompResult = python3 "$ProjectDir\scripts\generate_comparative.py" $DateIso 2>&1
+Log "INFO: $CompResult"
+
+# 11. Generar HTML y publicar en Cloudflare Pages via GitHub
+Log "INFO: desplegando reporte..."
+$DeployResult = powershell.exe -ExecutionPolicy Bypass -File "$ProjectDir\scripts\deploy_report.ps1" -ReportFile $ReportFile -ProjectDir $ProjectDir 2>&1
+Log "INFO: deploy: $DeployResult"
 
 Log "=== Run completado ==="

@@ -53,11 +53,32 @@ $PromptTemplate = Get-Content "$ProjectDir\prompts\daily.md" -Raw -Encoding utf8
 $Trends  = Get-Content $TrendsFile -Raw -Encoding utf8
 $Queries = Get-Content "$ProjectDir\data\queries.json" -Raw -Encoding utf8
 
+# Cargar notas de seguimiento activas desde DB
+$NotesScript = @"
+import sqlite3
+from datetime import date
+db = sqlite3.connect(r'C:\projects\FutureTrends\data\fa.db')
+today = date.today().isoformat()
+auto = db.execute('''SELECT ticker, note FROM review_notes WHERE resolve_trigger='auto' AND resolved=0 AND (expires IS NULL OR expires >= ?)''', (today,)).fetchall()
+manual = db.execute('''SELECT ticker, note FROM review_notes WHERE resolve_trigger='manual' AND resolved=0''').fetchall()
+db.close()
+def fmt(rows):
+    if not rows: return '(ninguna)'
+    return chr(10).join(f'- [{r[0] or "general"}] {r[1]}' for r in rows)
+print('AUTO|||' + fmt(auto) + '|||MANUAL|||' + fmt(manual))
+"@
+$NotesRaw = python3 -c $NotesScript 2>$null
+$NotesAuto   = if ($NotesRaw -match 'AUTO\|\|\|(.+)\|\|\|MANUAL') { $matches[1] } else { '(ninguna)' }
+$NotesManual = if ($NotesRaw -match 'MANUAL\|\|\|(.+)$')          { $matches[1] } else { '(ninguna)' }
+Log "INFO: notas carry-forward cargadas"
+
 $Prompt = $PromptTemplate `
     -replace '\{FECHA\}',              $DateIso `
-    -replace '\{TENDENCIAS_ACTIVAS\}', ($Trends  -replace '\\','\\') `
-    -replace '\{QUERIES\}',            ($Queries -replace '\\','\\') `
-    -replace '\{FECHA_7D\}',           $Date7d
+    -replace '\{TENDENCIAS_ACTIVAS\}', ($Trends       -replace '\\','\\') `
+    -replace '\{QUERIES\}',            ($Queries      -replace '\\','\\') `
+    -replace '\{FECHA_7D\}',           $Date7d `
+    -replace '\{NOTAS_AUTO\}',         ($NotesAuto    -replace '\\','\\') `
+    -replace '\{NOTAS_MANUAL\}',       ($NotesManual  -replace '\\','\\')
 
 [System.IO.File]::WriteAllText($TmpPrompt, $Prompt, [System.Text.Encoding]::UTF8)
 Log "INFO: prompt generado ($($Prompt.Length) chars)"
@@ -164,7 +185,12 @@ Log "INFO: descargando precios de cierre..."
 $PriceResult = python3 "$ProjectDir\scripts\fetch_prices.py" $DateIso 2>&1
 Log "INFO: $PriceResult"
 
-# 10. Generar informe comparativo
+# 10. Extraer y clasificar notas de seccion 7 (carry-forward)
+Log "INFO: extrayendo notas de revision..."
+$NotesResult = python3 "$ProjectDir\scripts\extract_notes.py" $ReportFile $DateIso 2>&1
+Log "INFO: $NotesResult"
+
+# 11. Generar informe comparativo
 Log "INFO: generando comparativo..."
 $CompResult = python3 "$ProjectDir\scripts\generate_comparative.py" $DateIso 2>&1
 Log "INFO: $CompResult"

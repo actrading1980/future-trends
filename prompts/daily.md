@@ -20,6 +20,14 @@ Este sistema está en PHASE 0 — shadow mode. Todos los scores son UNVALIDATED.
 Tendencias activas (últimas 10):
 {TENDENCIAS_ACTIVAS}
 
+## Notas de seguimiento activas (carry-forward)
+
+### Para resolver hoy (buscar activamente):
+{NOTAS_AUTO}
+
+### Pendientes de revisión humana (no intentar resolver — solo reportar estado):
+{NOTAS_MANUAL}
+
 ## Queries de búsqueda activos
 {QUERIES}
 

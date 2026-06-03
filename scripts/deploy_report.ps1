@@ -109,9 +109,12 @@ if (Test-Path $ComparativeFile) {
     Write-Output "HTML comparativo generado: reports\comparative.html"
 }
 
+# --- Copiar index.html a raíz para que Cloudflare Pages lo sirva en / ---
+Copy-Item $OutputHtml "$ProjectDir\index.html" -Force
+
 # --- Git commit y push ---
 Set-Location $ProjectDir
-git add "reports/index.html" "reports/comparative.html" "reports/$reportDate.md" "reports/comparative_$reportDate.md" 2>&1 | Out-Null
+git add "index.html" "reports/index.html" "reports/comparative.html" "reports/$reportDate.md" "reports/comparative_$reportDate.md" 2>&1 | Out-Null
 $diff = git diff --cached --quiet 2>&1
 if ($LASTEXITCODE -eq 0) {
     Write-Output "Sin cambios en git, skip push"

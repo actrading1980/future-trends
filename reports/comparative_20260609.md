@@ -2,6 +2,11 @@
 
 > Empresas comparadas: **50** | Nuevas en universe: 1 | Salieron: 0
 
+## Dispersión del score (diagnóstico)
+
+- N: 51 | Media: 75.1 | Std: 11.3 | Rango: [50, 89]
+- % de empresas en banda [40,60]: **14%**
+
 ## Fuentes
 
 ### ⚠️ Fuentes repetidas vs ayer (2)

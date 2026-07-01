@@ -47,6 +47,27 @@ def only_yesterday(db, date_today, date_yesterday):
         )
     """, (date_yesterday, date_today)).fetchall()
 
+def dispersion_stats(db, report_date):
+    scores = [r[0] for r in db.execute(
+        "SELECT score FROM tech_scores WHERE date = ?", (report_date,)
+    ).fetchall()]
+    if not scores:
+        return None
+    n = len(scores)
+    mean = sum(scores) / n
+    variance = sum((s - mean) ** 2 for s in scores) / n
+    std = variance ** 0.5
+    in_band = sum(1 for s in scores if 40 <= s <= 60)
+    pct_in_band = 100 * in_band / n
+    return {
+        "n": n,
+        "mean": mean,
+        "std": std,
+        "min": min(scores),
+        "max": max(scores),
+        "pct_in_band_40_60": pct_in_band,
+    }
+
 def scenario_emoji(scenario):
     return {"STRONG_BULLISH": "🟢🟢", "BULLISH": "🟢", "NEUTRAL": "⚪", "BEARISH": "🔴"}.get(scenario, "⚪")
 
@@ -82,6 +103,7 @@ def main():
     deltas    = score_delta_table(db, date_today, date_yesterday)
     new_ticks = only_today(db, date_today, date_yesterday)
     gone_ticks= only_yesterday(db, date_today, date_yesterday)
+    disp      = dispersion_stats(db, date_today)
     db.close()
 
     gainers = [(t, a, b, d, s, i) for t, a, b, d, s, i in deltas if d > 0]
@@ -94,6 +116,16 @@ def main():
     a(f"# Comparativo {date_yesterday} → {date_today}")
     a("")
     a(f"> Empresas comparadas: **{len(deltas)}** | Nuevas en universe: {len(new_ticks)} | Salieron: {len(gone_ticks)}")
+    a("")
+
+    if disp:
+        warn = " ⚠️ DISPERSIÓN DEGENERADA" if disp["pct_in_band_40_60"] > 60 else ""
+        a("## Dispersión del score (diagnóstico){}".format(warn))
+        a("")
+        a(f"- N: {disp['n']} | Media: {disp['mean']:.1f} | Std: {disp['std']:.1f} | Rango: [{disp['min']}, {disp['max']}]")
+        a(f"- % de empresas en banda [40,60]: **{disp['pct_in_band_40_60']:.0f}%**")
+        if disp["pct_in_band_40_60"] > 60:
+            a("- Más del 60% del universo sin diferenciar — el score no tiene rango suficiente para que el IC detecte señal aunque exista. Revisar prompt (forzar ranking relativo o cuotas por tramo).")
     a("")
 
     # --- Fuentes ---

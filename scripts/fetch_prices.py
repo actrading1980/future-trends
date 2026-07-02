@@ -10,6 +10,7 @@ from datetime import date, timedelta
 
 DB_PATH   = r"C:\projects\FutureTrends\data\fa.db"
 CO_PATH   = r"C:\projects\FutureTrends\data\companies.json"
+BENCHMARK_TICKERS = ["SPY"]  # benchmark de excess return (validation_engine_v1.1.md Sección 3.3) — nunca en companies.json
 
 def ensure_table(db):
     db.execute("""
@@ -76,7 +77,7 @@ def main():
     db = sqlite3.connect(DB_PATH)
     ensure_table(db)
 
-    tickers = tickers_from_companies()
+    tickers = tickers_from_companies() + BENCHMARK_TICKERS
     n = fetch_and_store(db, tickers, target_date)
     db.close()
 

@@ -1,0 +1,918 @@
+{
+  "fecha_seleccion": "2026-07-02",
+  "regla": "ETFs sectoriales fijos a fecha 2026-07-02 (data/etf_sources/raw_holdings_20260702.json) + filtro cap>=2B + volumen>=200k + presenta 10-K ante SEC",
+  "universo_existente_n": 51,
+  "candidatos_evaluados": 71,
+  "aceptados_n": 61,
+  "rechazados_n": 10,
+  "aceptados": [
+    {
+      "ticker": "ADI",
+      "cik": 6281,
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "peso_max_etf": 4.19,
+      "fuentes_etf": [
+        "SMH"
+      ],
+      "market_cap_usd": 192155837280.0,
+      "volumen_medio": 4515646,
+      "ultimo_10k": "2025-11-25"
+    },
+    {
+      "ticker": "ADSK",
+      "cik": 769397,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 1.55,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 43353398017.21083,
+      "volumen_medio": 2559601,
+      "ultimo_10k": "2026-03-03"
+    },
+    {
+      "ticker": "ALAB",
+      "cik": 1736297,
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "peso_max_etf": 1.33,
+      "fuentes_etf": [
+        "QTUM",
+        "SMH"
+      ],
+      "market_cap_usd": 73393450065.59076,
+      "volumen_medio": 6237830,
+      "ultimo_10k": "2026-02-20"
+    },
+    {
+      "ticker": "ALKS",
+      "cik": 1520262,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.1,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 8740479090.185612,
+      "volumen_medio": 2296406,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "APGE",
+      "cik": 1974640,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.48,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 9985901576.961975,
+      "volumen_medio": 2399764,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "APP",
+      "cik": 1751008,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 4.76,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 191092503975.70508,
+      "volumen_medio": 4928985,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "BE",
+      "cik": 1664703,
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "peso_max_etf": 12.92,
+      "fuentes_etf": [
+        "ICLN"
+      ],
+      "market_cap_usd": 82272541602.54785,
+      "volumen_medio": 11636600,
+      "ultimo_10k": "2026-02-09"
+    },
+    {
+      "ticker": "CDNS",
+      "cik": 813672,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud",
+        "Advanced Semiconductors"
+      ],
+      "peso_max_etf": 3.91,
+      "fuentes_etf": [
+        "IGV",
+        "SMH"
+      ],
+      "market_cap_usd": 104519786353.51562,
+      "volumen_medio": 2492745,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "CELC",
+      "cik": 1603454,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.1,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 5050724433.27771,
+      "volumen_medio": 1321453,
+      "ultimo_10k": "2026-03-26"
+    },
+    {
+      "ticker": "CGON",
+      "cik": 1991792,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.2,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 6143205476.905312,
+      "volumen_medio": 1098535,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "COGT",
+      "cik": 1622229,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.14,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 6612591885.161942,
+      "volumen_medio": 2340467,
+      "ultimo_10k": "2026-02-17"
+    },
+    {
+      "ticker": "COHR",
+      "cik": 820318,
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "peso_max_etf": 1.21,
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "market_cap_usd": 70623836577.24976,
+      "volumen_medio": 6095717,
+      "ultimo_10k": "2025-08-15"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": 1535527,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 7.28,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 197908874282.29614,
+      "volumen_medio": 13613738,
+      "ultimo_10k": "2026-03-05"
+    },
+    {
+      "ticker": "CWEN",
+      "cik": 1567683,
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "peso_max_etf": 1.82,
+      "fuentes_etf": [
+        "ICLN"
+      ],
+      "market_cap_usd": 5280849611.339119,
+      "volumen_medio": 1224511,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "CYTK",
+      "cik": 1061983,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.17,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 11569690585.288239,
+      "volumen_medio": 2558803,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "DNTH",
+      "cik": 1690585,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.18,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 4901921013.013138,
+      "volumen_medio": 900756,
+      "ultimo_10k": "2026-03-09"
+    },
+    {
+      "ticker": "EA",
+      "cik": 712515,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 1.75,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 51546984402.43872,
+      "volumen_medio": 1876803,
+      "ultimo_10k": "2026-05-11"
+    },
+    {
+      "ticker": "ERAS",
+      "cik": 1761918,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.27,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 5479547891.028614,
+      "volumen_medio": 6982208,
+      "ultimo_10k": "2026-03-12"
+    },
+    {
+      "ticker": "FICO",
+      "cik": 814547,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 1.05,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 28765071826.449463,
+      "volumen_medio": 363240,
+      "ultimo_10k": "2025-11-07"
+    },
+    {
+      "ticker": "FTNT",
+      "cik": 1262039,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 3.62,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 115219948763.44191,
+      "volumen_medio": 6421408,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "GEN",
+      "cik": 849399,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 0.52,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 15837986573.204666,
+      "volumen_medio": 7642356,
+      "ultimo_10k": "2026-05-21"
+    },
+    {
+      "ticker": "HON",
+      "cik": 773840,
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "peso_max_etf": 1.27,
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "market_cap_usd": 70598462722.09676,
+      "volumen_medio": 4784220,
+      "ultimo_10k": "2026-02-17"
+    },
+    {
+      "ticker": "INTU",
+      "cik": 896878,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 2.73,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 74730311739.0747,
+      "volumen_medio": 4982533,
+      "ultimo_10k": "2025-09-03"
+    },
+    {
+      "ticker": "KLAC",
+      "cik": 319201,
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "peso_max_etf": 4.94,
+      "fuentes_etf": [
+        "QTUM",
+        "SMH"
+      ],
+      "market_cap_usd": 337704790692.37885,
+      "volumen_medio": 11562012,
+      "ultimo_10k": "2025-08-08"
+    },
+    {
+      "ticker": "KRYS",
+      "cik": 1711279,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.1,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 10913258488.336182,
+      "volumen_medio": 312591,
+      "ultimo_10k": "2026-02-17"
+    },
+    {
+      "ticker": "KYMR",
+      "cik": 1815442,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.35,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 9331300983.54419,
+      "volumen_medio": 762825,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "MCHP",
+      "cik": 827054,
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "peso_max_etf": 0.93,
+      "fuentes_etf": [
+        "SMH"
+      ],
+      "market_cap_usd": 48613670085.50947,
+      "volumen_medio": 11604116,
+      "ultimo_10k": "2026-05-21"
+    },
+    {
+      "ticker": "MIRM",
+      "cik": 1759425,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.15,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 7354335883.150032,
+      "volumen_medio": 992825,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "MKSI",
+      "cik": 1049502,
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "peso_max_etf": 1.38,
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "market_cap_usd": 27343336412.19876,
+      "volumen_medio": 1263453,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "MPWR",
+      "cik": 1280452,
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "peso_max_etf": 1.25,
+      "fuentes_etf": [
+        "SMH"
+      ],
+      "market_cap_usd": 67377839055.81201,
+      "volumen_medio": 813206,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "MSTR",
+      "cik": 1050446,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 1.09,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 36837634969.40253,
+      "volumen_medio": 20878777,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "MU",
+      "cik": 723125,
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "peso_max_etf": 5.99,
+      "fuentes_etf": [
+        "QTUM",
+        "SMH"
+      ],
+      "market_cap_usd": 1183852455653.53,
+      "volumen_medio": 51132104,
+      "ultimo_10k": "2025-10-03"
+    },
+    {
+      "ticker": "NTNX",
+      "cik": 1618732,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 0.51,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 13849871443.605545,
+      "volumen_medio": 3965103,
+      "ultimo_10k": "2025-09-24"
+    },
+    {
+      "ticker": "NTRA",
+      "cik": 1604821,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.16,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 39551793969.99811,
+      "volumen_medio": 1569791,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "NXPI",
+      "cik": 1413447,
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "peso_max_etf": 1.22,
+      "fuentes_etf": [
+        "SMH"
+      ],
+      "market_cap_usd": 71701786436.0,
+      "volumen_medio": 4005101,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "NXT",
+      "cik": 1852131,
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "peso_max_etf": 6.92,
+      "fuentes_etf": [
+        "ICLN"
+      ],
+      "market_cap_usd": 18138880417.920776,
+      "volumen_medio": 2717675,
+      "ultimo_10k": "2026-05-19"
+    },
+    {
+      "ticker": "ONTO",
+      "cik": 704532,
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "peso_max_etf": 1.35,
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "market_cap_usd": 17246591689.515106,
+      "volumen_medio": 1197279,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "ORKA",
+      "cik": 907654,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.37,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 5236899840.264755,
+      "volumen_medio": 1782791,
+      "ultimo_10k": "2026-03-12"
+    },
+    {
+      "ticker": "PANW",
+      "cik": 1327567,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 10.37,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 286187245025.63477,
+      "volumen_medio": 8264145,
+      "ultimo_10k": "2025-08-29"
+    },
+    {
+      "ticker": "PCVX",
+      "cik": 1649094,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.18,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 8091324088.836662,
+      "volumen_medio": 1595577,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "PLUG",
+      "cik": 1093691,
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "peso_max_etf": 2.82,
+      "fuentes_etf": [
+        "ICLN"
+      ],
+      "market_cap_usd": 3808538620.468831,
+      "volumen_medio": 74937095,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "PRAX",
+      "cik": 1689548,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.29,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 8850953475.805359,
+      "volumen_medio": 494917,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "RARE",
+      "cik": 1515673,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.14,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 3228969193.811737,
+      "volumen_medio": 2124570,
+      "ultimo_10k": "2026-02-18"
+    },
+    {
+      "ticker": "ROIV",
+      "cik": 1635088,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.15,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 25278758010.080853,
+      "volumen_medio": 5883670,
+      "ultimo_10k": "2026-05-20"
+    },
+    {
+      "ticker": "ROP",
+      "cik": 882835,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 1.29,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 36058781297.90973,
+      "volumen_medio": 1203124,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "RVMD",
+      "cik": 1628171,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.2,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 39929869049.94299,
+      "volumen_medio": 3488187,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "RYTM",
+      "cik": 1649904,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.2,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 7567243062.746902,
+      "volumen_medio": 792725,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "SEDG",
+      "cik": 1419612,
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "peso_max_etf": 2.47,
+      "fuentes_etf": [
+        "ICLN"
+      ],
+      "market_cap_usd": 3481233984.5613327,
+      "volumen_medio": 3839532,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "SLS",
+      "cik": 1390478,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.19,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 2747940296.659374,
+      "volumen_medio": 8520608,
+      "ultimo_10k": "2026-03-19"
+    },
+    {
+      "ticker": "SNPS",
+      "cik": 883241,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud",
+        "Advanced Semiconductors"
+      ],
+      "peso_max_etf": 3.23,
+      "fuentes_etf": [
+        "IGV",
+        "SMH"
+      ],
+      "market_cap_usd": 86822468932.31354,
+      "volumen_medio": 1913377,
+      "ultimo_10k": "2025-12-22"
+    },
+    {
+      "ticker": "SRRK",
+      "cik": 1727196,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.15,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 6239461523.091293,
+      "volumen_medio": 1497427,
+      "ultimo_10k": "2026-03-03"
+    },
+    {
+      "ticker": "SWKS",
+      "cik": 4127,
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "peso_max_etf": 0.17,
+      "fuentes_etf": [
+        "SMH"
+      ],
+      "market_cap_usd": 10171954864.587685,
+      "volumen_medio": 4800201,
+      "ultimo_10k": "2025-11-07"
+    },
+    {
+      "ticker": "TE",
+      "cik": 1992243,
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "peso_max_etf": 1.33,
+      "fuentes_etf": [
+        "ICLN"
+      ],
+      "market_cap_usd": 2558125798.186569,
+      "volumen_medio": 31935935,
+      "ultimo_10k": "2026-03-31"
+    },
+    {
+      "ticker": "TER",
+      "cik": 97210,
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "peso_max_etf": 1.45,
+      "fuentes_etf": [
+        "QTUM",
+        "SMH"
+      ],
+      "market_cap_usd": 66263358915.30383,
+      "volumen_medio": 4263717,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "TTWO",
+      "cik": 946581,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 1.65,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 46633430785.798935,
+      "volumen_medio": 2405762,
+      "ultimo_10k": "2026-05-22"
+    },
+    {
+      "ticker": "TVTX",
+      "cik": 1438533,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.12,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 5191794056.425095,
+      "volumen_medio": 2546656,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "TWST",
+      "cik": 1581280,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.4,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 6469989619.6184845,
+      "volumen_medio": 1709293,
+      "ultimo_10k": "2025-11-17"
+    },
+    {
+      "ticker": "VKTX",
+      "cik": 1607678,
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "peso_max_etf": 1.3,
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "market_cap_usd": 4391696035.056576,
+      "volumen_medio": 2386067,
+      "ultimo_10k": "2026-02-11"
+    },
+    {
+      "ticker": "WDAY",
+      "cik": 1327811,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 0.94,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 32622725936.666107,
+      "volumen_medio": 5288487,
+      "ultimo_10k": "2026-03-06"
+    },
+    {
+      "ticker": "ZM",
+      "cik": 1585521,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 0.87,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 26437817848.728455,
+      "volumen_medio": 4744467,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "ZS",
+      "cik": 1713683,
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "peso_max_etf": 0.55,
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "market_cap_usd": 23661338882.395935,
+      "volumen_medio": 4638843,
+      "ultimo_10k": "2025-09-11"
+    }
+  ],
+  "rechazados": [
+    {
+      "ticker": "ARQQ",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "BTQ",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "GPRE",
+      "razon": "cap 1.13B < floor 2B"
+    },
+    {
+      "ticker": "HQ",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "NBIS",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "QNC",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "QNT",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "SHLS",
+      "razon": "cap 1.75B < floor 2B"
+    },
+    {
+      "ticker": "STM",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "WIT",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    }
+  ]
+}

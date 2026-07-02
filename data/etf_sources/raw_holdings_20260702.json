@@ -1,0 +1,97 @@
+{
+  "fetch_date": "2026-07-02",
+  "source_pattern": "https://stockanalysis.com/etf/{TICKER}/holdings/",
+  "note": "Fuente agregadora usada porque los sitios de los propios emisores (VanEck, iShares) bloquean fetch automatizado (403 / redirect loop a interstitial anti-bot, verificado 2026-07-02). Cada pagina de stockanalysis.com esta limitada a 25 holdings visibles sin suscripcion; SMH solo tiene 26 holdings totales asi que esta casi completo, el resto quedan truncados a top-25 por peso. XBI es un fondo equal-weighted (pesos ~1.1-1.5% todos similares) por lo que 'top 25 por peso' no es un corte significativo ahi -- es simplemente los primeros 25 de ~160 nombres en orden de peso casi plano.",
+  "etfs": {
+    "SMH": {
+      "name": "VanEck Semiconductor ETF",
+      "categoria": "Advanced Semiconductors",
+      "total_holdings_fondo": 26,
+      "holdings_obtenidos": 25,
+      "holdings": [
+        {"ticker":"NVDA","weight":18.16},{"ticker":"TSM","weight":9.04},{"ticker":"MU","weight":5.99},
+        {"ticker":"AVGO","weight":5.49},{"ticker":"AMD","weight":5.44},{"ticker":"AMAT","weight":5.35},
+        {"ticker":"INTC","weight":5.09},{"ticker":"LRCX","weight":5.00},{"ticker":"KLAC","weight":4.94},
+        {"ticker":"ASML","weight":4.89},{"ticker":"MRVL","weight":4.49},{"ticker":"TXN","weight":4.29},
+        {"ticker":"ADI","weight":4.19},{"ticker":"QCOM","weight":4.12},{"ticker":"CDNS","weight":2.33},
+        {"ticker":"SNPS","weight":1.96},{"ticker":"TER","weight":1.45},{"ticker":"STM","weight":1.29},
+        {"ticker":"MPWR","weight":1.25},{"ticker":"NXPI","weight":1.22},{"ticker":"ARM","weight":1.18},
+        {"ticker":"ALAB","weight":1.11},{"ticker":"MCHP","weight":0.93},{"ticker":"ON","weight":0.60},
+        {"ticker":"SWKS","weight":0.17}
+      ]
+    },
+    "IGV": {
+      "name": "iShares Expanded Tech-Software Sector ETF",
+      "categoria": "AI/ML y Software/Cloud",
+      "total_holdings_fondo": 113,
+      "holdings_obtenidos": 25,
+      "holdings": [
+        {"ticker":"PANW","weight":10.37},{"ticker":"MSFT","weight":8.07},{"ticker":"PLTR","weight":7.70},
+        {"ticker":"CRWD","weight":7.28},{"ticker":"ORCL","weight":6.26},{"ticker":"CRM","weight":4.81},
+        {"ticker":"APP","weight":4.76},{"ticker":"CDNS","weight":3.91},{"ticker":"NOW","weight":3.87},
+        {"ticker":"FTNT","weight":3.62},{"ticker":"DDOG","weight":3.26},{"ticker":"SNPS","weight":3.23},
+        {"ticker":"ADBE","weight":3.13},{"ticker":"INTU","weight":2.73},{"ticker":"EA","weight":1.75},
+        {"ticker":"TTWO","weight":1.65},{"ticker":"ADSK","weight":1.55},{"ticker":"ROP","weight":1.29},
+        {"ticker":"MSTR","weight":1.09},{"ticker":"FICO","weight":1.05},{"ticker":"WDAY","weight":0.94},
+        {"ticker":"ZM","weight":0.87},{"ticker":"ZS","weight":0.55},{"ticker":"GEN","weight":0.52},
+        {"ticker":"NTNX","weight":0.51}
+      ]
+    },
+    "XBI": {
+      "name": "SPDR S&P Biotech ETF",
+      "categoria": "Gene Editing / Biotech",
+      "total_holdings_fondo": 160,
+      "holdings_obtenidos": 25,
+      "nota_metodologica": "Equal-weighted fund -- top 25 por peso no es un corte significativo, es casi arbitrario dentro del fondo",
+      "holdings": [
+        {"ticker":"APGE","weight":1.48},{"ticker":"MRNA","weight":1.41},{"ticker":"TWST","weight":1.40},
+        {"ticker":"ORKA","weight":1.37},{"ticker":"KYMR","weight":1.35},{"ticker":"VKTX","weight":1.30},
+        {"ticker":"PRAX","weight":1.29},{"ticker":"ERAS","weight":1.27},{"ticker":"RVMD","weight":1.20},
+        {"ticker":"RYTM","weight":1.20},{"ticker":"CGON","weight":1.20},{"ticker":"SLS","weight":1.19},
+        {"ticker":"PCVX","weight":1.18},{"ticker":"DNTH","weight":1.18},{"ticker":"CYTK","weight":1.17},
+        {"ticker":"NTRA","weight":1.16},{"ticker":"SRRK","weight":1.15},{"ticker":"ROIV","weight":1.15},
+        {"ticker":"MIRM","weight":1.15},{"ticker":"COGT","weight":1.14},{"ticker":"RARE","weight":1.14},
+        {"ticker":"TVTX","weight":1.12},{"ticker":"ALKS","weight":1.10},{"ticker":"KRYS","weight":1.10},
+        {"ticker":"CELC","weight":1.10}
+      ]
+    },
+    "ICLN": {
+      "name": "iShares Global Clean Energy ETF",
+      "categoria": "Clean Energy",
+      "total_holdings_fondo": null,
+      "holdings_obtenidos": 25,
+      "nota_metodologica": "Fondo global -- muchos holdings son foreign private issuers sin ticker US (China Yangtze Power, Vestas, Orsted, etc). El filtro 10-K de la Etapa 1 los excluira automaticamente por no presentar 10-K (presentan 20-F o no reportan a SEC), que es el comportamiento deseado.",
+      "holdings": [
+        {"ticker":"BE","weight":12.92},{"ticker":"FSLR","weight":8.96},{"ticker":"NXT","weight":6.92},
+        {"ticker":"SHA:600900","weight":6.11,"foreign":true},{"ticker":"ENPH","weight":4.96},
+        {"ticker":"CPH:VWS","weight":3.05,"foreign":true},{"ticker":"PLUG","weight":2.82},
+        {"ticker":"BVMF:EQTL3","weight":2.75,"foreign":true},{"ticker":"NSE:SUZLON","weight":2.60,"foreign":true},
+        {"ticker":"SEDG","weight":2.47},{"ticker":"ELI:EDP","weight":2.30,"foreign":true},
+        {"ticker":"TYO:9502","weight":2.30,"foreign":true},{"ticker":"CWEN","weight":1.82},
+        {"ticker":"CPH:ORSTED","weight":1.60,"foreign":true},{"ticker":"TLV:ENLT","weight":1.49,"foreign":true},
+        {"ticker":"TE","weight":1.33},{"ticker":"BVMF:ENGI11","weight":1.23,"foreign":true},
+        {"ticker":"SHLS","weight":1.20},{"ticker":"KRX:336260","weight":1.09,"foreign":true},
+        {"ticker":"ETR:NDX1","weight":1.02,"foreign":true},{"ticker":"SHA:600905","weight":1.01,"foreign":true},
+        {"ticker":"BME:SLR","weight":0.99,"foreign":true},{"ticker":"SHA:601012","weight":0.90,"foreign":true},
+        {"ticker":"ELI:EDPR","weight":0.88,"foreign":true},{"ticker":"GPRE","weight":0.84}
+      ]
+    },
+    "QTUM": {
+      "name": "Defiance Quantum ETF",
+      "categoria": "Quantum Computing",
+      "total_holdings_fondo": 89,
+      "holdings_obtenidos": 25,
+      "holdings": [
+        {"ticker":"ARQQ","weight":2.08},{"ticker":"HQ","weight":2.03},{"ticker":"QNT","weight":1.53},
+        {"ticker":"MU","weight":1.43},{"ticker":"AMAT","weight":1.42},{"ticker":"TER","weight":1.41},
+        {"ticker":"BTQ","weight":1.39},{"ticker":"MKSI","weight":1.38},{"ticker":"ONTO","weight":1.35},
+        {"ticker":"INTC","weight":1.35},{"ticker":"ALAB","weight":1.33},{"ticker":"LRCX","weight":1.32},
+        {"ticker":"8035","weight":1.31,"foreign":true},{"ticker":"KLAC","weight":1.31},{"ticker":"AMD","weight":1.30},
+        {"ticker":"NBIS","weight":1.28},{"ticker":"HON","weight":1.27},{"ticker":"6723","weight":1.24,"foreign":true},
+        {"ticker":"ARM","weight":1.22},{"ticker":"3443","weight":1.22,"foreign":true},{"ticker":"AIR","weight":1.22,"foreign":true},
+        {"ticker":"WIT","weight":1.22},{"ticker":"NET","weight":1.21},{"ticker":"QNC","weight":1.21},
+        {"ticker":"COHR","weight":1.21}
+      ]
+    }
+  }
+}

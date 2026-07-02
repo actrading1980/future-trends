@@ -425,7 +425,11 @@ if stale:
 
 Re-validación via `prompts/company_update.md` (prompt incluido en Sección 6.2). Genera diff JSON para revisión humana — **nunca auto-merge**. Un pivot mal detectado invalida scores históricos silenciosamente.
 
-**Phase:** P1 (schema desde el inicio). Lógica stale en P1. Prompt re-validación en P2.
+> **⚠️ v3.2 — Añadido tras hallazgo en P1.5 Etapa 2 (2026-07-02):** el barrido de CIKs de las 51 empresas originales (curadas a mano en mayo, presumiblemente con ayuda de un LLM sin verificación posterior contra fuente autoritativa) encontró **14 de 51 (27%) con CIK incorrecto**. 13 de esas 14 no fallaban al descargar — devolvían silenciosamente el 10-K de una empresa distinta pero real bajo el ticker equivocado (ej. `BEAM` con CIK de otra biotech de edición génica, confusión plausible que un check superficial no detectaría). **Lección generalizable: dato de referencia generado por LLM se trata como no verificado hasta cruzarlo contra la fuente canónica** — los 85 nuevos de P1.5 nacieron limpios precisamente porque `select_universe.py` resolvió sus CIKs contra `company_tickers.json` de la SEC en vez de curarlos a mano.
+>
+> El check semanal de staleness se amplía: además de `last_validated` > 100 días, cruzar el CIK de cada empresa contra `company_tickers.json` (mismo endpoint que usa `select_universe.py`) en cada corrida semanal. **CIK divergente de la SEC = empresa stale**, mismo mecanismo de cola de re-validación que un pivot de negocio — no se auto-corrige, va a `prompts/company_update.md` para revisión humana antes de aplicar el fix.
+
+**Phase:** P1 (schema desde el inicio). Lógica stale en P1. Prompt re-validación en P2. Check de CIK contra SEC añadido en P1.5.
 
 ### 5.5 Scoring Engine — Definición matemática
 

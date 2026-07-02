@@ -1,0 +1,3775 @@
+{
+  "fecha_seleccion": "2026-07-02",
+  "regla": "ETFs sectoriales a fecha 2026-07-02 (SMH+SOXX semis, IGV software, XBI biotech, ICLN+TAN clean energy, QTUM quantum) + filtro dollar_ADV>=$15M + presenta 10-K, recorte a target 150 con cuota fija por categoria SIN redistribucion del sobrante -- Advanced Semiconductors y Clean Energy quedan por debajo de cuota por pool insuficiente tras filtros, no por eleccion. Universo resultante: 136 (51 existentes + 85 nuevos).",
+  "regla_atricion": "Si el universo pierde empresas tras esta seleccion (delisting, adquisicion, fallo persistente de datos), SIN reemplazos a mitad de camino -- ni desde la waitlist de este mismo artefacto. Un reemplazo introduciria una empresa con historial de scores mas corto que el resto del tramo universe_version=2, rompiendo la regla de no mezclar tramos del gate F3. La atricion se acepta y se documenta con fecha en este archivo (ver campo 'atricion_log', inicialmente vacio); si el N cae de forma material, la tabla de potencia de validation_engine_v1.1.md Seccion 6.2 se recalcula.",
+  "atricion_log": [],
+  "universo_existente_n": 51,
+  "candidatos_evaluados": 357,
+  "pasan_filtros_n": 253,
+  "rechazados_filtros_n": 104,
+  "cuota_por_categoria": {
+    "AI/ML y Software/Cloud": 20,
+    "Advanced Semiconductors": 20,
+    "Clean Energy": 19,
+    "Gene Editing / Biotech": 20,
+    "Quantum Computing": 20
+  },
+  "seleccionados_n": 85,
+  "en_waitlist_n": 168,
+  "seleccionados": [
+    {
+      "ticker": "PANW",
+      "cik": 1327567,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 2887657656.868744,
+      "ultimo_10k": "2025-08-29"
+    },
+    {
+      "ticker": "CRWD",
+      "cik": 1535527,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 2649157261.2912292,
+      "ultimo_10k": "2026-03-05"
+    },
+    {
+      "ticker": "APP",
+      "cik": 1751008,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 2615048262.5894165,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "MSTR",
+      "cik": 1050446,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 2085372189.4147263,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "INTU",
+      "cik": 896878,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 1366011265.5265808,
+      "ultimo_10k": "2025-09-03"
+    },
+    {
+      "ticker": "FTNT",
+      "cik": 1262039,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 1005945662.4013672,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "CRCL",
+      "cik": 1876042,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 950601977.5597916,
+      "ultimo_10k": "2026-03-09"
+    },
+    {
+      "ticker": "CDNS",
+      "cik": 813672,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud",
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "IGV",
+        "QTUM",
+        "SMH"
+      ],
+      "dollar_adv": 925556188.0709839,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "SNPS",
+      "cik": 883241,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud",
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "IGV",
+        "QTUM",
+        "SMH"
+      ],
+      "dollar_adv": 832280748.4809875,
+      "ultimo_10k": "2025-12-22"
+    },
+    {
+      "ticker": "WDAY",
+      "cik": 1327811,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 709635615.1836548,
+      "ultimo_10k": "2026-03-06"
+    },
+    {
+      "ticker": "ZS",
+      "cik": 1713683,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 677734990.6132507,
+      "ultimo_10k": "2025-09-11"
+    },
+    {
+      "ticker": "WULF",
+      "cik": 1083301,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 638545261.6113739,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "TTWO",
+      "cik": 946581,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 608465320.6349182,
+      "ultimo_10k": "2026-05-22"
+    },
+    {
+      "ticker": "TEAM",
+      "cik": 1650372,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 605286134.6900177,
+      "ultimo_10k": "2025-08-15"
+    },
+    {
+      "ticker": "BMNR",
+      "cik": 1829311,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 555915846.5125122,
+      "ultimo_10k": "2025-11-21"
+    },
+    {
+      "ticker": "MARA",
+      "cik": 1507605,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 537135611.5138702,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "ADSK",
+      "cik": 769397,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 533062490.1996918,
+      "ultimo_10k": "2026-03-03"
+    },
+    {
+      "ticker": "CIFR",
+      "cik": 1819989,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 503530832.0,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "HUT",
+      "cik": 1964789,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 465325656.31721497,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "FICO",
+      "cik": 814547,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 456409242.0263672,
+      "ultimo_10k": "2025-11-07"
+    },
+    {
+      "ticker": "MU",
+      "cik": 723125,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM",
+        "SMH",
+        "SOXX"
+      ],
+      "dollar_adv": 49514289722.146484,
+      "ultimo_10k": "2025-10-03"
+    },
+    {
+      "ticker": "KLAC",
+      "cik": 319201,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM",
+        "SMH",
+        "SOXX"
+      ],
+      "dollar_adv": 2684236748.2613525,
+      "ultimo_10k": "2025-08-08"
+    },
+    {
+      "ticker": "ALAB",
+      "cik": 1736297,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM",
+        "SMH",
+        "SOXX"
+      ],
+      "dollar_adv": 2521268522.929077,
+      "ultimo_10k": "2026-02-20"
+    },
+    {
+      "ticker": "CRDO",
+      "cik": 1807794,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "fuentes_etf": [
+        "SOXX"
+      ],
+      "dollar_adv": 2041967184.7395325,
+      "ultimo_10k": "2026-06-15"
+    },
+    {
+      "ticker": "ADI",
+      "cik": 6281,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM",
+        "SMH",
+        "SOXX"
+      ],
+      "dollar_adv": 1697228176.9403687,
+      "ultimo_10k": "2025-11-25"
+    },
+    {
+      "ticker": "TER",
+      "cik": 97210,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM",
+        "SMH",
+        "SOXX"
+      ],
+      "dollar_adv": 1582478538.5263367,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "NXPI",
+      "cik": 1413447,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM",
+        "SMH",
+        "SOXX"
+      ],
+      "dollar_adv": 1080215756.4867249,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "MPWR",
+      "cik": 1280452,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "fuentes_etf": [
+        "SMH",
+        "SOXX"
+      ],
+      "dollar_adv": 1034276031.2463379,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "MCHP",
+      "cik": 827054,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM",
+        "SMH",
+        "SOXX"
+      ],
+      "dollar_adv": 969755970.5787048,
+      "ultimo_10k": "2026-05-21"
+    },
+    {
+      "ticker": "MTSI",
+      "cik": 1493594,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "fuentes_etf": [
+        "SOXX"
+      ],
+      "dollar_adv": 479390608.3927002,
+      "ultimo_10k": "2025-11-14"
+    },
+    {
+      "ticker": "ENTG",
+      "cik": 1101302,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "fuentes_etf": [
+        "SOXX"
+      ],
+      "dollar_adv": 461326163.47052,
+      "ultimo_10k": "2026-02-11"
+    },
+    {
+      "ticker": "RMBS",
+      "cik": 917273,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "fuentes_etf": [
+        "SOXX"
+      ],
+      "dollar_adv": 321868083.7923889,
+      "ultimo_10k": "2026-02-18"
+    },
+    {
+      "ticker": "SWKS",
+      "cik": 4127,
+      "categoria_primaria": "Advanced Semiconductors",
+      "categorias_etf": [
+        "Advanced Semiconductors"
+      ],
+      "fuentes_etf": [
+        "SMH",
+        "SOXX"
+      ],
+      "dollar_adv": 301980644.17754745,
+      "ultimo_10k": "2025-11-07"
+    },
+    {
+      "ticker": "BE",
+      "cik": 1664703,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "ICLN"
+      ],
+      "dollar_adv": 3037851832.952881,
+      "ultimo_10k": "2026-02-09"
+    },
+    {
+      "ticker": "NXT",
+      "cik": 1852131,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "ICLN",
+        "TAN"
+      ],
+      "dollar_adv": 299514959.2618942,
+      "ultimo_10k": "2026-05-19"
+    },
+    {
+      "ticker": "TE",
+      "cik": 1992243,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "ICLN",
+        "TAN"
+      ],
+      "dollar_adv": 264269849.9424076,
+      "ultimo_10k": "2026-03-31"
+    },
+    {
+      "ticker": "SEDG",
+      "cik": 1419612,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "ICLN",
+        "TAN"
+      ],
+      "dollar_adv": 202458520.60240173,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "PLUG",
+      "cik": 1093691,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "ICLN"
+      ],
+      "dollar_adv": 190340218.4413767,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "CNH",
+      "cik": 1567094,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "ICLN"
+      ],
+      "dollar_adv": 145218252.8983574,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "RUN",
+      "cik": 1469367,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "TAN"
+      ],
+      "dollar_adv": 120282357.91391087,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "SHLS",
+      "cik": 1831651,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "ICLN",
+        "TAN"
+      ],
+      "dollar_adv": 55952168.11618805,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "CWEN",
+      "cik": 1567683,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "ICLN",
+        "TAN"
+      ],
+      "dollar_adv": 40500702.25922775,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "ARRY",
+      "cik": 1820721,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "ICLN",
+        "TAN"
+      ],
+      "dollar_adv": 39429920.00966501,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "HASI",
+      "cik": 1561894,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "TAN"
+      ],
+      "dollar_adv": 38940151.0974884,
+      "ultimo_10k": "2026-02-13"
+    },
+    {
+      "ticker": "GPRE",
+      "cik": 1309402,
+      "categoria_primaria": "Clean Energy",
+      "categorias_etf": [
+        "Clean Energy"
+      ],
+      "fuentes_etf": [
+        "ICLN"
+      ],
+      "dollar_adv": 23562570.875427246,
+      "ultimo_10k": "2026-02-10"
+    },
+    {
+      "ticker": "ABBV",
+      "cik": 1551152,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 1835729470.8233643,
+      "ultimo_10k": "2026-02-20"
+    },
+    {
+      "ticker": "AMGN",
+      "cik": 318154,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 1024603689.0813904,
+      "ultimo_10k": "2026-02-13"
+    },
+    {
+      "ticker": "GILD",
+      "cik": 882095,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 928248272.2465515,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "VRTX",
+      "cik": 875320,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 731005286.986084,
+      "ultimo_10k": "2026-02-13"
+    },
+    {
+      "ticker": "RVMD",
+      "cik": 1628171,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 645262274.3240204,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "REGN",
+      "cik": 872589,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 639082414.5355225,
+      "ultimo_10k": "2026-02-04"
+    },
+    {
+      "ticker": "NTRA",
+      "cik": 1604821,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 430923342.73999023,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "INSM",
+      "cik": 1104506,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 404964735.6330795,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "ALNY",
+      "cik": 1178670,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 353799554.1589966,
+      "ultimo_10k": "2026-02-12"
+    },
+    {
+      "ticker": "APGE",
+      "cik": 1974640,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 318664645.4483032,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "UTHR",
+      "cik": 1082554,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 281737940.7788086,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "NUVL",
+      "cik": 1861560,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 264829524.82396698,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "BIIB",
+      "cik": 875045,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 259612816.3644104,
+      "ultimo_10k": "2026-02-06"
+    },
+    {
+      "ticker": "BBIO",
+      "cik": 1743881,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 238774980.00522614,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "CYTK",
+      "cik": 1061983,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 222475126.0541153,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "NBIX",
+      "cik": 914475,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 210789976.13415527,
+      "ultimo_10k": "2026-02-11"
+    },
+    {
+      "ticker": "ROIV",
+      "cik": 1635088,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 204104504.22000885,
+      "ultimo_10k": "2026-05-20"
+    },
+    {
+      "ticker": "INCY",
+      "cik": 879169,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 191071732.79632568,
+      "ultimo_10k": "2026-02-10"
+    },
+    {
+      "ticker": "MDGL",
+      "cik": 1157601,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 171924486.7631836,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "TWST",
+      "cik": 1581280,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 169664426.8314438,
+      "ultimo_10k": "2025-11-17"
+    },
+    {
+      "ticker": "CSCO",
+      "cik": 858877,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 2713222048.133194,
+      "ultimo_10k": "2025-09-03"
+    },
+    {
+      "ticker": "CRWV",
+      "cik": 1769628,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 2536411820.3383102,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "COHR",
+      "cik": 820318,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 2016889854.0257568,
+      "ultimo_10k": "2025-08-15"
+    },
+    {
+      "ticker": "HON",
+      "cik": 773840,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 1067598663.7994385,
+      "ultimo_10k": "2026-02-17"
+    },
+    {
+      "ticker": "RTX",
+      "cik": 101829,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 1066398951.1484985,
+      "ultimo_10k": "2026-02-06"
+    },
+    {
+      "ticker": "HPE",
+      "cik": 1645590,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 1025635619.3605652,
+      "ultimo_10k": "2025-12-18"
+    },
+    {
+      "ticker": "QBTS",
+      "cik": 1907982,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "IGV",
+        "QTUM"
+      ],
+      "dollar_adv": 791801759.8905258,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "LMT",
+      "cik": 936468,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 752769341.0473633,
+      "ultimo_10k": "2026-01-29"
+    },
+    {
+      "ticker": "NOC",
+      "cik": 1133421,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 499604638.381958,
+      "ultimo_10k": "2026-01-27"
+    },
+    {
+      "ticker": "MKSI",
+      "cik": 1049502,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 458061708.0098877,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "ONTO",
+      "cik": 704532,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 358794569.70977783,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "LSCC",
+      "cik": 855658,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 286791620.8971863,
+      "ultimo_10k": "2026-02-13"
+    },
+    {
+      "ticker": "INFQ",
+      "cik": 2007825,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 211048472.4103508,
+      "ultimo_10k": "2026-03-31"
+    },
+    {
+      "ticker": "NTNX",
+      "cik": 1618732,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "IGV",
+        "QTUM"
+      ],
+      "dollar_adv": 204064026.5000267,
+      "ultimo_10k": "2025-09-24"
+    },
+    {
+      "ticker": "QUBT",
+      "cik": 1758009,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 191628258.026371,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "ESTC",
+      "cik": 1707753,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "IGV",
+        "QTUM"
+      ],
+      "dollar_adv": 119085830.98133087,
+      "ultimo_10k": "2026-06-08"
+    },
+    {
+      "ticker": "CRUS",
+      "cik": 772406,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 90092130.08003235,
+      "ultimo_10k": "2026-05-21"
+    },
+    {
+      "ticker": "TDC",
+      "cik": 816761,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud",
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "IGV",
+        "QTUM"
+      ],
+      "dollar_adv": 89078894.96209717,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "RDNT",
+      "cik": 790526,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 60753391.992248535,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "NVEC",
+      "cik": 724910,
+      "categoria_primaria": "Quantum Computing",
+      "categorias_etf": [
+        "Quantum Computing"
+      ],
+      "fuentes_etf": [
+        "QTUM"
+      ],
+      "dollar_adv": 16622488.908294678,
+      "ultimo_10k": "2026-05-06"
+    }
+  ],
+  "waitlist": [
+    {
+      "ticker": "ROP",
+      "cik": 882835,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 438009320.50268555,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "ZM",
+      "cik": 1585521,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 416042322.8131714,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "RIOT",
+      "cik": 1167419,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 391214395.6016464,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "EA",
+      "cik": 712515,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 386377424.44592285,
+      "ultimo_10k": "2026-05-11"
+    },
+    {
+      "ticker": "HUBS",
+      "cik": 1404655,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 371351508.52233887,
+      "ultimo_10k": "2026-02-11"
+    },
+    {
+      "ticker": "BB",
+      "cik": 1070235,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 370715784.4492035,
+      "ultimo_10k": "2026-04-09"
+    },
+    {
+      "ticker": "RBRK",
+      "cik": 1943896,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 319622102.562912,
+      "ultimo_10k": "2026-03-19"
+    },
+    {
+      "ticker": "CORZ",
+      "cik": 1839341,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 301538500.5695801,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "U",
+      "cik": 1810806,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 292902917.57270813,
+      "ultimo_10k": "2026-02-11"
+    },
+    {
+      "ticker": "DT",
+      "cik": 1773383,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 283045686.1183548,
+      "ultimo_10k": "2026-05-20"
+    },
+    {
+      "ticker": "CLSK",
+      "cik": 827876,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 274633109.3802147,
+      "ultimo_10k": "2025-11-25"
+    },
+    {
+      "ticker": "TYL",
+      "cik": 860731,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 241003649.64697266,
+      "ultimo_10k": "2026-02-18"
+    },
+    {
+      "ticker": "SNAP",
+      "cik": 1564408,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 237696843.6925478,
+      "ultimo_10k": "2026-02-05"
+    },
+    {
+      "ticker": "GWRE",
+      "cik": 1528396,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 228459849.00698853,
+      "ultimo_10k": "2025-09-11"
+    },
+    {
+      "ticker": "IOT",
+      "cik": 1642896,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 218922384.9216423,
+      "ultimo_10k": "2026-03-16"
+    },
+    {
+      "ticker": "PTC",
+      "cik": 857005,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 210213403.9352417,
+      "ultimo_10k": "2025-11-21"
+    },
+    {
+      "ticker": "GTLB",
+      "cik": 1653482,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 203184413.77372742,
+      "ultimo_10k": "2026-03-17"
+    },
+    {
+      "ticker": "GEN",
+      "cik": 849399,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 202446008.69080353,
+      "ultimo_10k": "2026-05-21"
+    },
+    {
+      "ticker": "AUR",
+      "cik": 1828108,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 194283875.34485435,
+      "ultimo_10k": "2026-02-11"
+    },
+    {
+      "ticker": "ZETA",
+      "cik": 1851003,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 181902327.3363304,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "DOCU",
+      "cik": 1261333,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 179320541.74497986,
+      "ultimo_10k": "2026-03-18"
+    },
+    {
+      "ticker": "FRSH",
+      "cik": 1544522,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 157172762.33126068,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "CVLT",
+      "cik": 1169561,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 140475973.63998413,
+      "ultimo_10k": "2026-05-11"
+    },
+    {
+      "ticker": "TRMB",
+      "cik": 864749,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 139961253.92092896,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "TENB",
+      "cik": 1660280,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 139334229.46606827,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "S",
+      "cik": 1583708,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 139252690.21162033,
+      "ultimo_10k": "2026-03-19"
+    },
+    {
+      "ticker": "QLYS",
+      "cik": 1107843,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 124469201.04711914,
+      "ultimo_10k": "2026-02-20"
+    },
+    {
+      "ticker": "PCOR",
+      "cik": 1611052,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 120978062.45840073,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "TTAN",
+      "cik": 1638826,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 114802740.74873352,
+      "ultimo_10k": "2026-03-25"
+    },
+    {
+      "ticker": "DBX",
+      "cik": 1467623,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 112272476.09750175,
+      "ultimo_10k": "2026-02-20"
+    },
+    {
+      "ticker": "KVYO",
+      "cik": 1835830,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 111353657.0087738,
+      "ultimo_10k": "2026-02-10"
+    },
+    {
+      "ticker": "IDCC",
+      "cik": 1405495,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 105556119.64569092,
+      "ultimo_10k": "2026-02-05"
+    },
+    {
+      "ticker": "MANH",
+      "cik": 1056696,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 103939268.1640625,
+      "ultimo_10k": "2026-02-04"
+    },
+    {
+      "ticker": "VRNS",
+      "cik": 1361113,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 103916948.4173584,
+      "ultimo_10k": "2026-02-04"
+    },
+    {
+      "ticker": "BILL",
+      "cik": 1786352,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 100839900.68236542,
+      "ultimo_10k": "2025-08-28"
+    },
+    {
+      "ticker": "BSY",
+      "cik": 1031308,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 92042845.87287903,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "YOU",
+      "cik": 1856314,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 82501597.2842102,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "FIVN",
+      "cik": 1288847,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 76255733.7011013,
+      "ultimo_10k": "2026-02-20"
+    },
+    {
+      "ticker": "PEGA",
+      "cik": 1013857,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 70667689.5,
+      "ultimo_10k": "2026-02-10"
+    },
+    {
+      "ticker": "BRZE",
+      "cik": 1676238,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 69825111.89622116,
+      "ultimo_10k": "2026-03-25"
+    },
+    {
+      "ticker": "RNG",
+      "cik": 1384905,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 69070950.64499283,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "NCNO",
+      "cik": 1902733,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 68147936.12297249,
+      "ultimo_10k": "2026-03-31"
+    },
+    {
+      "ticker": "BOX",
+      "cik": 1372612,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 65986814.9325943,
+      "ultimo_10k": "2026-03-09"
+    },
+    {
+      "ticker": "APPF",
+      "cik": 1433195,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 62507649.515808105,
+      "ultimo_10k": "2026-02-05"
+    },
+    {
+      "ticker": "CCC",
+      "cik": 1818201,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 62177350.524320126,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "WK",
+      "cik": 1445305,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 59439961.15653992,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "ADEA",
+      "cik": 1803696,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 58558076.849487305,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "RAMP",
+      "cik": 733269,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 58317056.45513153,
+      "ultimo_10k": "2026-05-21"
+    },
+    {
+      "ticker": "OTEX",
+      "cik": 1002638,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 56855334.04603386,
+      "ultimo_10k": "2025-08-07"
+    },
+    {
+      "ticker": "AI",
+      "cik": 1577526,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 54734390.475616455,
+      "ultimo_10k": "2026-06-24"
+    },
+    {
+      "ticker": "ASAN",
+      "cik": 1477720,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 50170110.67011309,
+      "ultimo_10k": "2026-03-13"
+    },
+    {
+      "ticker": "LIF",
+      "cik": 1581760,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 48847472.236141205,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "ACIW",
+      "cik": 935036,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 46297516.912109375,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "NN",
+      "cik": 1865631,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 45693715.221191406,
+      "ultimo_10k": "2026-03-17"
+    },
+    {
+      "ticker": "QTWO",
+      "cik": 1410384,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 44079231.875,
+      "ultimo_10k": "2026-02-11"
+    },
+    {
+      "ticker": "AGYS",
+      "cik": 78749,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 42888586.0,
+      "ultimo_10k": "2026-05-21"
+    },
+    {
+      "ticker": "ATEN",
+      "cik": 1580808,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 41199808.958343506,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "DLB",
+      "cik": 1308547,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 41072793.345184326,
+      "ultimo_10k": "2025-11-18"
+    },
+    {
+      "ticker": "SPSC",
+      "cik": 1092699,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 39615046.18577576,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "BL",
+      "cik": 1666134,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 38455054.68955994,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "ALKT",
+      "cik": 1529274,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 35449755.077682495,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "AIP",
+      "cik": 1667011,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 34976054.91027832,
+      "ultimo_10k": "2026-02-12"
+    },
+    {
+      "ticker": "PRGS",
+      "cik": 876167,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 34493351.219387054,
+      "ultimo_10k": "2026-01-20"
+    },
+    {
+      "ticker": "INTA",
+      "cik": 1565687,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 27493512.87940979,
+      "ultimo_10k": "2025-08-20"
+    },
+    {
+      "ticker": "ALRM",
+      "cik": 1459200,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 26867863.01393509,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "AVPT",
+      "cik": 1777921,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 24414292.50831604,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "BLKB",
+      "cik": 1280058,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 24359083.157072067,
+      "ultimo_10k": "2026-02-18"
+    },
+    {
+      "ticker": "APPN",
+      "cik": 1441683,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 24344957.61686325,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "CXM",
+      "cik": 1569345,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 23197399.38023615,
+      "ultimo_10k": "2026-03-19"
+    },
+    {
+      "ticker": "PD",
+      "cik": 1568100,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 22837580.283634186,
+      "ultimo_10k": "2026-03-12"
+    },
+    {
+      "ticker": "VYX",
+      "cik": 70866,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 21279206.661575317,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "VERX",
+      "cik": 1806837,
+      "categoria_primaria": "AI/ML y Software/Cloud",
+      "categorias_etf": [
+        "AI/ML y Software/Cloud"
+      ],
+      "fuentes_etf": [
+        "IGV"
+      ],
+      "dollar_adv": 19860916.77081585,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "ARWR",
+      "cik": 879407,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 165791833.4051056,
+      "ultimo_10k": "2025-11-25"
+    },
+    {
+      "ticker": "PRAX",
+      "cik": 1689548,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 155913701.90585327,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "ORKA",
+      "cik": 907654,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 147936533.62773132,
+      "ultimo_10k": "2026-03-12"
+    },
+    {
+      "ticker": "EXEL",
+      "cik": 939767,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 146818853.37778473,
+      "ultimo_10k": "2026-02-10"
+    },
+    {
+      "ticker": "IONS",
+      "cik": 874015,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 144888388.01611328,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "TVTX",
+      "cik": 1438533,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 140600875.4284668,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "CELC",
+      "cik": 1603454,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 138290058.46637726,
+      "ultimo_10k": "2026-03-26"
+    },
+    {
+      "ticker": "HALO",
+      "cik": 1159036,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 134892641.43695068,
+      "ultimo_10k": "2026-02-17"
+    },
+    {
+      "ticker": "PTCT",
+      "cik": 1070081,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 132712745.84101105,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "IBRX",
+      "cik": 1326110,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 127867195.0299797,
+      "ultimo_10k": "2026-02-23"
+    },
+    {
+      "ticker": "SYRE",
+      "cik": 1636282,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 123440793.9059906,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "ERAS",
+      "cik": 1761918,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 122956687.14160156,
+      "ultimo_10k": "2026-03-12"
+    },
+    {
+      "ticker": "ALKS",
+      "cik": 1520262,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 122260659.29444122,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "MIRM",
+      "cik": 1759425,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 122246539.5231247,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "BMRN",
+      "cik": 1048477,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 121455937.85054398,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "TNGX",
+      "cik": 1819133,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 120820287.3345375,
+      "ultimo_10k": "2026-03-05"
+    },
+    {
+      "ticker": "TGTX",
+      "cik": 1001316,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 120662467.52303314,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "SLS",
+      "cik": 1390478,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 120311837.20281982,
+      "ultimo_10k": "2026-03-19"
+    },
+    {
+      "ticker": "KRYS",
+      "cik": 1711279,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 114847495.97341919,
+      "ultimo_10k": "2026-02-17"
+    },
+    {
+      "ticker": "NTLA",
+      "cik": 1652130,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 113926591.45896149,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "PCVX",
+      "cik": 1649094,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 91418581.29341125,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "REPL",
+      "cik": 1737953,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 90281990.48790455,
+      "ultimo_10k": "2026-06-29"
+    },
+    {
+      "ticker": "QURE",
+      "cik": 1590560,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 90199450.565094,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "VKTX",
+      "cik": 1607678,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 89644536.46183014,
+      "ultimo_10k": "2026-02-11"
+    },
+    {
+      "ticker": "COGT",
+      "cik": 1622229,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 88844125.17723846,
+      "ultimo_10k": "2026-02-17"
+    },
+    {
+      "ticker": "PTGX",
+      "cik": 1377121,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 88582912.93121338,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "RYTM",
+      "cik": 1649904,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 88428476.16920471,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "KYMR",
+      "cik": 1815442,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 85466913.69838715,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "DNTH",
+      "cik": 1690585,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 82072381.01577759,
+      "ultimo_10k": "2026-03-09"
+    },
+    {
+      "ticker": "SMMT",
+      "cik": 1599298,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 80418732.59147644,
+      "ultimo_10k": "2026-02-23"
+    },
+    {
+      "ticker": "SRRK",
+      "cik": 1727196,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 78629889.2566185,
+      "ultimo_10k": "2026-03-03"
+    },
+    {
+      "ticker": "RLAY",
+      "cik": 1812364,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 77528841.61717987,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "CGON",
+      "cik": 1991792,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 76090026.10450745,
+      "ultimo_10k": "2026-02-27"
+    },
+    {
+      "ticker": "IMVT",
+      "cik": 1764013,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 74001955.33520508,
+      "ultimo_10k": "2026-05-20"
+    },
+    {
+      "ticker": "CPRX",
+      "cik": 1369568,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 73283156.37776184,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "RARE",
+      "cik": 1515673,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 69303471.13071442,
+      "ultimo_10k": "2026-02-18"
+    },
+    {
+      "ticker": "ABSI",
+      "cik": 1672688,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 67304431.39219284,
+      "ultimo_10k": "2026-03-24"
+    },
+    {
+      "ticker": "VCYT",
+      "cik": 1384101,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 66861001.14788818,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "SRPT",
+      "cik": 873303,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 60378801.2531662,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "IOVA",
+      "cik": 1425205,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 57807564.316921234,
+      "ultimo_10k": "2026-02-24"
+    },
+    {
+      "ticker": "VRDN",
+      "cik": 1590750,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 54951253.92253876,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "VERA",
+      "cik": 1831828,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 51800768.59939575,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "GRAL",
+      "cik": 1699031,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 50950573.328056335,
+      "ultimo_10k": "2026-03-12"
+    },
+    {
+      "ticker": "IDYA",
+      "cik": 1676725,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 50669263.80189514,
+      "ultimo_10k": "2026-02-17"
+    },
+    {
+      "ticker": "BCRX",
+      "cik": 882796,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 47609017.038116455,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "ADMA",
+      "cik": 1368514,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 46455933.44187927,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "NRIX",
+      "cik": 1549595,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 46222249.05927658,
+      "ultimo_10k": "2026-01-28"
+    },
+    {
+      "ticker": "DNLI",
+      "cik": 1714899,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 45853469.1424942,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "NVAX",
+      "cik": 1000694,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 44955816.38495064,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "BHVN",
+      "cik": 1935979,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 44161237.99882889,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "ACAD",
+      "cik": 1070494,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 43718506.559295654,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "ARQT",
+      "cik": 1787306,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 43622087.069374084,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "ANAB",
+      "cik": 1370053,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 43353898.35218811,
+      "ultimo_10k": "2026-03-03"
+    },
+    {
+      "ticker": "MLYS",
+      "cik": 1933414,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 42629478.21124077,
+      "ultimo_10k": "2026-03-12"
+    },
+    {
+      "ticker": "INBX",
+      "cik": 2007919,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 42458417.437553406,
+      "ultimo_10k": "2026-03-19"
+    },
+    {
+      "ticker": "AGIO",
+      "cik": 1439222,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 42342256.07749939,
+      "ultimo_10k": "2026-02-12"
+    },
+    {
+      "ticker": "IRON",
+      "cik": 1816736,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 40318936.661842346,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "DYN",
+      "cik": 1818794,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 40030708.35622215,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "CLDX",
+      "cik": 744218,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 39534898.38558197,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "SNDX",
+      "cik": 1395937,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 38814497.53935242,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "RCUS",
+      "cik": 1724521,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 38704415.42211914,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "PVLA",
+      "cik": 1583648,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 37581966.718063354,
+      "ultimo_10k": "2026-03-31"
+    },
+    {
+      "ticker": "AVTX",
+      "cik": 1534120,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 33481470.130434036,
+      "ultimo_10k": "2026-03-23"
+    },
+    {
+      "ticker": "KOD",
+      "cik": 1468748,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 31162262.94154358,
+      "ultimo_10k": "2026-03-31"
+    },
+    {
+      "ticker": "VCEL",
+      "cik": 887359,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 30286015.64026642,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "TYRA",
+      "cik": 1863127,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 29946109.35652542,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "IMNM",
+      "cik": 1472012,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 28189646.050979614,
+      "ultimo_10k": "2026-03-03"
+    },
+    {
+      "ticker": "CAPR",
+      "cik": 1133869,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 26389721.864593506,
+      "ultimo_10k": "2026-03-17"
+    },
+    {
+      "ticker": "GLUE",
+      "cik": 1826457,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 26112605.48286438,
+      "ultimo_10k": "2026-03-17"
+    },
+    {
+      "ticker": "MNKD",
+      "cik": 899460,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 24574380.13434601,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "PGEN",
+      "cik": 1356090,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 23614690.723709106,
+      "ultimo_10k": "2026-03-25"
+    },
+    {
+      "ticker": "CDNA",
+      "cik": 1217234,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 23488276.59744644,
+      "ultimo_10k": "2026-02-25"
+    },
+    {
+      "ticker": "VOR",
+      "cik": 1817229,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 23396887.887954712,
+      "ultimo_10k": "2026-03-30"
+    },
+    {
+      "ticker": "ALLO",
+      "cik": 1737287,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 22900517.340880632,
+      "ultimo_10k": "2026-03-12"
+    },
+    {
+      "ticker": "RGNX",
+      "cik": 1590877,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 22878783.315685272,
+      "ultimo_10k": "2026-03-05"
+    },
+    {
+      "ticker": "CRVS",
+      "cik": 1626971,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 22363518.203338623,
+      "ultimo_10k": "2026-03-12"
+    },
+    {
+      "ticker": "STOK",
+      "cik": 1623526,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 22336648.91685486,
+      "ultimo_10k": "2026-03-16"
+    },
+    {
+      "ticker": "ARDX",
+      "cik": 1437402,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 20504894.898557663,
+      "ultimo_10k": "2026-02-19"
+    },
+    {
+      "ticker": "GERN",
+      "cik": 886744,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 20298382.29232657,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "CADL",
+      "cik": 1841387,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 20010340.94779873,
+      "ultimo_10k": "2026-03-12"
+    },
+    {
+      "ticker": "JBIO",
+      "cik": 1798749,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 19888294.952533722,
+      "ultimo_10k": "2026-03-06"
+    },
+    {
+      "ticker": "TSHA",
+      "cik": 1806310,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 19588471.868476868,
+      "ultimo_10k": "2026-03-19"
+    },
+    {
+      "ticker": "ZBIO",
+      "cik": 1953926,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 19544291.14593506,
+      "ultimo_10k": "2026-03-16"
+    },
+    {
+      "ticker": "BCAX",
+      "cik": 2023658,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 19533889.587600708,
+      "ultimo_10k": "2026-03-30"
+    },
+    {
+      "ticker": "ORIC",
+      "cik": 1796280,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 19493854.672070503,
+      "ultimo_10k": "2026-02-23"
+    },
+    {
+      "ticker": "VIR",
+      "cik": 1706431,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 18975928.614257812,
+      "ultimo_10k": "2026-02-23"
+    },
+    {
+      "ticker": "KURA",
+      "cik": 1422143,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 18788173.75357628,
+      "ultimo_10k": "2026-03-05"
+    },
+    {
+      "ticker": "CGEM",
+      "cik": 1789972,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 18769233.34928894,
+      "ultimo_10k": "2026-03-10"
+    },
+    {
+      "ticker": "AVBP",
+      "cik": 1868279,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 18636363.676753998,
+      "ultimo_10k": "2026-03-05"
+    },
+    {
+      "ticker": "SION",
+      "cik": 2036042,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 18520056.26220703,
+      "ultimo_10k": "2026-03-02"
+    },
+    {
+      "ticker": "CMPX",
+      "cik": 1738021,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 17752072.920770645,
+      "ultimo_10k": "2026-03-05"
+    },
+    {
+      "ticker": "JANX",
+      "cik": 1817713,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 17082663.484983444,
+      "ultimo_10k": "2026-02-26"
+    },
+    {
+      "ticker": "OLMA",
+      "cik": 1750284,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 17057829.817814827,
+      "ultimo_10k": "2026-03-16"
+    },
+    {
+      "ticker": "SLDB",
+      "cik": 1707502,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 16804126.85393524,
+      "ultimo_10k": "2026-03-19"
+    },
+    {
+      "ticker": "CTMX",
+      "cik": 1501989,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 16575951.575622559,
+      "ultimo_10k": "2026-03-16"
+    },
+    {
+      "ticker": "ANNX",
+      "cik": 1528115,
+      "categoria_primaria": "Gene Editing / Biotech",
+      "categorias_etf": [
+        "Gene Editing / Biotech"
+      ],
+      "fuentes_etf": [
+        "XBI"
+      ],
+      "dollar_adv": 16010005.587887764,
+      "ultimo_10k": "2026-03-30"
+    }
+  ],
+  "rechazados_filtros": [
+    {
+      "ticker": "ABUS",
+      "razon": "dollar ADV $9.4M < floor $15M"
+    },
+    {
+      "ticker": "ACHV",
+      "razon": "dollar ADV $12.3M < floor $15M"
+    },
+    {
+      "ticker": "ALT",
+      "razon": "dollar ADV $13.4M < floor $15M"
+    },
+    {
+      "ticker": "ANE",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "ARQQ",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "ASX",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "BBOT",
+      "razon": "dollar ADV $3.7M < floor $15M"
+    },
+    {
+      "ticker": "BEPC",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "BLX",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "BREN",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "BRL",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "BTQ",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "CABA",
+      "razon": "dollar ADV $13.6M < floor $15M"
+    },
+    {
+      "ticker": "CAD",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "CATX",
+      "razon": "dollar ADV $5.8M < floor $15M"
+    },
+    {
+      "ticker": "CEN",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "CHF",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "CLP",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "CNY",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "CSIQ",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "CWENE",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "CWENE.E",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "CWR",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "DKK",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "DMRA",
+      "razon": "dollar ADV $14.6M < floor $15M"
+    },
+    {
+      "ticker": "DORL",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "DSGX",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "EA.R",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "EBS",
+      "razon": "dollar ADV $6.6M < floor $15M"
+    },
+    {
+      "ticker": "EDP",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "EDPR",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "ENELAM",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "ENLT",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "ENRG",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "ERG",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "EUR",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "FDMT",
+      "razon": "dollar ADV $11.0M < floor $15M"
+    },
+    {
+      "ticker": "GBP",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "GRE",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "HBCFT",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "HKD",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "HONA",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "HQ",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "IDR",
+      "razon": "dollar ADV $8.9M < floor $15M"
+    },
+    {
+      "ticker": "ILS",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "IMMX",
+      "razon": "dollar ADV $13.4M < floor $15M"
+    },
+    {
+      "ticker": "INR",
+      "razon": "dollar ADV $5.1M < floor $15M"
+    },
+    {
+      "ticker": "IRWD",
+      "razon": "dollar ADV $9.7M < floor $15M"
+    },
+    {
+      "ticker": "JKS",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "JPY",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "KRW",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "LSPD",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "LXEO",
+      "razon": "dollar ADV $4.0M < floor $15M"
+    },
+    {
+      "ticker": "MAGEN.E",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "MDXG",
+      "razon": "dollar ADV $6.2M < floor $15M"
+    },
+    {
+      "ticker": "MEL",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "MLISW",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "MPLT",
+      "razon": "dollar ADV $12.9M < floor $15M"
+    },
+    {
+      "ticker": "MYGN",
+      "razon": "dollar ADV $9.8M < floor $15M"
+    },
+    {
+      "ticker": "NBIS",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "NHPC",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "NOFR",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "NOK",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "NVMI",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "NZD",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "OCGN",
+      "razon": "dollar ADV $11.9M < floor $15M"
+    },
+    {
+      "ticker": "ORSTED",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "OVID",
+      "razon": "dollar ADV $7.6M < floor $15M"
+    },
+    {
+      "ticker": "PARSW",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "PRME",
+      "razon": "dollar ADV $10.0M < floor $15M"
+    },
+    {
+      "ticker": "PRTA",
+      "razon": "dollar ADV $5.2M < floor $15M"
+    },
+    {
+      "ticker": "PURR",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "QNC",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "QNT",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "REX",
+      "razon": "dollar ADV $9.1M < floor $15M"
+    },
+    {
+      "ticker": "RIGL",
+      "razon": "dollar ADV $15.0M < floor $15M"
+    },
+    {
+      "ticker": "RNW",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "SANA",
+      "razon": "dollar ADV $14.5M < floor $15M"
+    },
+    {
+      "ticker": "SCATC",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "SEK",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "SGMT",
+      "razon": "dollar ADV $13.4M < floor $15M"
+    },
+    {
+      "ticker": "SJVN",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "SLR",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "SPRY",
+      "razon": "dollar ADV $14.5M < floor $15M"
+    },
+    {
+      "ticker": "STM",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "SUZLON",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "SVRA",
+      "razon": "dollar ADV $9.6M < floor $15M"
+    },
+    {
+      "ticker": "TRAX",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "TRY",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "TSEM",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "TWD",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "UMC",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "USD",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "VBK",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "VER",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "VNDA",
+      "razon": "dollar ADV $6.4M < floor $15M"
+    },
+    {
+      "ticker": "VSTM",
+      "razon": "dollar ADV $10.9M < floor $15M"
+    },
+    {
+      "ticker": "VWS",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "WFFUT",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "WIT",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "XNCR",
+      "razon": "dollar ADV $12.1M < floor $15M"
+    },
+    {
+      "ticker": "XNDU",
+      "razon": "no presenta 10-K (foreign private issuer u otro tipo de filer)"
+    },
+    {
+      "ticker": "XTSLA",
+      "razon": "sin CIK en SEC EDGAR"
+    },
+    {
+      "ticker": "ZOREN.E",
+      "razon": "sin CIK en SEC EDGAR"
+    }
+  ]
+}

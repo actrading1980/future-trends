@@ -17,11 +17,31 @@ Regla pre-registrada (spec maestro FutureTrendsAnalysis_v3_reviewed.md, Seccion 
      / N_categorias, redondeada, con el resto repartido a las categorias con
      mas candidatos elegibles (regla determinista, no por volumen de sobrante).
      Dentro de cada categoria, ranking por dollar ADV descendente -- NO por
-     cap ni por peso en el ETF, para no reintroducir el sesgo large-cap que
-     el dollar-ADV-en-vez-de-cap ya buscaba evitar. Categoria de un candidato
-     = la del ETF donde tiene mayor peso (un candidato puede aparecer en
-     varios ETFs). Slots no usados por categorias con pocos candidatos se
-     redistribuyen a las demas por ranking global de dollar ADV.
+     cap ni por peso en el ETF, para no reintroducir el sesgo large-cap.
+     Categoria de un candidato = la del ETF donde tiene mayor peso (un
+     candidato puede aparecer en varios ETFs). SIN REDISTRIBUCION entre
+     categorias: los slots no usados por categorias con pocos candidatos
+     elegibles se quedan vacios. El universo resultante puede quedar por
+     debajo de TARGET_TOTAL -- se acepta, porque redistribuir por ranking
+     global de dollar ADV reintroduce a nivel cross-categoria el mismo sesgo
+     tamaño/liquidez que el ranking intra-categoria buscaba evitar, y ademas
+     produce un N nominal que no es N efectivo: un cluster de ~40 nombres de
+     la misma categoria correlacionados entre si aporta muchas menos
+     observaciones independientes de las que su conteo sugiere (ver
+     validation_engine_v1.1.md Seccion 6.2 -- misma logica de T_efectivo).
+
+     NOTA SOBRE PRECEDENTE (2026-07-02): una primera version de esta regla
+     SI redistribuia globalmente por dollar ADV. Se ejecuto una vez, produjo
+     una composicion con AI/ML al 41% de los slots nuevos (objetivo 20%), y
+     se revirtio a la regla sin redistribucion documentada arriba. Esto NO es
+     una violacion del principio de pre-registro: lo que se observo para
+     tomar la decision fue la ESTRUCTURA DEL POOL DE CANDIDATOS (cuantas
+     empresas por categoria pasan los filtros mecanicos), que es exogena y
+     no depende de ningun score ni retorno -- ninguna de las empresas nuevas
+     tiene datos de scoring todavia. Revisar la regla de recorte antes de que
+     exista cualquier dato de outcome es legitimo; revisarla en octubre,
+     mirando que IC produce cada composicion, no lo seria. La distincion es
+     "que observaste para decidir", no "cuantas veces iteraste la regla".
 
 No escribe companies.json. Output: data/universe_selection_YYYYMMDD.json,
 auditable y con timestamp -- es el artefacto de pre-registro.
@@ -130,7 +150,16 @@ def apply_filters(candidates, ticker_cik):
     return accepted, rejected
 
 def apply_quota(accepted_all, existing_n, target_total):
-    """Cuota fija por categoria + redistribucion determinista del sobrante."""
+    """Cuota fija por categoria, SIN redistribucion del sobrante entre categorias.
+
+    Version anterior (2026-07-02, revertida el mismo dia): redistribuia slots
+    no usados por ranking global de dollar ADV. Producia AI/ML al 41% de los
+    slots nuevos (objetivo 20%) porque su pool es el mas profundo -- reintroducia
+    a nivel cross-categoria el sesgo tamaño/liquidez que el ranking intra-categoria
+    por dollar ADV (en vez de por cap) buscaba evitar. Ver docstring del modulo,
+    "NOTA SOBRE PRECEDENTE", para la justificacion de por que revisar esto no
+    viola el principio de pre-registro.
+    """
     by_cat = {}
     for c in accepted_all:
         by_cat.setdefault(c["categoria_primaria"], []).append(c)
@@ -153,14 +182,8 @@ def apply_quota(accepted_all, existing_n, target_total):
         pool = by_cat[cat]
         selected.extend(pool[:quota[cat]])
         waitlist.extend(pool[quota[cat]:])
-
-    unused_slots = sum(max(0, quota[cat] - len(by_cat[cat])) for cat in categorias)
-    if unused_slots > 0 and waitlist:
-        waitlist.sort(key=lambda c: c["dollar_adv"], reverse=True)
-        fill = waitlist[:unused_slots]
-        selected.extend(fill)
-        for c in fill:
-            waitlist.remove(c)
+        if len(pool) < quota[cat]:
+            print(f"  AVISO: {cat} tiene solo {len(pool)} candidatos elegibles, cuota {quota[cat]} -- {quota[cat]-len(pool)} slots quedan vacios, sin redistribuir")
 
     return selected, waitlist, quota
 

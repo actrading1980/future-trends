@@ -1,7 +1,43 @@
 # FutureAnalysis – Inteligencia de Tendencias Tecnológicas para Inversores
-## Versión 3.1 – CRÍTICOs Pendientes Resueltos
+## Versión 3.2 – Estado de Implementación Real (2026-06-10)
 
 > **Nota de revisión v3:** Este documento integra el análisis crítico de v2 (MiniMax Agent) y añade una capa de revisión contextual basada en el perfil real del proyecto: **inversor retail, developer solo, licencia Claude MAX, infraestructura cuantitativa existente en Valencia, España**. El v2 era técnicamente correcto pero genérico; el v3 es específico. Los comentarios editoriales aparecen como bloques `>` diferenciados por prioridad.
+>
+> **Nota de revisión v3.2:** Las secciones 1-11 describen el diseño original (bash/cron, Linux). El sistema real quedó implementado en **Windows con PowerShell + Task Scheduler**, no bash/cron — ver Sección 0.1 para el mapeo. El diseño conceptual (fórmula de scoring, gate de validación, arquitectura de prompt maestro) se mantiene sin cambios; lo que cambió es la capa de shell/scheduler y varias piezas nuevas no previstas en v3.1: tabla de precios (`prices`), motor de comparación diaria (`generate_comparative.py`), umbral de relevancia variable en vez de cuota fija de tendencias, y el diseño del motor de validación estadística (spec separada).
+
+---
+
+## 0.1 NUEVO v3.2 — Estado real vs diseño v3.1
+
+**Divergencias de plataforma (no de diseño):**
+
+| Diseñado en v3.1 (Sección 6) | Implementado en producción |
+|-------------------------------|------------------------------|
+| `run_daily.sh` (bash) + cron Linux | `run_daily.ps1` (PowerShell) + Windows Task Scheduler |
+| `claude -p "$(cat prompt.md)"` | Prompt vía stdin: `$PromptContent \| claude --output-format text --dangerously-skip-permissions` (evita el límite de longitud de argumentos de Windows) |
+| Ejecución bajo sesión de usuario | Task Scheduler con `LogonType=S4U` — corre con la sesión bloqueada |
+| Un solo call Claude por run | **Dos calls Claude por run:** (1) genera el informe completo, (2) extrae scores en bloque `SCORES_CSV_START/END` — ver 0.1.1 |
+| `wc -c` para validar tamaño | Validación de tamaño mínimo en bytes (3000) tras el paso 1 |
+
+**Componentes nuevos, no previstos en v3.1:**
+
+| Componente | Qué hace | Sección relevante |
+|------------|----------|-------------------|
+| Tabla `prices` (ticker, date, close, source) | Cierres ajustados diarios vía yfinance para las 51 empresas del universo. Necesaria para calcular retornos y validar el score. | Ver Sección 7.2 y spec `specs/validation_engine_v1.1.md` |
+| `scripts/fetch_prices.py` | Descarga batch de precios tras cada run, `INSERT OR REPLACE` idempotente | — |
+| `scripts/generate_comparative.py` | Genera `reports/comparative_YYYYMMDD.md`: delta de scores día-a-día, solapamiento de fuentes/URLs entre informes consecutivos, entradas/salidas de zona BULLISH/BEARISH | Mitiga el riesgo de que Claude repita las mismas fuentes/noticias día tras día |
+| Columna `prompt_version` en `tech_scores` | Marca qué versión del prompt generó cada score (`v1` hasta 2026-06-09, `v2` desde 2026-06-10). Permite excluir v1 del cálculo de IC/Spearman por inconsistencia de cobertura. | Ver spec de validación, Sección 2.3 |
+| Umbral de relevancia (Fase 3 del prompt) | Reemplaza la cuota fija "3-5 tendencias" (Sección 4.1/5.5 original) por: reportar TODAS las tendencias con ≥2 catalizadores materiales en 48h, sin mínimo ni máximo | Corrige el failure mode de cuota fija: días con más actividad de la esperada perdían señal real; días con poca actividad forzaban relleno de ruido |
+| `deploy_report.ps1` | Genera `reports/index.html` (viewer con inyección de tickers en nombres de empresa) y hace `git push` → Cloudflare Pages auto-deploy (~20s) | No estaba en el diseño original — GitHub/Cloudflare se añadió como reemplazo del visor local |
+| `scripts/open_latest_report.ps1` | Visor de escritorio (icono) que abre el último informe en HTML | — |
+
+### 0.1.1 Por qué dos llamadas a Claude en vez de una
+
+El diseño original (Sección 4.1) asumía que el prompt maestro terminaría con un bloque de scores parseable directamente. En producción, Claude en modo `-p`/stdin prioriza completar la tarea narrativa principal e ignora consistentemente instrucciones de formato estructurado al final de un prompt largo (>2000 palabras). Solución: una segunda llamada dedicada, solo con el informe ya generado como contexto, pidiendo el CSV de scores. El bloque se parsea, se inserta en `tech_scores`, y se elimina del `.md` final (no debe aparecer en el viewer).
+
+### 0.1.2 Pendiente de este spec, no de v3.1
+
+Ver `specs/validation_engine_v1.1.md` (draft, lista para pre-registro tras dos pasadas de revisión adversarial) para el diseño completo del motor de validación estadística: Fama-MacBeth + Newey-West sobre IC diario, hit rate, retorno de cartera simulada long/short, event study sobre Δscore, control de momentum, y fases de implementación condicionadas al volumen de datos acumulado y a la ampliación de universo (Fase P1.5, Sección 9 de este documento). Esa spec **reemplaza** el gate de la Sección 7.2 de este documento (marcada superseded ahí) — no es solo una extensión.
 
 ---
 
@@ -348,11 +384,13 @@ Si hay conflicto entre perspectivas (ej. Técnico dice TRL=7, Geopolítico dice 
 - Claude actualiza exposure scores, no los crea desde cero
 - Tiempo estimado: 4-6 horas de trabajo inicial de curación
 
-**Opción B (escalable, para Phase 2):** Generación automática
+**Opción B (escalable):** Generación automática
 - Usar fetch MCP para leer 10-Ks de SEC EDGAR (sección "Risk Factors" y "Business")
 - Claude extrae automáticamente tecnologías mencionadas y crea el mapping
 - Requiere validación humana de muestra (10-20%) antes de usar en producción
 - Tiempo estimado: 2-3 días de desarrollo + validación
+
+> **⚠️ v3.2 — RECLASIFICADA de "Phase 2" a prerequisito de Fase P1.5:** La Opción B ya no es una mejora escalable diferible. El motor de validación estadística (`specs/validation_engine_v1.1.md`, Sección 6.2) demuestra que con el universo actual de 51 empresas el gate F3 es indetectable en un plazo razonable (IC mínimo detectable ≈0.05 requeriría ~2.8 años de calendario con K≈33 ventanas). Con ~150 empresas, el mismo IC es detectable en ~12 meses. La ampliación de universo pasa a ser condición de entrada de la Fase P1.5 (ver Sección 9) — no se puede alcanzar el gate de validación sin ella.
 
 **Estrategia de actualización del universo (✅ RESUELTO v3.1):**
 
@@ -644,11 +682,18 @@ Esta es la pregunta más importante del spec y ninguna versión la responde con 
 
 **Conclusión práctica para v3:** El concepto es plausible pero no demostrado para este caso específico. Por eso el enfoque de **validation gate architecture** (igual que en tu FCI/HMM y SmartMoney Tracker) es correcto: construir en shadow mode, medir correlación vs precios durante 6 meses, solo integrar si métricas superan umbrales.
 
-**Gate de integración sugerido:**
-- Spearman correlation Score vs ΔPrecio(30d) ≥ 0.25 (IC positivo demostrado)
-- **N ≥ 65** empresas evaluadas con al menos 30 días de historia (N=50 no alcanza p<0.05 con ρ=0.25; N=65 sí)
-- Top quintil del score outperforms bottom quintil por ≥ 5% en **retorno relativo al índice**, igual-ponderado, en 90 días
-- Las 65 empresas del gate deben seleccionarse **antes de ver los scores** (pre-registro con timestamp) para evitar selección implícita
+**Gate de integración sugerido — ⚠️ SUPERSEDED (2026-06-10, revisión v3.2):**
+
+> Este gate (Spearman≥0.25, N≥65 observaciones) queda **reemplazado** por `specs/validation_engine_v1.1.md`. Se conserva tachado abajo como registro histórico, no como criterio vigente — no usar para decisiones.
+>
+> Tres defectos lo invalidaban: (1) N=65 contaba observaciones ticker×fecha, no fechas de calendario independientes — con 51 empresas eso se alcanza en ~2 días, y las observaciones del mismo día no son independientes entre sí (comparten contexto de mercado); (2) el umbral 0.25 exige superar a la práctica totalidad de factores publicados en literatura quant — un gate diseñado para fallar independientemente de si el sistema funciona; (3) no había control de momentum, así que un gate superado no distinguiría información genuina de FutureAnalysis de momentum de precio redescubierto con ruido encima.
+>
+> El reemplazo (`validation_engine_v1.1.md`) usa Fama-MacBeth + Newey-West sobre la serie de IC diario (unidad correcta: T=fechas de calendario independientes, no N=observaciones pooled), recalibra el umbral a IC≥0.05 con t-stat≥2.0 (validando uso como filtro/tiebreaker dentro de FAS — Sección 8 de este documento — no como señal standalone), añade control de momentum obligatorio (RSI-14 Wilder vs `prices`), y — hallazgo derivado del propio cálculo de potencia estadística — establece que **el gate solo es alcanzable en plazo razonable si el universo se amplía a ~150 empresas** (ver Sección 5.4, Fase P1.5 en Sección 9). Con N=51 sin ampliar, el gate recalibrado tardaría ~2.8 años; con N≈150, ~12 meses.
+>
+> ~~Spearman correlation Score vs ΔPrecio(30d) ≥ 0.25 (IC positivo demostrado)~~
+> ~~N ≥ 65 empresas evaluadas con al menos 30 días de historia (N=50 no alcanza p<0.05 con ρ=0.25; N=65 sí)~~
+> ~~Top quintil del score outperforms bottom quintil por ≥ 5% en retorno relativo al índice, igual-ponderado, en 90 días~~
+> ~~Las 65 empresas del gate deben seleccionarse antes de ver los scores (pre-registro con timestamp) para evitar selección implícita~~
 
 **Validación en cada output (Phase 0-1):**
 Todos los informes deben incluir en el encabezado:
@@ -753,18 +798,34 @@ MacroSentinel          FCI/HMM              SmartMoney
 
 **Gate P1→P2:** 30 días de ejecución continua sin fallos críticos. Informes subjetivamente útiles.
 
-### Phase 2: Validación Cuantitativa (Meses 2-6)
-**Objetivo:** Medir correlación estadística. Eliminar o confirmar el concepto.
+> **Estado real (2026-06-10):** Phase 1 activa desde 2026-05-22. Pipeline corriendo en Windows Task Scheduler (S4U), 11 días de histórico en `tech_scores` (511 registros), 7 días en `prices` (357 registros). Gate P1→P2 estimado ~2026-06-22 (30 días desde el inicio). Ver `HANDOFF.md` para el estado operativo detallado y deuda técnica activa.
+
+### Phase P1.5: Ampliación de Universo (nueva en v3.2 — prerequisito de Phase 2, no parte de ella)
+
+**Objetivo:** Ampliar el universo de 51 a ~150 empresas. Reclasificada desde "Opción B, Phase 2" (Sección 5.4) a fase propia porque el cálculo de potencia estadística de `validation_engine_v1.1.md` (Sección 6.2) demuestra que el gate de validación es indetectable en plazo razonable sin esta ampliación — no es una mejora incremental, es condición de entrada del gate.
 
 **Entregables:**
-- [ ] 6 meses de histórico de scores
-- [ ] Cálculo mensual de Spearman correlation
-- [ ] Comparación top-quintil vs bottom-quintil de scores
-- [ ] SEC 10-K scraping para ampliar universo a 150+ empresas
+- [ ] Ejecutar Opción B (Sección 5.4): extracción de keywords tecnológicas vía 10-Ks/SEC EDGAR + validación humana de muestra (10-20%)
+- [ ] Columna `universe_version` en `tech_scores` (análoga a `prompt_version`) — marca qué empresas pertenecen a qué tramo temporal del universo. **Regla de pre-registro:** el gate F3 se evalúa solo sobre fechas donde el universo ampliado ya está completo (todas las ~150 empresas presentes), sin mezclar el tramo de 51 con el de ~150 en el mismo test. Sin esta regla, en el momento de evaluar el gate existiría la tentación de elegir el corte de fechas que dé mejor IC — exactamente el tipo de decisión que debe pre-registrarse antes de ver resultados.
+- [ ] **Decisión abierta, no resuelta en esta revisión:** el pipeline actual (`run_daily.ps1`) puntúa el universo completo en un único contexto de Claude vía dos llamadas (informe + extracción CSV). No está garantizado que la calidad se sostenga con ~150 empresas en un solo contexto — la degradación de atención en contextos largos podría producir scores más planos en la cola del universo, sesgando la dispersión hacia la banda [40,60] (ver diagnóstico en `generate_comparative.py`, implementado 2026-06-10). La alternativa es batching por sector (ej. 3 llamadas en vez de 1), que cambia coste, tiempos del Task Scheduler, y la lógica de extracción del CSV de scores. **Criterio de aceptación de la decisión que se tome:** el diagnóstico de dispersión de `generate_comparative.py` debe ejecutarse segmentado por batch (si se adopta batching) o sobre el universo completo (si se mantiene un solo contexto), y el % en banda [40,60] no debe superar el umbral de degeneración (60%, ya definido) en ningún segmento.
 
-**Gate P2→P3:** Métricas de sección 7.2 superadas. Si no → rediseño de fórmula o STOP.
+**Gate P1.5→Phase 2:** universo ampliado a ~150 empresas con `universe_version` marcado, y el diagnóstico de dispersión confirma rango no degenerado sobre el universo completo.
 
-### Phase 3: Integración en Producción (Mes 7+)
+### Phase 2: Validación Cuantitativa
+
+**Objetivo:** Medir correlación estadística vía `validation_engine_v1.1.md`. Eliminar o confirmar el concepto.
+
+**Entregables:**
+- [ ] ~12 meses de histórico de scores sobre universo ampliado (ver timeline honesto abajo — no "6 meses" como estimaba v3.1)
+- [ ] Pipeline `compute_validation.py` con Fama-MacBeth + Newey-West (Sección 4.1 de la spec de validación)
+- [ ] Comparación por terciles (no quintiles — universo de 150 da terciles interpretables, quintiles requerirían ~250+)
+- [ ] Event study sobre Δscore (H2) — puede resolverse antes que el gate principal (H1), monitoreable desde ya
+
+> **⚠️ v3.2 — Timeline corregido:** v3.1 estimaba "Meses 2-6" para Phase 2 asumiendo que N=65 observaciones pooled bastaban para el gate. El cálculo de potencia estadística correcto (`validation_engine_v1.1.md` Sección 6.2) muestra que, incluso con el universo ampliado a ~150 empresas, alcanzar el IC mínimo detectable (≈0.05) al horizonte primario de 30 días requiere **~12 meses de calendario tras que Phase P1.5 esté operativa**, no 4-6 meses. El horizonte 90d (mencionado en v3.1 como horizonte "principal") pasa a ser confirmatorio, calculado en bloques no solapados, porque a ese horizonte el número de observaciones independientes en un año de calendario es demasiado bajo (~4) para ser el test que decide el gate.
+
+**Gate P2→P3:** Gate F3 de `specs/validation_engine_v1.1.md` (Sección 4.1) superado — test primario IC_30d con Fama-MacBeth/NW, no las "métricas de sección 7.2" (superseded, ver nota en esa sección). Si no → rediseño de fórmula o STOP.
+
+### Phase 3: Integración en Producción (tras superar F3)
 **Objetivo:** FutureAnalysis como capa activa en IB platform.
 
 **Condición:** Sólo si Phase 2 valida el concepto. No construir antes.
@@ -820,7 +881,9 @@ MacroSentinel          FCI/HMM              SmartMoney
 
 ---
 
-*Documento v3.1 — Revisión editorial: Claude Sonnet 4.6*
-*Fecha v3: 2026-05-14 | Fecha v3.1: 2026-05-21*
+*Documento v3.2 — Revisión editorial: Claude Sonnet 5*
+*Fecha v3: 2026-05-14 | Fecha v3.1: 2026-05-21 | Fecha v3.2: 2026-06-10*
 *Basado en: FutureAnalysis v2 annotated (MiniMax Agent) + contexto de proyecto específico*
 *v3.1: Resueltos 3 CRÍTICOs pendientes — queries por categoría (4.2), EDGAR earnings (6.2), actualización universo (5.4)*
+*v3.2: Documentado el estado real de implementación (Sección 0.1) — plataforma Windows/PowerShell en vez de bash/cron, pipeline de dos llamadas Claude, tabla de precios, informes comparativos, umbral de relevancia variable*
+*v3.2 (revisión 2, mismo día): el gate de validación de la Sección 7.2 queda superseded por `specs/validation_engine_v1.1.md` tras revisión adversarial que encontró non-independence de observaciones y umbral mal calibrado en el gate original. Consecuencia propagada al roadmap: nueva Fase P1.5 (Sección 9) reclasifica la ampliación de universo (Sección 5.4, antes "Opción B para Phase 2") a prerequisito del gate, y el timeline de Phase 2 se corrige de "Meses 2-6" a ~12 meses tras P1.5, con horizonte primario 30d en vez de 90d*

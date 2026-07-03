@@ -26,16 +26,16 @@
     }
   },
   "AMAT": {
-    "metodo": "edgartools",
-    "item1_len": 29063,
-    "item1a_len": 73578,
+    "metodo": "edgartools_divergente+fallback_corroborado",
+    "item1_len": 29116,
+    "item1a_len": 68577,
     "item1": {
       "inicio": "[...] r Independence 43 Item 14: Principal Accounting Fees and Services 43 PART IV Item 15: Exhibits, Financial Statement Schedules 44 Item 16: Form 10-K Summary 44 Signatures 87 3 Table of Contents PART I  ▮INICIO▮ Item 1: Business Applied Materials, Inc. is the leader in the materials engineering solutions used to produce virtually every semiconductor in the world. Semiconductors provide the foundation for adva [...]",
-      "fin": "[...] accessible through, these websites is part of this Form 10-K or is incorporated by reference herein. ▮FIN▮  10 Table of Contents Item 1A: Risk Factors The following risk factors could materially and adversely affect our business, financial condition or results of operations and cause reputational harm, and [...]"
+      "fin": "[...] se websites is part of this Form 10-K or is incorporated by reference herein. 10 Table of Contents I ▮FIN▮ tem 1A: Risk Factors The following risk factors could materially and adversely affect our business, financial condition or results of operations and cause reputational harm, and should be carefully co [...]"
     },
     "item1a": {
-      "inicio": "ddresses are intended to be an inactive textual references only. None of the information on, or accessible through, these websites is part of this Form 10-K or is incorporated by reference herein. 10  ▮INICIO▮ Table of Contents Item 1A: Risk Factors The following risk factors could materially and adversely affect our business, financial condition or results of operations and cause reputational harm, and sho",
-      "fin": "(no localizado)"
+      "inicio": "[...] ded to be an inactive textual references only. None of the information on, or accessible through, these websites is part of this Form 10-K or is incorporated by reference herein. 10 Table of Contents  ▮INICIO▮ Item 1A: Risk Factors The following risk factors could materially and adversely affect our business, financial condition or results of operations and cause reputational harm, and should be carefully c [...]",
+      "fin": "[...]  adversely affect our business, financial condition and results of operations. 22 Table of Contents  ▮FIN▮ Item 1B: Unresolved Staff Comments None. Item 1C: Cybersecurity Governance 23 Table of Contents Item 2: Properties We own and lease facilities throughout the world for use as offices, manufacturing fa [...]"
     }
   },
   "ARRY": {

@@ -170,9 +170,12 @@ def gate0_identity(ticker, expected_name, cover_text, cik_expected=None, accessi
 # Patrones sobre el corpus SIN espacios (ver build_stripped_index) -- evita que un
 # espacio espurio de BeautifulSoup en el limite de un tag (ej. "R ISK" en vez de
 # "RISK") rompa el match, sin necesidad de \s* tolerante a dedazos en el patron.
+# separador entre numero de item y titulo: punto, dos puntos, guion, o nada
+# (AMAT usa "Item 1: Business" con dos puntos -- hallazgo 2026-07-03, el patron
+# original solo aceptaba punto opcional y fallaba silenciosamente en ese filer)
 HEADER_RE_STRIPPED = {
-    "item1":  re.compile(r"item1\.?business"),
-    "item1a": re.compile(r"item1a\.?riskfactors"),
+    "item1":  re.compile(r"item1[.:\-]?business"),
+    "item1a": re.compile(r"item1a[.:\-]?riskfactors"),
 }
 
 def regex_fallback_extract(corpus):
@@ -197,7 +200,7 @@ def regex_fallback_extract(corpus):
     p1, p1a = best_pair
     # fin de Item1A: buscar el siguiente header plausible (Item 1B o Item 2) tras p1a,
     # tambien sobre el corpus sin espacios por la misma razon que arriba
-    end_re_stripped = re.compile(r"item1b\.?unresolved|item2\.?propert")
+    end_re_stripped = re.compile(r"item1b[.:\-]?unresolved|item2[.:\-]?propert")
     end_matches = [index_map[m.start()] for m in end_re_stripped.finditer(stripped) if index_map[m.start()] > p1a]
     end = min(end_matches) if end_matches else min(p1a + BANDS["item1a"][1], len(corpus))
 
@@ -245,6 +248,20 @@ def _find_all_stripped(stripped_corpus, index_map, needle_raw):
         return []
     positions_stripped = _find_all(stripped_corpus, needle_stripped)
     return [index_map[p] for p in positions_stripped]
+
+
+def end_boundary_locatable(corpus, item_text, retry_lengths=(80, 40, 20)):
+    """Verifica que el FINAL del texto extraido sea localizable en el corpus
+    propio -- Gate 1 (gate1_order) solo ancla los INICIOS de item1/item1a para
+    verificar orden, asi que puede pasar (True) aunque el final del texto de
+    edgartools no exista en absoluto en el corpus (hallazgo AMAT, 2026-07-03).
+    Sin este check dedicado, un final divergente queda invisible."""
+    stripped, index_map = build_stripped_index(corpus)
+    for length in retry_lengths:
+        anchor = item_text[-length:]
+        if _find_all_stripped(stripped, index_map, anchor):
+            return True
+    return False
 
 
 def gate1_order(corpus, item1_text, item1a_text):
@@ -341,13 +358,53 @@ def process_filing(ticker, cik, archivo_path, expected_name, accession=None):
             return {"ticker": ticker, "metodo": "NINGUNO", "error": err, "gate0": gate0}
 
     g1 = gate1_order(corpus, item1_text, item1a_text)
+    cross_check = None
+
+    # Regla operativa (generalizada tras el hallazgo de AMAT, 2026-07-03): Gate 1
+    # solo ancla los INICIOS de item1/item1a para verificar orden -- puede pasar
+    # (True) aunque el FINAL del texto de edgartools no exista en absoluto en el
+    # corpus propio (divergencia mas alla de whitespace, no solo un problema de
+    # posicion). Sin un check dedicado del final, esa divergencia queda invisible.
+    # Trigger correcto: end_boundary_locatable(item1a), no gate1["pass"] (que solo
+    # cubre inicios y por eso AMAT lo pasaba pese al hallazgo). Extension natural
+    # del fallback (spec Seccion 2): el fallback opera sobre el corpus propio por
+    # construccion, sus fronteras siempre son localizables -- se usa para
+    # corroborar o marcar cola.
+    end_ok = end_boundary_locatable(corpus, item1a_text)
+    if metodo == "edgartools" and not end_ok:
+        fallback, ferr = regex_fallback_extract(corpus)
+        if fallback:
+            fb_item1a_len = len(fallback["item1a_text"])
+            len_ratio = fb_item1a_len / len(item1a_text) if item1a_text else None
+            coincide = len_ratio is not None and 0.7 <= len_ratio <= 1.3
+            cross_check = {
+                "razon": "gate1 fallo sobre texto de edgartools -- cross-check automatico con fallback",
+                "resultado": "corroborado" if coincide else "diverge",
+                "len_ratio_item1a": round(len_ratio, 3) if len_ratio else None,
+                "fallback_item1_len": len(fallback["item1_text"]),
+                "fallback_item1a_len": fb_item1a_len,
+            }
+            if coincide:
+                # las fronteras del fallback quedan corroboradas por acuerdo aproximado
+                # con edgartools -- se usan porque son localizables por construccion
+                item1_text, item1a_text = fallback["item1_text"], fallback["item1a_text"]
+                metodo = "edgartools_divergente+fallback_corroborado"
+                g1 = gate1_order(corpus, item1_text, item1a_text)
+            else:
+                metodo = "edgartools_divergente+fallback_no_coincide"
+        else:
+            cross_check = {"razon": "gate1 fallo, fallback tampoco disponible", "resultado": "sin_fallback", "error": ferr}
+
     g2 = gate2_length(item1_text, item1a_text)
     g3 = gate3_markers(item1_text, item1a_text)
     g4 = gate4_ratio(item1_text, item1a_text, corpus)
     g5 = gate5_special_cases(corpus, item1a_text)
+    if cross_check and cross_check["resultado"] == "diverge":
+        g5 = "CROSS_CHECK_DIVERGENTE"
 
     return {
         "ticker": ticker, "metodo": metodo, "edgartools_meta": edgartools_result,
+        "cross_check": cross_check,
         "gate0_identidad": gate0, "gate1_orden": g1, "gate2_longitud": g2,
         "gate3_marcadores": g3, "gate4_ratio": g4, "gate5_caso_especial": g5,
         "item1_text": item1_text, "item1a_text": item1a_text,

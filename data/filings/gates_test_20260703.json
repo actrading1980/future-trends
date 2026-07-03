@@ -7,6 +7,7 @@
       "confidence_item1a": 0.95,
       "warnings": []
     },
+    "cross_check": null,
     "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",
@@ -49,6 +50,7 @@
       "confidence_item1a": 0.95,
       "warnings": []
     },
+    "cross_check": null,
     "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",
@@ -85,11 +87,18 @@
   },
   {
     "ticker": "AMAT",
-    "metodo": "edgartools",
+    "metodo": "edgartools_divergente+fallback_corroborado",
     "edgartools_meta": {
       "confidence_item1": 0.95,
       "confidence_item1a": 0.95,
       "warnings": []
+    },
+    "cross_check": {
+      "razon": "gate1 fallo sobre texto de edgartools -- cross-check automatico con fallback",
+      "resultado": "corroborado",
+      "len_ratio_item1a": 0.932,
+      "fallback_item1_len": 29116,
+      "fallback_item1a_len": 68577
     },
     "gate0_identidad": {
       "pass": true,
@@ -104,24 +113,24 @@
     "gate1_orden": {
       "pass": true,
       "pos_item1": 7450,
-      "pos_item1a": 36548,
-      "gap": 29098
+      "pos_item1a": 36566,
+      "gap": 29116
     },
     "gate2_longitud": {
       "pass": true,
-      "item1_len": 29063,
-      "item1a_len": 73578,
+      "item1_len": 29116,
+      "item1a_len": 68577,
       "item1_en_banda": true,
       "item1a_en_banda": true
     },
     "gate3_marcadores": {
-      "pass": true,
-      "risk_density": 1.18,
+      "pass": false,
+      "risk_density": 0.85,
       "biz_density": 1.1
     },
     "gate4_ratio": {
       "pass": true,
-      "ratio": 0.541
+      "ratio": 0.515
     },
     "gate5_caso_especial": null
   },
@@ -133,6 +142,7 @@
       "confidence_item1a": 0.95,
       "warnings": []
     },
+    "cross_check": null,
     "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",
@@ -175,6 +185,7 @@
       "confidence_item1a": 0.95,
       "warnings": []
     },
+    "cross_check": null,
     "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",
@@ -217,6 +228,7 @@
       "confidence_item1a": 0.95,
       "warnings": []
     },
+    "cross_check": null,
     "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",
@@ -259,6 +271,7 @@
       "confidence_item1a": 0.95,
       "warnings": []
     },
+    "cross_check": null,
     "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",
@@ -301,6 +314,7 @@
       "confidence_item1a": 0.95,
       "warnings": []
     },
+    "cross_check": null,
     "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",
@@ -343,6 +357,7 @@
       "confidence_item1a": 0.95,
       "warnings": []
     },
+    "cross_check": null,
     "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",
@@ -385,6 +400,7 @@
       "confidence_item1a": 0.95,
       "warnings": []
     },
+    "cross_check": null,
     "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",
@@ -430,6 +446,7 @@
         "Item 1A content is 656 chars, below the expected minimum of 15,978 for a 10-K — the section anchor may point at a heading rather than the item body (extraction likely truncated)."
       ]
     },
+    "cross_check": null,
     "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",

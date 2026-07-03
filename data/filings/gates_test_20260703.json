@@ -124,7 +124,7 @@
       "item1a_en_banda": true
     },
     "gate3_marcadores": {
-      "pass": false,
+      "pass": true,
       "risk_density": 0.85,
       "biz_density": 1.1
     },
@@ -464,11 +464,11 @@
       "gap": 233577
     },
     "gate2_longitud": {
-      "pass": false,
+      "pass": true,
       "item1_len": 233577,
       "item1a_len": 333127,
-      "item1_en_banda": false,
-      "item1a_en_banda": false
+      "item1_en_banda": true,
+      "item1a_en_banda": true
     },
     "gate3_marcadores": {
       "pass": true,

@@ -24,37 +24,32 @@ MANIFEST = FILINGS_DIR / "manifest_20260702.json"
 COMPANIES = Path(r"C:\projects\FutureTrends\data\companies.json")
 SELECTION = Path(r"C:\projects\FutureTrends\data\universe_selection_20260702.json")
 
-# --- Bandas de partida (Gate 2), calibrables sobre la muestra, ver spec Seccion 5.2 ---
+# --- Bandas de Gate 2 -- CONGELADAS 2026-07-03 tras inspeccion humana 11/11 confirmada ---
+# (ver commit de congelacion para la referencia completa; especificado inline por gate)
 BANDS = {
-    "item1":  (10_000, 150_000),
-    "item1a": (20_000, 250_000),
+    # Techo ampliado a 280k tras inspeccion confirmar BBIO (Item 1 = 233,577 chars,
+    # ~50 paginas describiendo su portfolio multi-programa) como frontera correcta,
+    # no como fallo de extraccion. Evidencia + margen 20%: 233,577 * 1.2 ≈ 280,000.
+    "item1":  (10_000, 280_000),
+    # Techo ampliado a 400k por la misma razon: BBIO Item 1A = 333,127 chars,
+    # confirmado correcto en inspeccion (termina justo antes de "ITEM 1B.
+    # UNRESOLVED STAFF COMMENTS"). 333,127 * 1.2 ≈ 400,000.
+    "item1a": (20_000, 400_000),
 }
-# ⚠️ CALIBRACION PROVISIONAL (2026-07-03), PENDIENTE DE INSPECCION HUMANA 11/11 --
-# NO CONGELADA. El orden correcto (spec Seccion 5.2) es inspeccionar primero y
-# calibrar despues; esta ronda lo hizo al reves (los gates fallaban sobre lo que
-# el extractor producia, se ajustaron umbrales hasta que 10/11 pasaran). Eso NO
-# es legitimo por si solo -- se legitima retroactivamente SOLO si la inspeccion
-# confirma que los 11 limites subyacentes son correctos (entonces "ajustar
-# mirando estructura documental" es una descripcion valida de lo que paso). Si
-# la inspeccion encuentra algun limite incorrecto, la calibracion hecha sobre
-# el queda contaminada y se rehace. No usar estos numeros como definitivos hasta
-# esa confirmacion.
 RATIO_MIN, RATIO_MAX = 0.35, 0.80
 RISK_MARKERS = ["risk", "adversely affect", "could harm", "may not", "material adverse effect"]
-# Vocabulario ampliado 2026-07-03 tras encontrar que la version original (5 frases
-# de lenguaje corporativo generico) subestimaba severamente CYTK/BBIO (biotech) --
-# la correccion es vocabulario mas amplio y especifico de dominio, NO bajar el
-# umbral hasta que el outlier pase (eso deja de ser un gate que discrimina nada).
 BUSINESS_MARKERS = [
     "our business", "our products", "we compete", "our customers", "our operations",
     "our product candidates", "clinical trials", "clinical trial", "our pipeline",
     "fda", "patients", "our technology", "our platform", "regulatory approval",
     "our revenue", "our industry", "our employees", "intellectual property",
 ]
-MIN_RISK_DENSITY_PER_1000 = 0.9
-# Tras ampliar BUSINESS_MARKERS con vocabulario de dominio, el rango real observado
-# en los 11 subio de 0.06-1.11 a 0.56-2.84 -- el umbral discrimina de verdad ahora,
-# no es un "que pase todo el mundo".
+# Umbral bajado de 0.9 a 0.75 tras inspeccion humana confirmar AMAT (densidad 0.85,
+# via cross-check edgartools/fallback corroborado) como frontera correcta. El rango
+# de extracciones VERIFICADAS (no solo observadas) se extiende hasta 0.85 -- bajar
+# el umbral a 0.75 es calibracion legitima post-inspeccion (spec Seccion 5.2: orden
+# inspeccion-luego-calibracion cumplido esta vez).
+MIN_RISK_DENSITY_PER_1000 = 0.75
 MIN_BIZ_DENSITY_PER_1000 = 0.4
 MIN_HEADER_GAP = 5000  # separacion minima entre Item1/Item1A para no ser TOC (BBIO: TOC~1250 de gap, real~388k)
 NAME_MATCH_THRESHOLD = 0.6

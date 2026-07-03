@@ -23,6 +23,8 @@ A diferencia de los gates (Sección 3), el método de extracción es una decisi�
 
 **Fallback:** heurística de regex sobre el texto plano del filing (tras strip de tags `ix:`/HTML), aplicando los mismos gates de la Sección 3. Se activa por-filing cuando `edgartools` no encuentra límites o produce un recorte que no pasa los gates.
 
+**Cross-check automático edgartools vs fallback (añadido 2026-07-03, hallazgo AMAT):** Gate 1 solo ancla los *inicios* de Item 1/1A para verificar orden — puede pasar aunque el *final* del texto de `edgartools` no exista en absoluto en el corpus propio (divergencia más allá de whitespace entre el parser interno de la librería y un parseo directo del HTML, observada en al menos un filer). Regla: si el final del texto de `edgartools` no es localizable en el corpus (verificación dedicada, independiente de Gate 1), se ejecuta el fallback de regex automáticamente — que opera sobre el corpus propio y por tanto tiene fronteras siempre localizables — y se comparan las longitudes de Item 1A de ambos métodos. Si coinciden razonablemente (ratio 0.7–1.0/1.3), las fronteras del fallback se adoptan como corroboradas por acuerdo entre dos métodos independientes. Si divergen, el filing va a cola con etiqueta `CROSS_CHECK_DIVERGENTE` (añadida al enum cerrado del Gate 5, Sección 3) para revisión manual.
+
 ---
 
 ## 3. Los seis gates
@@ -31,13 +33,13 @@ A diferencia de los gates (Sección 3), el método de extracción es una decisi�
 
 Antes de intentar ningún recorte, confirmar que el documento descargado es efectivamente de la empresa esperada. Ningún gate de recorte estructural (1-5) puede detectar esto — un 10-K de otra empresa, perfectamente formado, pasa los cinco gates de recorte sin ninguna señal de alarma.
 
-**Verificación doble:**
-1. **CIK del accession number vs CIK esperado** — el CIK está en la URL/metadata de descarga (`data.sec.gov/submissions/CIK{cik}.json`), es una comparación mecánica contra metadatos de EDGAR, no contra el contenido del documento.
-2. **Nombre de la empresa en la portada del filing vs nombre esperado en `companies.json`** — fuzzy match con umbral (ej. similitud de token ≥0.8). Portada = primeras ~2000 caracteres del documento, donde el nombre legal aparece casi siempre ("[NOMBRE], a Delaware corporation..." o el header del cover page de EDGAR).
+**Verificación primaria y suficiente — mecánica:** el accession number descargado debe estar en la lista de accessions del CIK esperado según `data.sec.gov/submissions/CIK{cik}.json`. Es una comparación contra metadatos de EDGAR, no contra el contenido del documento — inmune al problema que motivó este gate (ver corrección abajo).
 
-**Si cualquiera de las dos falla:** el filing no se procesa como recorte normal — va a cola con etiqueta `IDENTIDAD_NO_CONFIRMADA` (nueva entrada en el enum cerrado de la Sección 3.5/Gate 5), con ambos nombres (esperado vs encontrado) persistidos para revisión humana.
+**Verificación secundaria e informativa — nombre en portada:** nombre de la empresa (SEC `company_tickers.json`) buscado en los primeros ~3000 caracteres del documento (tras limpieza de bloques ocultos de inline XBRL — ver Sección 2), normalizado sin sufijos corporativos ni espacios. **Nunca aprueba por sí sola si el check mecánico no está disponible o falla** — solo se usa como dato adicional cuando el mecánico ya decidió, o como única señal (marcada explícitamente como menos fiable) si el mecánico no pudo ejecutarse (ej. fallo de red contra EDGAR).
 
-**Por qué doble y no solo CIK:** el CIK puede estar bien pero el filing descargado ser de un tramo temporal distinto de la misma empresa (ej. tras un spin-off, el CIK persiste pero el nombre legal cambia) — el chequeo de nombre caza esa clase de deriva que el CIK solo no detecta.
+**Corrección de diseño (2026-07-02, antes de cualquier congelación):** un primer diseño usaba el nombre como *fallback universal* — si no aparecía en portada, se buscaba en el documento completo. Esto reabría exactamente el agujero que motivó el Gate 0: los 10-K nombran competidores reales constantemente (el Item 1 de un fabricante de chips menciona a sus rivales por nombre docenas de veces), así que el documento de una empresa equivocada podía "aprobar" identidad citando a la empresa correcta como competidor. La arquitectura corregida invierte las prioridades: mecánico primero y suficiente, nombre en portada (nunca en el documento completo) como apoyo secundario.
+
+**Si el check mecánico falla:** el filing no se procesa como recorte normal — va a cola con etiqueta `IDENTIDAD_NO_CONFIRMADA` (enum cerrado de la Sección 3.5/Gate 5), con CIK esperado, accession descargado, y el resultado del check de portada persistidos para revisión humana.
 
 ### Gate 1 — Orden estructural
 
@@ -49,18 +51,18 @@ Item 1, Item 1A e Item 1B (o Item 2 si 1B no existe en ese filer) deben localiza
 
 ### Gate 2 — Longitud plausible por Item
 
-| Item | Rango de caracteres (texto limpio, sin markup) |
+| Item | Rango de caracteres (texto limpio, sin markup) — **CONGELADO 2026-07-03** |
 |------|------------------------------------------------|
-| Item 1 (Business) | 10,000 – 150,000 |
-| Item 1A (Risk Factors) | 20,000 – 250,000 |
+| Item 1 (Business) | 10,000 – 280,000 |
+| Item 1A (Risk Factors) | 20,000 – 400,000 |
 
 **Por qué:** fuera de banda por abajo casi siempre indica que se recortó el TOC, un header de página, o una sección de "incorporated by reference" (ver Gate 5). Fuera de banda por arriba indica que no se encontró el límite final y el recorte se comió secciones posteriores.
 
-**Nota:** estas bandas son un punto de partida, no un pre-registro rígido — se calibran empíricamente sobre la muestra de 10 filings (Sección 5) antes de la pasada completa sobre los 136, y una vez calibradas para la pasada completa, no se ajustan mirando la tasa de paso de esa pasada (eso sería ajustar el gate al resultado).
+**Congelación (post-inspección humana 11/11, no antes):** techos ampliados de 150k/250k a 280k/400k usando BBIO (BridgeBio Pharma) como máximo observado **confirmado** — Item 1 = 233,577 chars, Item 1A = 333,127 chars, ambas fronteras verificadas correctas en la inspección (BridgeBio es "multi-product biopharmaceutical" con portfolio extenso, longitud genuina, no fallo de extracción). Techo = máximo confirmado + 20% de margen. El vocabulario/umbral de Gate 3 (abajo) recibió el mismo tratamiento con AMAT.
 
 ### Gate 3 — Marcadores de contenido
 
-El texto recortado como Item 1A debe superar una densidad mínima de lenguaje de riesgo: términos como "risk", "adversely affect", "could harm", "may not", "material adverse effect" por cada N caracteres. El texto recortado como Item 1 debe superar una densidad mínima de lenguaje de negocio (descripción de producto/mercado/competencia, ausencia de la densidad de riesgo del 1A).
+El texto recortado como Item 1A debe superar una densidad mínima de lenguaje de riesgo: términos como "risk", "adversely affect", "could harm", "may not", "material adverse effect" por cada N caracteres — **umbral congelado 2026-07-03: 0.75/1000 caracteres**, bajado de una estimación inicial de 3.0 tras evidencia real (rango observado 0.97–1.57 en la muestra) y luego a 0.75 tras confirmar AMAT (0.85, vía cross-check corroborado) como extracción verificada que ampliaba el rango confirmado hacia abajo. El texto recortado como Item 1 debe superar una densidad mínima de lenguaje de negocio — **umbral congelado: 0.4/1000**, con vocabulario ampliado a términos de dominio (clinical trials, FDA, patients, pipeline, etc.) tras encontrar que el vocabulario corporativo genérico original subestimaba severamente a los filers biotech (CYTK/BBIO pasaron de 0.06–0.14 a 2.21–2.84 tras la ampliación — la corrección fue vocabulario, no umbral rendido).
 
 **Por qué:** caza el error que los Gates 1-2 dejan pasar — límites bien formados y longitud plausible, pero desplazados una sección completa (ej. lo que se etiquetó como "Item 1A" es en realidad Item 1B, con longitud y forma similares pero contenido distinto).
 
@@ -83,6 +85,7 @@ No se procesan como recorte normal — se detectan y van a cola con etiqueta de 
 | Items combinados (ej. "Item 1 and 1A") | Header combinado detectado, un solo bloque para ambos | `ITEMS_COMBINADOS` |
 | 10-K/A en vez de 10-K original | Form type = 10-K/A en submissions.json | `ENMIENDA` |
 | Smaller reporting company sin Item 1A | Ausencia legal de la sección (permitida para SRC) | `SIN_ITEM_1A_SRC` |
+| Final de `edgartools` no localizable en el corpus + fallback no coincide en longitud (ratio fuera de 0.7–1.3) | Cross-check automático (Sección 2) detecta divergencia entre métodos, no solo un fallo de uno | `CROSS_CHECK_DIVERGENTE` |
 | Cualquier caso especial no cubierto arriba | Detectado manualmente o por heurística nueva no prevista | `OTHER` — **obligatorio** acompañar de un campo `descripcion` de texto libre; si `OTHER` acumula >10% de la cola, se promueve a etiqueta propia del enum (revisión de la spec, no ampliación silenciosa) |
 
 Fallos de gates 1-4 (recorte intentado pero no válido) usan una etiqueta separada, no parte de este enum: `FALLO_GATE_N` (N = número de gate que no se superó). Distinción: el enum de arriba son casos especiales *detectados antes* de intentar el recorte estándar (Gate 0 incluido); `FALLO_GATE_N` es un recorte que se intentó y no pasó validación.

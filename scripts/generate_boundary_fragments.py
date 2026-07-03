@@ -14,14 +14,25 @@ CONTEXT_LEN = 200
 
 def get_fragments(corpus, item_text, label):
     stripped, index_map = build_stripped_index(corpus)
-    anchor_start = item_text[:80]
-    anchor_end = item_text[-80:]
+    def _find_with_retry(text_slice_fn):
+        """Reintenta con anclas mas cortas (80->40->20) -- una divergencia de
+        caracteres especiales entre el parser de edgartools y el nuestro
+        (comillas curvas, guiones no separables) puede invalidar un ancla larga
+        sin que la posicion en si sea incorrecta; un ancla mas corta tiene mas
+        probabilidad de sobrevivir a esa divergencia puntual."""
+        for length in (80, 40, 20):
+            anchor = text_slice_fn(length)
+            positions = _find_all_stripped(stripped, index_map, anchor)
+            if positions:
+                return positions, anchor
+        return [], None
 
-    start_positions = _find_all_stripped(stripped, index_map, anchor_start)
-    end_positions_start_of_anchor = _find_all_stripped(stripped, index_map, anchor_end)
+    start_positions, anchor_start_used = _find_with_retry(lambda n: item_text[:n])
+    end_positions_start_of_anchor, anchor_end_used = _find_with_retry(lambda n: item_text[-n:])
+    anchor_end = anchor_end_used or item_text[-20:]
 
     if not start_positions:
-        return {"error": f"no se pudo localizar el inicio de {label} en el documento"}
+        return {"error": f"no se pudo localizar el inicio de {label} en el documento (ni con ancla de 20 chars)"}
 
     pos_start = start_positions[-1]
     ctx_before_start = corpus[max(0, pos_start - CONTEXT_LEN):pos_start]

@@ -355,18 +355,21 @@ def process_filing(ticker, cik, archivo_path, expected_name, accession=None):
     g1 = gate1_order(corpus, item1_text, item1a_text)
     cross_check = None
 
-    # Regla operativa (generalizada tras el hallazgo de AMAT, 2026-07-03): Gate 1
-    # solo ancla los INICIOS de item1/item1a para verificar orden -- puede pasar
-    # (True) aunque el FINAL del texto de edgartools no exista en absoluto en el
-    # corpus propio (divergencia mas alla de whitespace, no solo un problema de
-    # posicion). Sin un check dedicado del final, esa divergencia queda invisible.
-    # Trigger correcto: end_boundary_locatable(item1a), no gate1["pass"] (que solo
-    # cubre inicios y por eso AMAT lo pasaba pese al hallazgo). Extension natural
-    # del fallback (spec Seccion 2): el fallback opera sobre el corpus propio por
-    # construccion, sus fronteras siempre son localizables -- se usa para
-    # corroborar o marcar cola.
+    # Regla operativa (generalizada tras el hallazgo de AMAT, 2026-07-03; ampliada
+    # tras el hallazgo de ABNB/INCY/MKSI, pasada completa 2026-07-03): dos clases
+    # de divergencia distintas disparan el cross-check, no solo una.
+    #   (a) g1["pass"] False -- el propio orden falla. Hallazgo ABNB: edgartools
+    #       le asigna a Item 1 (Business) el mismo "Risk Factors Summary" con que
+    #       abre Item 1A (bug/ambigüedad de la libreria en filings con resumen de
+    #       riesgos antes de Part I, no un problema de mis anclas) -- los inicios
+    #       de item1 e item1a resuelven a la MISMA posicion.
+    #   (b) end_boundary_locatable(item1a) False -- el final no es localizable
+    #       (hallazgo AMAT original), aunque el orden de inicios si pase.
+    # Gate 1 solo ancla los inicios para verificar orden; ninguna de las dos
+    # clases era detectable mirando unicamente gate1["pass"] o unicamente el
+    # final -- hacen falta ambos triggers.
     end_ok = end_boundary_locatable(corpus, item1a_text)
-    if metodo == "edgartools" and not end_ok:
+    if metodo == "edgartools" and (not g1.get("pass") or not end_ok):
         fallback, ferr = regex_fallback_extract(corpus)
         if fallback:
             fb_item1a_len = len(fallback["item1a_text"])

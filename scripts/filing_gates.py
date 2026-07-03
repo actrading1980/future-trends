@@ -169,12 +169,16 @@ def gate0_identity(ticker, expected_name, cover_text, cik_expected=None, accessi
 # Patrones sobre el corpus SIN espacios (ver build_stripped_index) -- evita que un
 # espacio espurio de BeautifulSoup en el limite de un tag (ej. "R ISK" en vez de
 # "RISK") rompa el match, sin necesidad de \s* tolerante a dedazos en el patron.
-# separador entre numero de item y titulo: punto, dos puntos, guion, o nada
-# (AMAT usa "Item 1: Business" con dos puntos -- hallazgo 2026-07-03, el patron
-# original solo aceptaba punto opcional y fallaba silenciosamente en ese filer)
+# separador entre numero de item y titulo: punto, dos puntos, guion ASCII, guion
+# largo (em-dash U+2014) o corto (en-dash U+2013), o nada.
+# (AMAT usa "Item 1: Business" con dos puntos -- hallazgo 2026-07-03. BE usa
+# "ITEM 1—BUSINESS" con em-dash -- hallazgo 2026-07-03, el patron original
+# solo aceptaba guion ASCII y fallaba silenciosamente. build_stripped_index
+# solo elimina whitespace, no dashes Unicode, asi que sobreviven literales en
+# el texto stripped y deben cubrirse explicitamente en el patron.)
 HEADER_RE_STRIPPED = {
-    "item1":  re.compile(r"item1[.:\-]?business"),
-    "item1a": re.compile(r"item1a[.:\-]?riskfactors"),
+    "item1":  re.compile(r"item1[.:\-—–]?business"),
+    "item1a": re.compile(r"item1a[.:\-—–]?riskfactors"),
 }
 
 def regex_fallback_extract(corpus):
@@ -199,7 +203,7 @@ def regex_fallback_extract(corpus):
     p1, p1a = best_pair
     # fin de Item1A: buscar el siguiente header plausible (Item 1B o Item 2) tras p1a,
     # tambien sobre el corpus sin espacios por la misma razon que arriba
-    end_re_stripped = re.compile(r"item1b[.:\-]?unresolved|item2[.:\-]?propert")
+    end_re_stripped = re.compile(r"item1b[.:\-—–]?unresolved|item2[.:\-—–]?propert")
     end_matches = [index_map[m.start()] for m in end_re_stripped.finditer(stripped) if index_map[m.start()] > p1a]
     end = min(end_matches) if end_matches else min(p1a + BANDS["item1a"][1], len(corpus))
 

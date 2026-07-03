@@ -1,0 +1,5939 @@
+[
+  {
+    "ticker": "NVDA",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1045810",
+        "accession": "0001045810-26-000021"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 9710,
+      "pos_item1a": 57952,
+      "gap": 48242
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 48222,
+      "item1a_len": 114773,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.207,
+      "risk_density_item1a": 1.063,
+      "ratio_1a_sobre_1": 5.13
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.64,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "MSFT",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "789019",
+        "accession": "0000950170-25-100235"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 6842,
+      "pos_item1a": 55509,
+      "gap": 48667
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 48799,
+      "item1a_len": 68824,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.041,
+      "risk_density_item1a": 1.569,
+      "ratio_1a_sobre_1": 38.29
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.545,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "GOOGL",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1652044",
+        "accession": "0001652044-26-000018"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 9591,
+      "pos_item1a": 33392,
+      "gap": 23801
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 23835,
+      "item1a_len": 85311,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.168,
+      "risk_density_item1a": 1.371,
+      "ratio_1a_sobre_1": 8.17
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.487,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "AMZN",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1018724",
+        "accession": "0001018724-26-000004"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5234,
+      "pos_item1a": 18767,
+      "gap": 13533
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 13497,
+      "item1a_len": 60660,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.074,
+      "risk_density_item1a": 1.385,
+      "ratio_1a_sobre_1": 18.69
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.444,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "META",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1326801",
+        "accession": "0001628280-26-003942"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 17673,
+      "pos_item1a": 42241,
+      "gap": 24568
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 24549,
+      "item1a_len": 195548,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.081,
+      "risk_density_item1a": 1.145,
+      "ratio_1a_sobre_1": 14.06
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.569,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "AAPL",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "320193",
+        "accession": "0000320193-25-000079"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7488,
+      "pos_item1a": 23541,
+      "gap": 16053
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 16054,
+      "item1a_len": 68163,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.125,
+      "risk_density_item1a": 1.849,
+      "ratio_1a_sobre_1": 14.84
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.53,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "LRCX",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "707549",
+        "accession": "0000707549-25-000075"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 11199,
+      "pos_item1a": 61599,
+      "gap": 50400
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 50347,
+      "item1a_len": 81223,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.497,
+      "risk_density_item1a": 1.059,
+      "ratio_1a_sobre_1": 2.13
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.571,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "AMD",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "2488",
+        "accession": "0000002488-26-000018"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5355,
+      "pos_item1a": 65224,
+      "gap": 59869
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 59869,
+      "item1a_len": 131842,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.134,
+      "risk_density_item1a": 1.57,
+      "ratio_1a_sobre_1": 11.75
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.642,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "INTC",
+    "metodo": "NINGUNO",
+    "error": "ningun par Item1/Item1A con gap >= 5000 (posible TOC-only, ver posiciones: item1=[333485], item1a=[333638])",
+    "gate0": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "50863",
+        "accession": "0000050863-26-000011"
+      },
+      "match_portada_informativo": false
+    }
+  },
+  {
+    "ticker": "QCOM",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "804328",
+        "accession": "0000804328-25-000085"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 8197,
+      "pos_item1a": 71355,
+      "gap": 63158
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 63274,
+      "item1a_len": 132677,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.063,
+      "risk_density_item1a": 1.183,
+      "ratio_1a_sobre_1": 18.72
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.69,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "AVGO",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1730168",
+        "accession": "0001730168-25-000121"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7868,
+      "pos_item1a": 53181,
+      "gap": 45313
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 45230,
+      "item1a_len": 90395,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.199,
+      "risk_density_item1a": 1.637,
+      "ratio_1a_sobre_1": 8.23
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.56,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "PLTR",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1a'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1321655",
+        "accession": "0001321655-26-000011"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 13165,
+      "pos_item1a": 48794,
+      "gap": 35629
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 35629,
+      "item1a_len": 298644,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.196,
+      "risk_density_item1a": 0.984,
+      "ratio_1a_sobre_1": 5.01
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.755,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CRM",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1108524",
+        "accession": "0001108524-26-000060"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7906,
+      "pos_item1a": 51599,
+      "gap": 43693
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 43660,
+      "item1a_len": 113279,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.023,
+      "risk_density_item1a": 1.218,
+      "ratio_1a_sobre_1": 53.19
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.548,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "NOW",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1373715",
+        "accession": "0001373715-26-000007"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5229,
+      "pos_item1a": 57592,
+      "gap": 52363
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 52250,
+      "item1a_len": 82463,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.536,
+      "risk_density_item1a": 1.552,
+      "ratio_1a_sobre_1": 2.9
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.548,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "SNOW",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1640147",
+        "accession": "0001640147-26-000008"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 11985,
+      "pos_item1a": 68963,
+      "gap": 56978
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 56791,
+      "item1a_len": 165047,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.387,
+      "risk_density_item1a": 0.988,
+      "ratio_1a_sobre_1": 2.55
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.598,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "MDB",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1441816",
+        "accession": "0001628280-26-016799"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 13902,
+      "pos_item1a": 66336,
+      "gap": 52434
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 52382,
+      "item1a_len": 196043,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.115,
+      "risk_density_item1a": 1.199,
+      "ratio_1a_sobre_1": 10.47
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.699,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "NET",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1477333",
+        "accession": "0001477333-26-000016"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 19394,
+      "pos_item1a": 63056,
+      "gap": 43662
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 43662,
+      "item1a_len": 270495,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.092,
+      "risk_density_item1a": 0.869,
+      "ratio_1a_sobre_1": 9.48
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.708,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "MRNA",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1682852",
+        "accession": "0001682852-26-000033"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 17601,
+      "pos_item1a": 182952,
+      "gap": 165351
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 165118,
+      "item1a_len": 190514,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.321,
+      "risk_density_item1a": 1.045,
+      "ratio_1a_sobre_1": 3.25
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.733,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "RXRX",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1601830",
+        "accession": "0001601830-26-000039"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 34256,
+      "pos_item1a": 274243,
+      "gap": 239987
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 239543,
+      "item1a_len": 327714,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.238,
+      "risk_density_item1a": 1.025,
+      "ratio_1a_sobre_1": 4.31
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.818,
+      "techo_superado_pero_verificado_informativo": true
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ISRG",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1035267",
+        "accession": "0001035267-26-000010"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 19984,
+      "pos_item1a": 137642,
+      "gap": 117658
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 117571,
+      "item1a_len": 185835,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.196,
+      "risk_density_item1a": 1.313,
+      "ratio_1a_sobre_1": 6.71
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.638,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ENPH",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1463101",
+        "accession": "0001463101-26-000013"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 16811,
+      "pos_item1a": 67042,
+      "gap": 50231
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 50148,
+      "item1a_len": 133921,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.219,
+      "risk_density_item1a": 1.225,
+      "ratio_1a_sobre_1": 5.58
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.576,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "FSLR",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1274494",
+        "accession": "0001274494-26-000021"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 12533,
+      "pos_item1a": 76469,
+      "gap": 63936
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 63818,
+      "item1a_len": 122772,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.533,
+      "risk_density_item1a": 0.937,
+      "ratio_1a_sobre_1": 1.76
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.562,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "TSLA",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1318605",
+        "accession": "0001628280-26-003952"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7715,
+      "pos_item1a": 53171,
+      "gap": 45456
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 45456,
+      "item1a_len": 83741,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.154,
+      "risk_density_item1a": 0.669,
+      "ratio_1a_sobre_1": 4.34
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.542,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "GM",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1467858",
+        "accession": "0001467858-26-000013"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 6394,
+      "pos_item1a": 56429,
+      "gap": 50035
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 49981,
+      "item1a_len": 67212,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.32,
+      "risk_density_item1a": 1.071,
+      "ratio_1a_sobre_1": 3.35
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.427,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "TXN",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "97476",
+        "accession": "0000097476-26-000059"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 3584,
+      "pos_item1a": 25293,
+      "gap": 21709
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 21794,
+      "item1a_len": 27499,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.092,
+      "risk_density_item1a": 1.6,
+      "ratio_1a_sobre_1": 17.44
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.44,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": "INCORPORADO_POR_REFERENCIA"
+  },
+  {
+    "ticker": "WOLF",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "895419",
+        "accession": "0000895419-25-000110"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7232,
+      "pos_item1a": 44519,
+      "gap": 37287
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 37258,
+      "item1a_len": 137024,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.268,
+      "risk_density_item1a": 1.204,
+      "ratio_1a_sobre_1": 4.49
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.574,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "GOOG",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1652044",
+        "accession": "0001652044-26-000018"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 9591,
+      "pos_item1a": 33392,
+      "gap": 23801
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 23835,
+      "item1a_len": 85311,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.168,
+      "risk_density_item1a": 1.371,
+      "ratio_1a_sobre_1": 8.17
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.487,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "UBER",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1543151",
+        "accession": "0001543151-26-000015"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 12370,
+      "pos_item1a": 43277,
+      "gap": 30907
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 30968,
+      "item1a_len": 232493,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.291,
+      "risk_density_item1a": 1.239,
+      "ratio_1a_sobre_1": 4.26
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.642,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ABNB",
+    "metodo": "edgartools_divergente+fallback_corroborado",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": {
+      "razon": "gate1 fallo sobre texto de edgartools -- cross-check automatico con fallback",
+      "resultado": "corroborado",
+      "len_ratio_item1a": 0.896,
+      "fallback_item1_len": 15921,
+      "fallback_item1a_len": 174613
+    },
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1559720",
+        "accession": "0001559720-26-000004"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 20822,
+      "pos_item1a": 36743,
+      "gap": 15921
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 15921,
+      "item1a_len": 174613,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.126,
+      "risk_density_item1a": 1.334,
+      "ratio_1a_sobre_1": 10.62
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.627,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "SHOP",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1594805",
+        "accession": "0001594805-26-000007"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 16842,
+      "pos_item1a": 38319,
+      "gap": 21477
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 21477,
+      "item1a_len": 145437,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.419,
+      "risk_density_item1a": 1.306,
+      "ratio_1a_sobre_1": 3.12
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.576,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ADBE",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "796343",
+        "accession": "0000796343-26-000003"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5460,
+      "pos_item1a": 70665,
+      "gap": 65205
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 65183,
+      "item1a_len": 69530,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.184,
+      "risk_density_item1a": 1.179,
+      "ratio_1a_sobre_1": 6.41
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.581,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ORCL",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1341439",
+        "accession": "0001193125-26-277521"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7063,
+      "pos_item1a": 63299,
+      "gap": 56236
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 56382,
+      "item1a_len": 101696,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.266,
+      "risk_density_item1a": 1.642,
+      "ratio_1a_sobre_1": 6.17
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.574,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "IBM",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "51143",
+        "accession": "0000051143-26-000010"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 4938,
+      "pos_item1a": 15053,
+      "gap": 10115
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 10116,
+      "item1a_len": 36184,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.198,
+      "risk_density_item1a": 1.575,
+      "ratio_1a_sobre_1": 7.97
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.506,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "LLY",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "59478",
+        "accession": "0000059478-26-000013"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 12012,
+      "pos_item1a": 95922,
+      "gap": 83910
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 84170,
+      "item1a_len": 77580,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.618,
+      "risk_density_item1a": 1.366,
+      "ratio_1a_sobre_1": 2.21
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.609,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "PANW",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1327567",
+        "accession": "0001327567-25-000027"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 10601,
+      "pos_item1a": 65271,
+      "gap": 54670
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 54606,
+      "item1a_len": 132178,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.275,
+      "risk_density_item1a": 1.49,
+      "ratio_1a_sobre_1": 5.43
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.619,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CRWD",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1535527",
+        "accession": "0001535527-26-000010"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 11374,
+      "pos_item1a": 88659,
+      "gap": 77285
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 77140,
+      "item1a_len": 178067,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.363,
+      "risk_density_item1a": 1.275,
+      "ratio_1a_sobre_1": 3.51
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.674,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "APP",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1751008",
+        "accession": "0001751008-26-000010"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 11511,
+      "pos_item1a": 37736,
+      "gap": 26225
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 26197,
+      "item1a_len": 156744,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.305,
+      "risk_density_item1a": 1.429,
+      "ratio_1a_sobre_1": 4.68
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.645,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "MSTR",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1050446",
+        "accession": "0001050446-26-000020"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 16050,
+      "pos_item1a": 72831,
+      "gap": 56781
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 56996,
+      "item1a_len": 211871,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.649,
+      "risk_density_item1a": 0.963,
+      "ratio_1a_sobre_1": 1.48
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.604,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "INTU",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "896878",
+        "accession": "0000896878-25-000035"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 10692,
+      "pos_item1a": 65181,
+      "gap": 54489
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 54554,
+      "item1a_len": 86090,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.073,
+      "risk_density_item1a": 1.266,
+      "ratio_1a_sobre_1": 17.27
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.516,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "FTNT",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1262039",
+        "accession": "0001262039-26-000007"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 14244,
+      "pos_item1a": 55933,
+      "gap": 41689
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 41616,
+      "item1a_len": 201994,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.24,
+      "risk_density_item1a": 1.277,
+      "ratio_1a_sobre_1": 5.32
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.635,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CRCL",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1876042",
+        "accession": "0001876042-26-000062"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 14686,
+      "pos_item1a": 75063,
+      "gap": 60377
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 60522,
+      "item1a_len": 195643,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.38,
+      "risk_density_item1a": 1.017,
+      "ratio_1a_sobre_1": 2.68
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.513,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CDNS",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "813672",
+        "accession": "0000813672-26-000016"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5836,
+      "pos_item1a": 59688,
+      "gap": 53852
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 53768,
+      "item1a_len": 132651,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.205,
+      "risk_density_item1a": 1.357,
+      "ratio_1a_sobre_1": 6.63
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.619,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "SNPS",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "883241",
+        "accession": "0000883241-25-000028"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 11041,
+      "pos_item1a": 61208,
+      "gap": 50167
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 50077,
+      "item1a_len": 68373,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.26,
+      "risk_density_item1a": 1.419,
+      "ratio_1a_sobre_1": 5.46
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.463,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "WDAY",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1327811",
+        "accession": "0001327811-26-000014"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 8452,
+      "pos_item1a": 44510,
+      "gap": 36058
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 36007,
+      "item1a_len": 124045,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.111,
+      "risk_density_item1a": 1.314,
+      "ratio_1a_sobre_1": 11.83
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.599,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ZS",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1713683",
+        "accession": "0001713683-25-000158"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 10313,
+      "pos_item1a": 77555,
+      "gap": 67242
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 67145,
+      "item1a_len": 161609,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.626,
+      "risk_density_item1a": 1.126,
+      "ratio_1a_sobre_1": 1.8
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.653,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "WULF",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1083301",
+        "accession": "0001083301-26-000031"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5433,
+      "pos_item1a": 40174,
+      "gap": 34741
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 34711,
+      "item1a_len": 62407,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 1.296,
+      "risk_density_item1a": 1.618,
+      "ratio_1a_sobre_1": 1.25
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.402,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "TTWO",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "946581",
+        "accession": "0001628280-26-037434"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7619,
+      "pos_item1a": 39930,
+      "gap": 32311
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 32491,
+      "item1a_len": 170607,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.246,
+      "risk_density_item1a": 1.096,
+      "ratio_1a_sobre_1": 4.45
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.67,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "TEAM",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1650372",
+        "accession": "0001650372-25-000036"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 9543,
+      "pos_item1a": 44922,
+      "gap": 35379
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 35501,
+      "item1a_len": 163601,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.085,
+      "risk_density_item1a": 1.174,
+      "ratio_1a_sobre_1": 13.89
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.674,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "BMNR",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1829311",
+        "accession": "0001493152-25-024679"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 11693,
+      "pos_item1a": 27208,
+      "gap": 15515
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 15814,
+      "item1a_len": 40432,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.696,
+      "risk_density_item1a": 2.251,
+      "ratio_1a_sobre_1": 3.24
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.427,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": "INCORPORADO_POR_REFERENCIA"
+  },
+  {
+    "ticker": "MARA",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1507605",
+        "accession": "0001507605-26-000007"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 8649,
+      "pos_item1a": 46014,
+      "gap": 37365
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 37351,
+      "item1a_len": 91696,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.107,
+      "risk_density_item1a": 1.647,
+      "ratio_1a_sobre_1": 15.38
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.518,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ADSK",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "769397",
+        "accession": "0000769397-26-000015"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 9155,
+      "pos_item1a": 57337,
+      "gap": 48182
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 48223,
+      "item1a_len": 103734,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.498,
+      "risk_density_item1a": 1.205,
+      "ratio_1a_sobre_1": 2.42
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.518,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CIFR",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1819989",
+        "accession": "0001819989-26-000009"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 16875,
+      "pos_item1a": 68288,
+      "gap": 51413
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 51641,
+      "item1a_len": 122496,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.484,
+      "risk_density_item1a": 1.584,
+      "ratio_1a_sobre_1": 3.27
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.54,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "HUT",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1964789",
+        "accession": "0001104659-26-019392"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 15163,
+      "pos_item1a": 59704,
+      "gap": 44541
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 44904,
+      "item1a_len": 154536,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.423,
+      "risk_density_item1a": 1.411,
+      "ratio_1a_sobre_1": 3.33
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.546,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "FICO",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "814547",
+        "accession": "0000814547-25-000030"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 8251,
+      "pos_item1a": 74245,
+      "gap": 65994
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 65850,
+      "item1a_len": 70874,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.334,
+      "risk_density_item1a": 1.284,
+      "ratio_1a_sobre_1": 3.84
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.532,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "MU",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "723125",
+        "accession": "0000723125-25-000028"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 10085,
+      "pos_item1a": 69439,
+      "gap": 59354
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 59303,
+      "item1a_len": 102420,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.287,
+      "risk_density_item1a": 1.435,
+      "ratio_1a_sobre_1": 5.01
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.614,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "KLAC",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "319201",
+        "accession": "0000319201-25-000024"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 15286,
+      "pos_item1a": 64550,
+      "gap": 49264
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 49157,
+      "item1a_len": 124674,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.468,
+      "risk_density_item1a": 1.163,
+      "ratio_1a_sobre_1": 2.49
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.605,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ALAB",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1736297",
+        "accession": "0001736297-26-000010"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 13527,
+      "pos_item1a": 36863,
+      "gap": 23336
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 23315,
+      "item1a_len": 160343,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.257,
+      "risk_density_item1a": 1.254,
+      "ratio_1a_sobre_1": 4.87
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.662,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CRDO",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1807794",
+        "accession": "0001628280-26-043303"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 15188,
+      "pos_item1a": 55371,
+      "gap": 40183
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 40303,
+      "item1a_len": 173002,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.149,
+      "risk_density_item1a": 1.139,
+      "ratio_1a_sobre_1": 7.65
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.734,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ADI",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "6281",
+        "accession": "0000006281-25-000153"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 9000,
+      "pos_item1a": 53412,
+      "gap": 44412
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 44520,
+      "item1a_len": 81046,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.18,
+      "risk_density_item1a": 1.333,
+      "ratio_1a_sobre_1": 7.42
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.527,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "TER",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "97210",
+        "accession": "0001193125-26-059002"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 6813,
+      "pos_item1a": 41069,
+      "gap": 34256
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 34304,
+      "item1a_len": 58624,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.35,
+      "risk_density_item1a": 1.484,
+      "ratio_1a_sobre_1": 4.24
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.476,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "NXPI",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1413447",
+        "accession": "0001413447-26-000008"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 12605,
+      "pos_item1a": 64548,
+      "gap": 51943
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 52101,
+      "item1a_len": 78633,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.211,
+      "risk_density_item1a": 1.399,
+      "ratio_1a_sobre_1": 6.63
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.514,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "MPWR",
+    "metodo": "edgartools_divergente+fallback_corroborado",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": {
+      "razon": "gate1 fallo sobre texto de edgartools -- cross-check automatico con fallback",
+      "resultado": "corroborado",
+      "len_ratio_item1a": 1.025,
+      "fallback_item1_len": 21967,
+      "fallback_item1a_len": 118249
+    },
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1280452",
+        "accession": "0001437749-26-006113"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 15630,
+      "pos_item1a": 37597,
+      "gap": 21967
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 21967,
+      "item1a_len": 118249,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.319,
+      "risk_density_item1a": 1.564,
+      "ratio_1a_sobre_1": 4.91
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.616,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "MCHP",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "827054",
+        "accession": "0000827054-26-000016"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 10599,
+      "pos_item1a": 48824,
+      "gap": 38225
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 38324,
+      "item1a_len": 159981,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.078,
+      "risk_density_item1a": 1.119,
+      "ratio_1a_sobre_1": 14.29
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.626,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "MTSI",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1493594",
+        "accession": "0001493594-25-000054"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7905,
+      "pos_item1a": 52050,
+      "gap": 44145
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 44224,
+      "item1a_len": 94655,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.204,
+      "risk_density_item1a": 1.331,
+      "ratio_1a_sobre_1": 6.54
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.609,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ENTG",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1101302",
+        "accession": "0001101302-26-000012"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5939,
+      "pos_item1a": 64341,
+      "gap": 58402
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 58452,
+      "item1a_len": 84561,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.222,
+      "risk_density_item1a": 1.265,
+      "ratio_1a_sobre_1": 5.69
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.542,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "RMBS",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "917273",
+        "accession": "0001193125-26-057101"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 10737,
+      "pos_item1a": 34924,
+      "gap": 24187
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 24239,
+      "item1a_len": 117395,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.124,
+      "risk_density_item1a": 1.218,
+      "ratio_1a_sobre_1": 9.84
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.544,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "SWKS",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "4127",
+        "accession": "0000004127-25-000085"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 11403,
+      "pos_item1a": 39952,
+      "gap": 28549
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 28549,
+      "item1a_len": 119043,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.175,
+      "risk_density_item1a": 1.478,
+      "ratio_1a_sobre_1": 8.44
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.654,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "BE",
+    "metodo": "NINGUNO",
+    "error": "no se encontraron headers de Item 1 o Item 1A",
+    "gate0": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1664703",
+        "accession": "0001628280-26-006516"
+      },
+      "match_portada_informativo": false
+    }
+  },
+  {
+    "ticker": "NXT",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1852131",
+        "accession": "0001852131-26-000017"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 12845,
+      "pos_item1a": 81616,
+      "gap": 68771
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 68937,
+      "item1a_len": 167154,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.406,
+      "risk_density_item1a": 1.304,
+      "ratio_1a_sobre_1": 3.21
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.66,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "TE",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1992243",
+        "accession": "0001992243-26-000007"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 11299,
+      "pos_item1a": 56916,
+      "gap": 45617
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 45617,
+      "item1a_len": 141283,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.658,
+      "risk_density_item1a": 1.196,
+      "ratio_1a_sobre_1": 1.82
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.648,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "SEDG",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1419612",
+        "accession": "0001178913-26-000632"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 14072,
+      "pos_item1a": 91569,
+      "gap": 77497
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 77677,
+      "item1a_len": 136102,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.129,
+      "risk_density_item1a": 0.992,
+      "ratio_1a_sobre_1": 7.7
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.611,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "PLUG",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1093691",
+        "accession": "0001104659-26-022286"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 23596,
+      "pos_item1a": 63756,
+      "gap": 40160
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 40178,
+      "item1a_len": 163630,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.174,
+      "risk_density_item1a": 1.289,
+      "ratio_1a_sobre_1": 7.4
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.472,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CNH",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1567094",
+        "accession": "0001567094-26-000006"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5448,
+      "pos_item1a": 70633,
+      "gap": 65185
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 65389,
+      "item1a_len": 84760,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.245,
+      "risk_density_item1a": 1.652,
+      "ratio_1a_sobre_1": 6.75
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.53,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "RUN",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1469367",
+        "accession": "0001628280-26-012289"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 19685,
+      "pos_item1a": 59468,
+      "gap": 39783
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 39873,
+      "item1a_len": 192430,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.125,
+      "risk_density_item1a": 0.847,
+      "ratio_1a_sobre_1": 6.75
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.632,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "SHLS",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1831651",
+        "accession": "0001831651-26-000021"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 8186,
+      "pos_item1a": 34604,
+      "gap": 26418
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 26421,
+      "item1a_len": 61293,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.114,
+      "risk_density_item1a": 1.387,
+      "ratio_1a_sobre_1": 12.21
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.448,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CWEN",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1567683",
+        "accession": "0001628280-26-010952"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 13605,
+      "pos_item1a": 48969,
+      "gap": 35364
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 35407,
+      "item1a_len": 134998,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.311,
+      "risk_density_item1a": 1.319,
+      "ratio_1a_sobre_1": 4.24
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.476,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ARRY",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1820721",
+        "accession": "0001820721-26-000008"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 17749,
+      "pos_item1a": 55795,
+      "gap": 38046
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 38141,
+      "item1a_len": 133419,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.157,
+      "risk_density_item1a": 1.117,
+      "ratio_1a_sobre_1": 7.1
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.533,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "HASI",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1561894",
+        "accession": "0001561894-26-000007"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 13771,
+      "pos_item1a": 56588,
+      "gap": 42817
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 42817,
+      "item1a_len": 126176,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.35,
+      "risk_density_item1a": 1.284,
+      "ratio_1a_sobre_1": 3.66
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.493,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": "INCORPORADO_POR_REFERENCIA"
+  },
+  {
+    "ticker": "GPRE",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1309402",
+        "accession": "0001309402-26-000019"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 12547,
+      "pos_item1a": 57214,
+      "gap": 44667
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 44608,
+      "item1a_len": 64963,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.336,
+      "risk_density_item1a": 1.385,
+      "ratio_1a_sobre_1": 4.12
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.422,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ABBV",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1551152",
+        "accession": "0001551152-26-000008"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5240,
+      "pos_item1a": 76372,
+      "gap": 71132
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 71491,
+      "item1a_len": 64081,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.196,
+      "risk_density_item1a": 1.342,
+      "ratio_1a_sobre_1": 6.85
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.507,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "AMGN",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "318154",
+        "accession": "0000318154-26-000010"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 11801,
+      "pos_item1a": 121446,
+      "gap": 109645
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 109942,
+      "item1a_len": 157334,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.464,
+      "risk_density_item1a": 1.131,
+      "ratio_1a_sobre_1": 2.44
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.609,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "GILD",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "882095",
+        "accession": "0000882095-26-000006"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 9598,
+      "pos_item1a": 69572,
+      "gap": 59974
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 60162,
+      "item1a_len": 83472,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.681,
+      "risk_density_item1a": 1.282,
+      "ratio_1a_sobre_1": 1.88
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.543,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "VRTX",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "875320",
+        "accession": "0000875320-26-000056"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 6611,
+      "pos_item1a": 116385,
+      "gap": 109774
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 111676,
+      "item1a_len": 72834,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.09,
+      "risk_density_item1a": 1.455,
+      "ratio_1a_sobre_1": 16.25
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.613,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": "INCORPORADO_POR_REFERENCIA"
+  },
+  {
+    "ticker": "RVMD",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1628171",
+        "accession": "0001193125-26-071563"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 14860,
+      "pos_item1a": 120922,
+      "gap": 106062
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 106421,
+      "item1a_len": 278878,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.226,
+      "risk_density_item1a": 0.832,
+      "ratio_1a_sobre_1": 3.69
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.8,
+      "techo_superado_pero_verificado_informativo": true
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "REGN",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "872589",
+        "accession": "0000872589-26-000008"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 6492,
+      "pos_item1a": 142424,
+      "gap": 135932
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 135693,
+      "item1a_len": 212965,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.457,
+      "risk_density_item1a": 1.066,
+      "ratio_1a_sobre_1": 2.33
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.751,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "NTRA",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1604821",
+        "accession": "0001104659-26-020881"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 16684,
+      "pos_item1a": 129770,
+      "gap": 113086
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 112946,
+      "item1a_len": 173102,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.496,
+      "risk_density_item1a": 1.259,
+      "ratio_1a_sobre_1": 2.54
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.716,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "INSM",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1104506",
+        "accession": "0001104506-26-000009"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 16387,
+      "pos_item1a": 180318,
+      "gap": 163931
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 164258,
+      "item1a_len": 167686,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.183,
+      "risk_density_item1a": 1.157,
+      "ratio_1a_sobre_1": 6.33
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.738,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ALNY",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1178670",
+        "accession": "0001628280-26-007497"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 15211,
+      "pos_item1a": 201764,
+      "gap": 186553
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 186265,
+      "item1a_len": 225181,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.183,
+      "risk_density_item1a": 0.937,
+      "ratio_1a_sobre_1": 5.13
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.786,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": "INCORPORADO_POR_REFERENCIA"
+  },
+  {
+    "ticker": "APGE",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1974640",
+        "accession": "0001974640-26-000002"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 13472,
+      "pos_item1a": 235966,
+      "gap": 222494
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 222302,
+      "item1a_len": 186842,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.283,
+      "risk_density_item1a": 1.194,
+      "ratio_1a_sobre_1": 4.21
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.81,
+      "techo_superado_pero_verificado_informativo": true
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "UTHR",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1082554",
+        "accession": "0001082554-26-000006"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5155,
+      "pos_item1a": 166643,
+      "gap": 161488
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 161629,
+      "item1a_len": 91996,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.285,
+      "risk_density_item1a": 0.924,
+      "ratio_1a_sobre_1": 3.25
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.678,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "NUVL",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1861560",
+        "accession": "0001193125-26-073317"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 24272,
+      "pos_item1a": 239166,
+      "gap": 214894
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 215341,
+      "item1a_len": 337796,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.251,
+      "risk_density_item1a": 0.873,
+      "ratio_1a_sobre_1": 3.48
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.839,
+      "techo_superado_pero_verificado_informativo": true
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "BIIB",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "875045",
+        "accession": "0000875045-26-000013"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 23397,
+      "pos_item1a": 164718,
+      "gap": 141321
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 140780,
+      "item1a_len": 83742,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.412,
+      "risk_density_item1a": 1.349,
+      "ratio_1a_sobre_1": 3.28
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.519,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "BBIO",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "confidence_item1": 0.5,
+      "confidence_item1a": 0.5,
+      "warnings": [
+        "Item 1 content is 2,116 chars, below the expected minimum of 8,034 for a 10-K — the section anchor may point at a heading rather than the item body (extraction likely truncated).",
+        "Item 1A content is 656 chars, below the expected minimum of 15,978 for a 10-K — the section anchor may point at a heading rather than the item body (extraction likely truncated)."
+      ]
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1743881",
+        "accession": "0001743881-26-000009"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 20863,
+      "pos_item1a": 254440,
+      "gap": 233577
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 233577,
+      "item1a_len": 333127,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.218,
+      "risk_density_item1a": 0.988,
+      "ratio_1a_sobre_1": 4.52
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.756,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CYTK",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1061983",
+        "accession": "0001193125-26-076495"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 18588,
+      "pos_item1a": 111448,
+      "gap": 92860
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 93247,
+      "item1a_len": 87719,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.354,
+      "risk_density_item1a": 0.969,
+      "ratio_1a_sobre_1": 2.74
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.594,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "NBIX",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "914475",
+        "accession": "0000914475-26-000007"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7659,
+      "pos_item1a": 84651,
+      "gap": 76992
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 77158,
+      "item1a_len": 154484,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.233,
+      "risk_density_item1a": 0.945,
+      "ratio_1a_sobre_1": 4.05
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.729,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ROIV",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1635088",
+        "accession": "0001635088-26-000061"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 27022,
+      "pos_item1a": 254172,
+      "gap": 227150
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 226502,
+      "item1a_len": 408983,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": true
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.274,
+      "risk_density_item1a": 0.951,
+      "ratio_1a_sobre_1": 3.47
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.812,
+      "techo_superado_pero_verificado_informativo": true
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "INCY",
+    "metodo": "edgartools_divergente+fallback_no_coincide",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": {
+      "razon": "gate1 fallo sobre texto de edgartools -- cross-check automatico con fallback",
+      "resultado": "diverge",
+      "len_ratio_item1a": 0.571,
+      "fallback_item1_len": 93595,
+      "fallback_item1a_len": 133911
+    },
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "879169",
+        "accession": "0000879169-26-000010"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": false,
+      "detalle": "item1a no aparece despues de item1 (pos1=12841, pos1a_all=[12841])"
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 239244,
+      "item1a_len": 234648,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": false,
+      "risk_density_item1": 0.92,
+      "risk_density_item1a": 0.899,
+      "ratio_1a_sobre_1": 0.98
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 1.353,
+      "techo_superado_pero_verificado_informativo": true
+    },
+    "gate5_caso_especial": "CROSS_CHECK_DIVERGENTE"
+  },
+  {
+    "ticker": "MDGL",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1157601",
+        "accession": "0001628280-26-009514"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 21961,
+      "pos_item1a": 160691,
+      "gap": 138730
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 138672,
+      "item1a_len": 212216,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.325,
+      "risk_density_item1a": 1.027,
+      "ratio_1a_sobre_1": 3.17
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.762,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": "INCORPORADO_POR_REFERENCIA"
+  },
+  {
+    "ticker": "TWST",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1581280",
+        "accession": "0001581280-25-000025"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 10662,
+      "pos_item1a": 56770,
+      "gap": 46108
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 46083,
+      "item1a_len": 149023,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.065,
+      "risk_density_item1a": 1.181,
+      "ratio_1a_sobre_1": 18.14
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.683,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CSCO",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "858877",
+        "accession": "0000858877-25-000111"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7007,
+      "pos_item1a": 55049,
+      "gap": 48042
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 48023,
+      "item1a_len": 89503,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.604,
+      "risk_density_item1a": 0.682,
+      "ratio_1a_sobre_1": 1.13
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.519,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CRWV",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1769628",
+        "accession": "0001769628-26-000104"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 12692,
+      "pos_item1a": 52077,
+      "gap": 39385
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 39377,
+      "item1a_len": 266276,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.203,
+      "risk_density_item1a": 1.157,
+      "ratio_1a_sobre_1": 5.69
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.722,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "COHR",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "820318",
+        "accession": "0000820318-25-000014"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 15861,
+      "pos_item1a": 59702,
+      "gap": 43841
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 43956,
+      "item1a_len": 88777,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.114,
+      "risk_density_item1a": 1.183,
+      "ratio_1a_sobre_1": 10.4
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.538,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "HON",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "773840",
+        "accession": "0000773840-26-000013"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5545,
+      "pos_item1a": 75412,
+      "gap": 69867
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 69681,
+      "item1a_len": 104378,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.287,
+      "risk_density_item1a": 0.881,
+      "ratio_1a_sobre_1": 3.07
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.67,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "RTX",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "101829",
+        "accession": "0000101829-26-000006"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5797,
+      "pos_item1a": 52213,
+      "gap": 46416
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 46365,
+      "item1a_len": 98583,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.474,
+      "risk_density_item1a": 1.238,
+      "ratio_1a_sobre_1": 2.61
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.41,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "HPE",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1645590",
+        "accession": "0001645590-25-000130"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 13459,
+      "pos_item1a": 88022,
+      "gap": 74563
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 74582,
+      "item1a_len": 139765,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.349,
+      "risk_density_item1a": 1.424,
+      "ratio_1a_sobre_1": 4.08
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.517,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "QBTS",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1907982",
+        "accession": "0001907982-26-000026"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 20468,
+      "pos_item1a": 130402,
+      "gap": 109934
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 110027,
+      "item1a_len": 144008,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.055,
+      "risk_density_item1a": 1.451,
+      "ratio_1a_sobre_1": 26.61
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.717,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "LMT",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "936468",
+        "accession": "0001628280-26-004195"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5367,
+      "pos_item1a": 42518,
+      "gap": 37151
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 37110,
+      "item1a_len": 78572,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.62,
+      "risk_density_item1a": 1.705,
+      "ratio_1a_sobre_1": 2.75
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.416,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "NOC",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1133421",
+        "accession": "0001133421-26-000003"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 6413,
+      "pos_item1a": 34361,
+      "gap": 27948
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 27978,
+      "item1a_len": 75777,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.536,
+      "risk_density_item1a": 1.993,
+      "ratio_1a_sobre_1": 3.72
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.403,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "MKSI",
+    "metodo": "edgartools_divergente+fallback_corroborado",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": {
+      "razon": "gate1 fallo sobre texto de edgartools -- cross-check automatico con fallback",
+      "resultado": "corroborado",
+      "len_ratio_item1a": 0.75,
+      "fallback_item1_len": 36148,
+      "fallback_item1a_len": 131554
+    },
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1049502",
+        "accession": "0001193125-26-066820"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 15540,
+      "pos_item1a": 51688,
+      "gap": 36148
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 36148,
+      "item1a_len": 131554,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.277,
+      "risk_density_item1a": 1.019,
+      "ratio_1a_sobre_1": 3.68
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.507,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ONTO",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "704532",
+        "accession": "0001193125-26-066937"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7542,
+      "pos_item1a": 55005,
+      "gap": 47463
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 47555,
+      "item1a_len": 93619,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.126,
+      "risk_density_item1a": 1.538,
+      "ratio_1a_sobre_1": 12.19
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.603,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "LSCC",
+    "metodo": "edgartools_divergente+fallback_corroborado",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": {
+      "razon": "gate1 fallo sobre texto de edgartools -- cross-check automatico con fallback",
+      "resultado": "corroborado",
+      "len_ratio_item1a": 0.962,
+      "fallback_item1_len": 35382,
+      "fallback_item1a_len": 106221
+    },
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "855658",
+        "accession": "0001437749-26-004100"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 13601,
+      "pos_item1a": 48983,
+      "gap": 35382
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 35382,
+      "item1a_len": 106221,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.0,
+      "risk_density_item1a": 1.271,
+      "ratio_1a_sobre_1": 127.09
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.602,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "INFQ",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "2007825",
+        "accession": "0001193125-26-134544"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 24473,
+      "pos_item1a": 83716,
+      "gap": 59243
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 59456,
+      "item1a_len": 198360,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.05,
+      "risk_density_item1a": 1.028,
+      "ratio_1a_sobre_1": 20.38
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.634,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "NTNX",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1618732",
+        "accession": "0001193125-25-213801"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 12066,
+      "pos_item1a": 51938,
+      "gap": 39872
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 39769,
+      "item1a_len": 184226,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.126,
+      "risk_density_item1a": 1.189,
+      "ratio_1a_sobre_1": 9.46
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.62,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "QUBT",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1758009",
+        "accession": "0001213900-26-022417"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 9491,
+      "pos_item1a": 43776,
+      "gap": 34285
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 36802,
+      "item1a_len": 95982,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.0,
+      "risk_density_item1a": 1.344,
+      "ratio_1a_sobre_1": 134.4
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.579,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ESTC",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "1707753",
+        "accession": "0001707753-26-000018"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 22233,
+      "pos_item1a": 78104,
+      "gap": 55871
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 55907,
+      "item1a_len": 165897,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.089,
+      "risk_density_item1a": 1.248,
+      "ratio_1a_sobre_1": 13.95
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.643,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CRUS",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "772406",
+        "accession": "0000772406-26-000018"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 5471,
+      "pos_item1a": 33806,
+      "gap": 28335
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 28429,
+      "item1a_len": 99681,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.317,
+      "risk_density_item1a": 1.946,
+      "ratio_1a_sobre_1": 6.15
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.654,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "TDC",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "816761",
+        "accession": "0001628280-26-012671"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 9594,
+      "pos_item1a": 48385,
+      "gap": 38791
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 38708,
+      "item1a_len": 65403,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.207,
+      "risk_density_item1a": 1.346,
+      "ratio_1a_sobre_1": 6.51
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.51,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "RDNT",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "790526",
+        "accession": "0001628280-26-013337"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 8289,
+      "pos_item1a": 84504,
+      "gap": 76215
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 76460,
+      "item1a_len": 81661,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.209,
+      "risk_density_item1a": 1.347,
+      "ratio_1a_sobre_1": 6.44
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.584,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "NVEC",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1a'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "724910",
+        "accession": "0001376474-26-000348"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7681,
+      "pos_item1a": 26529,
+      "gap": 18848
+    },
+    "gate2_longitud": {
+      "pass": false,
+      "item1_len": 18848,
+      "item1a_len": 19053,
+      "item1_en_banda": true,
+      "item1a_en_banda": false,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.053,
+      "risk_density_item1a": 1.732,
+      "ratio_1a_sobre_1": 32.64
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.454,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "AMAT",
+    "metodo": "edgartools_divergente+fallback_corroborado",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": {
+      "razon": "gate1 fallo sobre texto de edgartools -- cross-check automatico con fallback",
+      "resultado": "corroborado",
+      "len_ratio_item1a": 0.932,
+      "fallback_item1_len": 29116,
+      "fallback_item1a_len": 68577
+    },
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0000006951",
+        "accession": "0001628280-25-056742"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 7450,
+      "pos_item1a": 36566,
+      "gap": 29116
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 29116,
+      "item1a_len": 68577,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.481,
+      "risk_density_item1a": 0.846,
+      "ratio_1a_sobre_1": 1.76
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.515,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "MRVL",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0001835632",
+        "accession": "0001835632-26-000011"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 11162,
+      "pos_item1a": 59112,
+      "gap": 47950
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 47866,
+      "item1a_len": 150520,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.439,
+      "risk_density_item1a": 1.428,
+      "ratio_1a_sobre_1": 3.26
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.615,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "SMCI",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0001375365",
+        "accession": "0001375365-25-000027"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 10165,
+      "pos_item1a": 53680,
+      "gap": 43515
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 43512,
+      "item1a_len": 120601,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.23,
+      "risk_density_item1a": 1.211,
+      "ratio_1a_sobre_1": 5.27
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.343,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "DDOG",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0001561550",
+        "accession": "0001628280-26-008819"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 15816,
+      "pos_item1a": 54950,
+      "gap": 39134
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 39161,
+      "item1a_len": 149851,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.102,
+      "risk_density_item1a": 1.121,
+      "ratio_1a_sobre_1": 10.98
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.66,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "PATH",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0001734722",
+        "accession": "0001734722-26-000012"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 22759,
+      "pos_item1a": 60479,
+      "gap": 37720
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 37606,
+      "item1a_len": 190707,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.293,
+      "risk_density_item1a": 1.18,
+      "ratio_1a_sobre_1": 4.03
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.663,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "IONQ",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0001824920",
+        "accession": "0001193125-26-071562"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 18352,
+      "pos_item1a": 80014,
+      "gap": 61662
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 61928,
+      "item1a_len": 185576,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.081,
+      "risk_density_item1a": 1.169,
+      "ratio_1a_sobre_1": 14.48
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.714,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "RGTI",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0001838359",
+        "accession": "0001104659-26-023454"
+      },
+      "match_portada_informativo": true
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 22145,
+      "pos_item1a": 105379,
+      "gap": 83234
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 83147,
+      "item1a_len": 154466,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.204,
+      "risk_density_item1a": 1.036,
+      "ratio_1a_sobre_1": 5.07
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.673,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "CRSP",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0001674416",
+        "accession": "0001193125-26-048957"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 16967,
+      "pos_item1a": 254257,
+      "gap": 237290
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 237290,
+      "item1a_len": 306984,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.223,
+      "risk_density_item1a": 0.984,
+      "ratio_1a_sobre_1": 4.4
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.811,
+      "techo_superado_pero_verificado_informativo": true
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "BEAM",
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "confidence_item1": 0.5,
+      "confidence_item1a": 0.95,
+      "warnings": [
+        "Item 1 content is 620,359 chars, above the expected maximum of 321,384 for a 10-K — the section boundary may overshoot into adjacent items (extraction likely over-captured)."
+      ]
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0001745999",
+        "accession": "0001193125-26-065194"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 21716,
+      "pos_item1a": 257072,
+      "gap": 235356
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 235356,
+      "item1a_len": 370373,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.276,
+      "risk_density_item1a": 0.886,
+      "ratio_1a_sobre_1": 3.21
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.822,
+      "techo_superado_pero_verificado_informativo": true
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "ON",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0001097864",
+        "accession": "0001097864-26-000006"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 9148,
+      "pos_item1a": 53153,
+      "gap": 44005
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 44042,
+      "item1a_len": 87211,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.522,
+      "risk_density_item1a": 1.846,
+      "ratio_1a_sobre_1": 3.54
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.535,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  },
+  {
+    "ticker": "SOUN",
+    "metodo": "edgartools",
+    "edgartools_meta": {
+      "confidence_item1": 0.95,
+      "confidence_item1a": 0.95,
+      "warnings": []
+    },
+    "cross_check": null,
+    "gate0_identidad": {
+      "pass": true,
+      "metodo": "mecanico_cik_accession",
+      "detalle_mecanico": {
+        "pass": true,
+        "cik_esperado": "0001840856",
+        "accession": "0001840856-26-000006"
+      },
+      "match_portada_informativo": false
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 10316,
+      "pos_item1a": 47973,
+      "gap": 37657
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 37641,
+      "item1a_len": 131379,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.0,
+      "risk_density_item1a": 1.499,
+      "ratio_1a_sobre_1": 149.95
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.416,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
+  }
+]

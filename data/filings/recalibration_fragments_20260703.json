@@ -1,0 +1,354 @@
+{
+  "RXRX": {
+    "metodo": "edgartools",
+    "item1_len": 239543,
+    "item1a_len": 327714,
+    "gate3": {
+      "pass": true,
+      "risk_density": 1.03,
+      "biz_density": 1.72
+    },
+    "gate4": {
+      "pass": false,
+      "ratio": 0.818
+    },
+    "item1": {
+      "inicio": "[...] ave conducted an exhaustive inquiry into, or review of, all potentially available relevant information. These statements are inherently uncertain and you are cautioned not to unduly rely upon them. 7  ▮INICIO▮ Table of Contents Item 1. Business. Business Overview Recursion is a clinical-stage TechBio company with a mission to decode biology to radically improve lives. We have advanced a portfolio of differe [...]",
+      "fin": "[...]  such information, and such information is not a part of, and is not incorporated into, this report. ▮FIN▮  70 Table of Contents Item 1A. Risk Factors. You should carefully consider the risks and uncertainties described below, together with all of the other information contained in this Annual Report on Fo [...]"
+    },
+    "item1a": {
+      "inicio": "[...] and studies. While we believe that such information is reliable, we have not separately verified such information, and such information is not a part of, and is not incorporated into, this report. 70  ▮INICIO▮ Table of Contents Item 1A. Risk Factors. You should carefully consider the risks and uncertainties described below, together with all of the other information contained in this Annual Report on Form 1 [...]",
+      "fin": "[...]  lose visibility in the market for our stock, which in turn could cause our stock price to decline.  ▮FIN▮ 134 Table of Contents Item 1B. Unresolved Staff Comments. None. Item 1C. Cybersecurity. 135 Table of Contents Cybersecurity Governance Item 2. Properties. Recursion’s corporate headquarters are locate [...]"
+    }
+  },
+  "RVMD": {
+    "metodo": "edgartools",
+    "item1_len": 106421,
+    "item1a_len": 278878,
+    "gate3": {
+      "pass": true,
+      "risk_density": 0.83,
+      "biz_density": 2.76
+    },
+    "gate4": {
+      "pass": false,
+      "ratio": 0.8
+    },
+    "item1": {
+      "inicio": "[...]  we currently deem to be immaterial may also materially and adversely affect our business, competitive position, financial condition, results of operations, cash flows and growth prospects. 2 PAR T I  ▮INICIO▮ Item 1. Bus iness. Overview We are a clinical-stage precision oncology company developing novel targeted therapies for RAS-addicted cancers. We possess sophisticated structure-based drug discovery cap [...]",
+      "fin": "[...] eports, proxy and information statements and other information regarding our filings at www.sec.gov. ▮FIN▮  24 Item 1A. Risk Factors. Investing in our common stock involves a high degree of risk. You should carefully consider the risks described below, as well as the other information in this Annual Report [...]"
+    },
+    "item1a": {
+      "inicio": "[...] e file with or furnish to the SEC. The SEC maintains a site on the worldwide web that contains reports, proxy and information statements and other information regarding our filings at www.sec.gov. 24  ▮INICIO▮ Item 1A. Risk Factors. Investing in our common stock involves a high degree of risk. You should carefully consider the risks described below, as well as the other information in this Annual Report on  [...]",
+      "fin": "[...] f our shares and public warrants from the Nasdaq Global Select Market or other adverse consequences. ▮FIN▮  Item 1B. Unresolve d Staff Comments. None. 74 Item 2. Pro perties. Our corporate headquarters is located in Redwood City, California, where we lease and occupy approximately 293,906 square feet of of [...]"
+    }
+  },
+  "APGE": {
+    "metodo": "edgartools",
+    "item1_len": 222302,
+    "item1a_len": 186842,
+    "gate3": {
+      "pass": true,
+      "risk_density": 1.19,
+      "biz_density": 1.94
+    },
+    "gate4": {
+      "pass": false,
+      "ratio": 0.81
+    },
+    "item1": {
+      "inicio": "[...] ntend our use or display of other entities’ trade names, trademarks or service marks to imply a relationship with, or endorsement or sponsorship of us by, any other entity. 4 Table of Contents Part I  ▮INICIO▮ Item 1. Business Overview We are a clinical stage biotechnology company advancing optimized, novel biologics with the potential for differentiated efficacy and dosing in the largest inflammatory and i [...]",
+      "fin": "[...] s reasonably practicable after such material is electronically filed with, or furnished to, the SEC. ▮FIN▮  55 Table of Contents Item 1 A. Risk Factors Investing in our common stock involves a high degree of risk. Before you decide to invest in our common stock, you should consider carefully the risks desc [...]"
+    },
+    "item1a": {
+      "inicio": "[...] to those reports, available on our internet website, free of charge, as soon as reasonably practicable after such material is electronically filed with, or furnished to, the SEC. 55 Table of Contents  ▮INICIO▮ Item 1 A. Risk Factors Investing in our common stock involves a high degree of risk. Before you decide to invest in our common stock, you should consider carefully the risks described below, together  [...]",
+      "fin": "[...] vents could have a material and adverse effect on our results of operations and financial condition. ▮FIN▮  Item 1B . Unresolved Staff Comments. None. 92 Table of Contents Item 2. P roperties. We maintain a corporate headquarters in Waltham, Massachusetts, laboratory and office space in Boston, Massachuset [...]"
+    }
+  },
+  "NUVL": {
+    "metodo": "edgartools",
+    "item1_len": 215341,
+    "item1a_len": 337796,
+    "gate3": {
+      "pass": true,
+      "risk_density": 0.87,
+      "biz_density": 3.51
+    },
+    "gate4": {
+      "pass": false,
+      "ratio": 0.839
+    },
+    "item1": {
+      "inicio": "[...] are affiliated with one of our principal stockholders; and • We do not intend to pay dividends on our common stock so any returns will be limited to the value of our stock. v Table of Contents PART I  ▮INICIO▮ Item 1. Business Overview We are a clinical-stage biopharmaceutical company focused on creating precisely targeted therapies for patients with cancer. We leverage our team’s deep expertise in chemistr [...]",
+      "fin": "[...] ny obligation to update any of those statements or documents unless we are required to do so by law. ▮FIN▮  37 Table of Contents Item 1A. Risk Factors . In evaluating the Company and our business, careful consideration should be given to the following risk factors, in addition to the other information set  [...]"
+    },
+    "item1a": {
+      "inicio": "[...] cument in which the statement is included, and we do not assume or undertake any obligation to update any of those statements or documents unless we are required to do so by law. 37 Table of Contents  ▮INICIO▮ Item 1A. Risk Factors . In evaluating the Company and our business, careful consideration should be given to the following risk factors, in addition to the other information set forth in this Annual R [...]",
+      "fin": "[...] ing the action, and such judgments may be more or less favorable to us than our stockholders. Item 1 ▮FIN▮ B. Unresolved Staff Comments. None. 91 Table of Contents I tem 2. Properties We lease office space for our corporate headquarters, which is located in Cambridge, Massachusetts. We believe our leased o [...]"
+    }
+  },
+  "CRSP": {
+    "metodo": "regex_fallback",
+    "item1_len": 237290,
+    "item1a_len": 306984,
+    "gate3": {
+      "pass": true,
+      "risk_density": 0.98,
+      "biz_density": 2.17
+    },
+    "gate4": {
+      "pass": false,
+      "ratio": 0.811
+    },
+    "item1": {
+      "inicio": "[...] e we believe our internal company research is reliable and the market definitions are appropriate, neither such research nor these definitions have been verified by any independent source. iv PAR T I  ▮INICIO▮ Item 1. Business. BUSINESS Overview Our mission is to create transformative gene-based medicines for serious human diseases. We are a leading biopharmaceutical company focused on the development of CR [...]",
+      "fin": "[...] nically file such material with, or furnish it to, the SEC at its website (https://www.sec.gov). 43  ▮FIN▮ Item 1A. Ris k Factors. This report contains forward-looking statements that involve risks and uncertainties. Our actual results could differ materially from those discussed in this report. Factors th [...]"
+    },
+    "item1a": {
+      "inicio": "[...] e Act are available on our website free of charge as soon as reasonably practicable after we electronically file such material with, or furnish it to, the SEC at its website (https://www.sec.gov). 43  ▮INICIO▮ Item 1A. Ris k Factors. This report contains forward-looking statements that involve risks and uncertainties. Our actual results could differ materially from those discussed in this report. Factors th [...]",
+      "fin": "[...] gulations, we could incur liability, face regulatory actions, or incur other harm to our business. I ▮FIN▮ tem 1B. Unresolved Staff Comments. None. 93 Item 2. Pro perties. Our principal executive offices are located in Zug, Switzerland pursuant to a real estate lease agreement with a term that renews every [...]"
+    }
+  },
+  "BEAM": {
+    "metodo": "regex_fallback",
+    "item1_len": 235356,
+    "item1a_len": 370373,
+    "gate3": {
+      "pass": true,
+      "risk_density": 0.89,
+      "biz_density": 2.71
+    },
+    "gate4": {
+      "pass": false,
+      "ratio": 0.822
+    },
+    "item1": {
+      "inicio": "[...] yment of our existing indebtedness could be accelerated. • Unstable market and economic conditions may have serious adverse consequences on our business, financial condition and stock price. 4 PART I  ▮INICIO▮ Item 1. B usiness. Overview We are a biotechnology company committed to establishing the leading, fully integrated platform for precision genetic medicines. Our vision is to provide life-long cures to [...]",
+      "fin": "[...] rate website and social media channels are not, however, a part of this Annual Report on Form 10-K.  ▮FIN▮ Item 1A. Risk Factors. You should carefully consider the risks and uncertainties described below together with all of the other information contained in this Annual Report on Form 10-K, including our  [...]"
+    },
+    "item1a": {
+      "inicio": "[...] Center” section of our corporate website and on our social media channels. The contents of our corporate website and social media channels are not, however, a part of this Annual Report on Form 10-K.  ▮INICIO▮ Item 1A. Risk Factors. You should carefully consider the risks and uncertainties described below together with all of the other information contained in this Annual Report on Form 10-K, including our  [...]",
+      "fin": "[...] tation, result in the loss of valuable property and information, and adversely impact our business.  ▮FIN▮ Item 1B. Unresolve d Staff Comments. None. Item 2. Pr operties. We have leased approximately 130,258 square feet of office and laboratory space in Cambridge, Massachusetts under a lease that expires i [...]"
+    }
+  },
+  "TSLA": {
+    "metodo": "regex_fallback",
+    "item1_len": 45456,
+    "item1a_len": 83741,
+    "gate3": {
+      "pass": false,
+      "risk_density": 0.67,
+      "biz_density": 0.86
+    },
+    "gate4": {
+      "pass": true,
+      "ratio": 0.542
+    },
+    "item1": {
+      "inicio": "[...] ion of such risks is not an indication that any such risks have occurred at the time of this filing. We do not assume any obligation to update any forward-looking statements. Table of Contents PART I  ▮INICIO▮ ITEM 1. BUSINESS Overview We are focused on bringing artificial intelligence (“AI”) into the real world, through products and services like Full Self-Driving (“FSD”) (Supervised) and Robotaxi, as well [...]",
+      "fin": "[...] ation posted on our website is not incorporated by reference into this Annual Report on Form 10-K. I ▮FIN▮ TEM 1A. RISK FACTORS You should carefully consider the risks described below together with the other information set forth in this report, which could materially affect our business, financial conditi [...]"
+    },
+    "item1a": {
+      "inicio": "[...] sonably practicable after we electronically file or furnish such information with the SEC. The information posted on our website is not incorporated by reference into this Annual Report on Form 10-K.  ▮INICIO▮ ITEM 1A. RISK FACTORS You should carefully consider the risks described below together with the other information set forth in this report, which could materially affect our business, financial condit [...]",
+      "fin": "[...]  affect the price that some investors are willing to pay for our common stock. 26 Table of Contents  ▮FIN▮ ITEM 1B. UNRESOLVED STAFF COMMENTS None. ITEM 1C. CYBERSECURITY Cybersecurity Risk Management and Strategy 27 Cybersecurity Governance ITEM 2. PROPERTIES We are headquartered in Austin, Texas. Our pri [...]"
+    }
+  },
+  "IBM": {
+    "metodo": "edgartools",
+    "item1_len": 10116,
+    "item1a_len": 36184,
+    "gate3": {
+      "pass": false,
+      "risk_density": 1.58,
+      "biz_density": 0.2
+    },
+    "gate4": {
+      "pass": true,
+      "ratio": 0.506
+    },
+    "item1": {
+      "inicio": "[...] ial Statement Schedules 17 Item 16. Form 10-K Summary 23 SIGNATURES REPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM ON FINANCIAL STATEMENT SCHEDULE SCHEDULE II S- 1 i Table of Contents PART I  ▮INICIO▮ Item 1. Business: International Business Machines Corporation (IBM or the company) was incorporated in the State of New York on June 16, 1911, as the Computing-Tabulating-Recording Co. (C-T-R), a cons [...]",
+      "fin": "[...] ry of The Vanguard Group, Inc. and Secretary of the Vanguard funds from August 2016 until June 2024. ▮FIN▮  Item 1A. Risk Factors: Risks Related to Our Business Downturn in Economic Environment and Client Spending Budgets Could Impact the Company’s Business: If overall demand for IBM’s products and solutio [...]"
+    },
+    "item1a": {
+      "inicio": "[...] e years. Ms. Robinson previously served as Managing Director, General Counsel and Corporate Secretary of The Vanguard Group, Inc. and Secretary of the Vanguard funds from August 2016 until June 2024.  ▮INICIO▮ Item 1A. Risk Factors: Risks Related to Our Business Downturn in Economic Environment and Client Spending Budgets Could Impact the Company’s Business: If overall demand for IBM’s products and solution [...]",
+      "fin": "[...] urities and cannot provide any assurances with respect to the liquidity or value of such securities. ▮FIN▮  Item 1B. Unresolved Staff Comments: Not applicable. Item 1C. Cybersecurity: Risk Management and Strategy Governance 10 Table of Contents Item 2. Properties: IBM ’s corporate headquarters are located  [...]"
+    }
+  },
+  "CNH": {
+    "metodo": "edgartools",
+    "item1_len": 65389,
+    "item1a_len": 84760,
+    "gate3": {
+      "pass": false,
+      "risk_density": 1.65,
+      "biz_density": 0.31
+    },
+    "gate4": {
+      "pass": true,
+      "ratio": 0.53
+    },
+    "item1": {
+      "inicio": "[...] prehensive Income 70 Consolidated Balance Sheets 71 Consolidated Statements of Cash Flows 73 Consolidated Statements of Changes in Equity 74 Notes to the Consolidated Financial Statements 75 3 PART I  ▮INICIO▮ Item 1. Business CNH Industrial N.V. (\"CNH\" or the \"Company\") was formed in 2013 by the business combination transaction between Fiat Industrial S.p.A. and its subsidiary CNH Global N.V.. CNH was inco [...]",
+      "fin": "[...] zational Officer at Prysmian (2024), Chief Human Resources and IT Officer at Iveco Group (2022-2024) ▮FIN▮  Item 1A. Risk Factors We face many risks and uncertainties, any one of which could have a material adverse effect on our business, results of operations and financial condition. This section describe [...]"
+    },
+    "item1a": {
+      "inicio": "[...] or) Francesco Tutino (46) Chief Human Resources Officer (2025) Group Chief Human Resources & Organizational Officer at Prysmian (2024), Chief Human Resources and IT Officer at Iveco Group (2022-2024)  ▮INICIO▮ Item 1A. Risk Factors We face many risks and uncertainties, any one of which could have a material adverse effect on our business, results of operations and financial condition. This section describes [...]",
+      "fin": "[...] program may also prevent or discourage shareholders' initiatives aimed at changes in our management. ▮FIN▮  Item 1B. Unresolved Staff Comments None. Item 1C. Cybersecurity 32 Item 2. Properties As of December 31, 2025, we owned or leased 40 manufacturing facilities. We also own or lease other significant p [...]"
+    }
+  },
+  "CWEN": {
+    "metodo": "edgartools",
+    "item1_len": 35407,
+    "item1a_len": 134998,
+    "gate3": {
+      "pass": false,
+      "risk_density": 1.32,
+      "biz_density": 0.0
+    },
+    "gate4": {
+      "pass": true,
+      "ratio": 0.476
+    },
+    "item1": {
+      "inicio": "[...]  greater in size (on an alternating current, or AC, basis), that are interconnected into the transmission or distribution grid to sell power at a wholesale level VIE Variable Interest Entity 5 PART I  ▮INICIO▮ Item 1 — Business General Clearway Energy, Inc., together with its consolidated subsidiaries, or the Company, is a publicly-traded energy infrastructure investor with a focus on investments in clean e [...]",
+      "fin": "[...] ompany on its website. The information posted on the Company’s website is not a part of this report. ▮FIN▮  14 Item 1A — Risk Factors Summary of Risk Factors The Company’s business is subject to numerous risks and uncertainties, discussed in more detail in the following section. These risks include, among  [...]"
+    },
+    "item1a": {
+      "inicio": "[...] o routinely posts press releases, presentations, webcasts, and other information regarding the Company on its website. The information posted on the Company’s website is not a part of this report. 14  ▮INICIO▮ Item 1A — Risk Factors Summary of Risk Factors The Company’s business is subject to numerous risks and uncertainties, discussed in more detail in the following section. These risks include, among othe [...]",
+      "fin": "[...] ooking statements included in this Annual Report on Form 10-K should not be construed as exhaustive. ▮FIN▮  Item 1B — Unresolved Staff Comments None. 40 Item 1C — Cybersecurity Risk Management and Strategy Governance Board of Directors Oversight Reporting to Board of Directors 41 Cybersecurity Risk Managem [...]"
+    }
+  },
+  "GPRE": {
+    "metodo": "edgartools",
+    "item1_len": 44608,
+    "item1a_len": 64963,
+    "gate3": {
+      "pass": false,
+      "risk_density": 1.39,
+      "biz_density": 0.29
+    },
+    "gate4": {
+      "pass": true,
+      "ratio": 0.422
+    },
+    "item1": {
+      "inicio": "[...] stors not to place undue reliance on forward-looking statements, which represent management’s views as of the date of this report or documents incorporated by reference. 4 T a b le of Contents PART I  ▮INICIO▮ Item 1. Business. References to “we,” “us,” “our,” “Green Plains,” or the “company” refer to Green Plains Inc. and its subsidiaries. Overview Incorporated in Iowa, Green Plains is a renewable fuels an [...]",
+      "fin": "[...] C website at www.sec.gov to access our reports, proxy and information statements filed with the SEC. ▮FIN▮  Item 1A. Risk Factors. Our operations are subject to risks and uncertainties that could cause actual results to differ materially from those discussed in this Form 10-K and could have a material adve [...]"
+    },
+    "item1a": {
+      "inicio": "[...] s or any other report we file with or furnish to the SEC. Alternatively, investors may visit the SEC website at www.sec.gov to access our reports, proxy and information statements filed with the SEC.  ▮INICIO▮ Item 1A. Risk Factors. Our operations are subject to risks and uncertainties that could cause actual results to differ materially from those discussed in this Form 10-K and could have a material adver [...]",
+      "fin": "[...] rance that we are not a U.S. real property holding corporation or will not become one in the future. ▮FIN▮  Item 1B. Unresolved Staff Comments. None. Item 1C. Cybersecurity. Risk Management and Strategy Governance 27 T a b le of Contents Item 2. Properties. We believe the properties owned and leased at our [...]"
+    }
+  },
+  "CSCO": {
+    "metodo": "edgartools",
+    "item1_len": 48023,
+    "item1a_len": 89503,
+    "gate3": {
+      "pass": false,
+      "risk_density": 0.68,
+      "biz_density": 1.69
+    },
+    "gate4": {
+      "pass": true,
+      "ratio": 0.519
+    },
+    "item1": {
+      "inicio": "[...] esults may differ materially and adversely from those expressed in any forward-looking statements. We undertake no obligation to revise or update any forward-looking statements for any reason. PART I  ▮INICIO▮ Item 1. Business General Cisco designs and sells a broad range of technologies that help to power, secure, and draw insights from the Internet. We are incorporating artificial intelligence (AI) into o [...]",
+      "fin": "[...] er 10 years at Computacenter AG & Co. oHG, most recently serving as Chief Executive Officer Germany. ▮FIN▮  10 Table of Contents Item 1A. Risk Factors Set forth below and elsewhere in this report and in other documents we file with the SEC are descriptions of the risks and uncertainties that could cause ou [...]"
+    },
+    "item1a": {
+      "inicio": "[...]  Country Leader Germany from July 2013 to July 2018. Prior to joining Cisco, Mr. Tuszik spent over 10 years at Computacenter AG & Co. oHG, most recently serving as Chief Executive Officer Germany. 10  ▮INICIO▮ Table of Contents Item 1A. Risk Factors Set forth below and elsewhere in this report and in other documents we file with the SEC are descriptions of the risks and uncertainties that could cause our ac [...]",
+      "fin": "[...] loyees, virtually all of whom are compensated, in part, based on the performance of our stock price. ▮FIN▮  Item 1B. Unresolved Staff Comments None. 25 Table of Contents Item 1C. Cybersecurity . For more information on our cybersecurity related risks, see “Item 1A. Risk Factors” of this Annual Report on Fo [...]"
+    }
+  },
+  "QUBT": {
+    "metodo": "edgartools",
+    "item1_len": 36802,
+    "item1a_len": 95982,
+    "gate3": {
+      "pass": false,
+      "risk_density": 1.34,
+      "biz_density": 0.24
+    },
+    "gate4": {
+      "pass": true,
+      "ratio": 0.579
+    },
+    "item1": {
+      "inicio": "[...] r,” “the Company,” “our Company,” “QCi” and “QUBT,” refer to Quantum Computing Inc., a Delaware corporation, and unless the context indicates otherwise, also includes our wholly-owned subsidiaries. 1  ▮INICIO▮ ITEM 1. BUSINESS . The High-Performance Computing Landscape There is a large and growing demand for ever-increasing computational performance in information processing. The recent emergence of artific [...]",
+      "fin": "[...]  Company has no obligation to pay for post-retirement health and medical costs of retired employees. ▮FIN▮  10 ITEM 1A. RISK FACTORS. This Annual Report on Form 10-K contains forward-looking statements that involve risks and uncertainties, such as statements of our objectives, expectations and intentions.  [...]"
+    },
+    "item1a": {
+      "inicio": "[...]  full-time employees. There are no unpaid liabilities under the Company’s benefit plans, and the Company has no obligation to pay for post-retirement health and medical costs of retired employees. 10  ▮INICIO▮ ITEM 1A. RISK FACTORS. This Annual Report on Form 10-K contains forward-looking statements that involve risks and uncertainties, such as statements of our objectives, expectations and intentions. The  [...]",
+      "fin": "[...] rship interest of then-current holders of our capital stock and may dilute our book value per share. ▮FIN▮  ITEM 1B. UNRESOLVED STAFF COMMENTS. Not applicable. ITEM 1C. CYBERSECURITY 30 31 ITEM 2. PROPERTIES. We maintain our principal office at 5 Marine View Plaza, Suite 214, Hoboken, NJ 07030. The Company [...]"
+    }
+  },
+  "RGTI": {
+    "metodo": "edgartools",
+    "item1_len": 83147,
+    "item1a_len": 154466,
+    "gate3": {
+      "pass": false,
+      "risk_density": 1.04,
+      "biz_density": 0.34
+    },
+    "gate4": {
+      "pass": true,
+      "ratio": 0.673
+    },
+    "item1": {
+      "inicio": "[...] sting of our outstanding restricted stock units increases the number of shares eligible for future resale in the public market, resulting in dilution to our stockholders. ​ 4 Table of Contents PART I  ▮INICIO▮ ITEM 1. BUSINESS Overview Our mission is to build the world’s most powerful computers to help solve humanity’s most important and pressing problems. Our strategy is to be at the forefront of supercond [...]",
+      "fin": "[...] ence into this Annual Report on Form 10-K or any other report we file with or furnish to the SEC. ​  ▮FIN▮ 20 Table of Contents ITEM 1A. Risk Factors RISK FACTORS Investing in our securities involves a high degree of risk. Before you make a decision to buy our securities, in addition to the risk and uncert [...]"
+    },
+    "item1a": {
+      "inicio": "[...] and webcasts. The information found on our website is not incorporated by reference into this Annual Report on Form 10-K or any other report we file with or furnish to the SEC. ​ 20 Table of Contents  ▮INICIO▮ ITEM 1A. Risk Factors RISK FACTORS Investing in our securities involves a high degree of risk. Before you make a decision to buy our securities, in addition to the risk and uncertainties described abo [...]",
+      "fin": "[...] act the trading price of our Common Stock, which could cause stockholders to lose their investments. ▮FIN▮  ITEM 1B. UNRESOLVED STAFF COMMENTS None. 48 Table of Contents ITEM 1C. CYBERSECURITY 49 Table of Contents Cybersecurity Threats As of December 31, 2025, , results of operations or financial condition [...]"
+    }
+  },
+  "ROIV": {
+    "metodo": "edgartools",
+    "item1_len": 226502,
+    "item1a_len": 408983,
+    "gate3": {
+      "pass": true,
+      "risk_density": 0.95,
+      "biz_density": 2.27
+    },
+    "gate4": {
+      "pass": false,
+      "ratio": 0.812
+    },
+    "item1": {
+      "inicio": "[...] and uncertainties associated with the industry and market data contained in this Annual Report on Form 10-K, including those discussed in Part I, Item 1A. “Risk Factors.” vii Table of Contents PART I  ▮INICIO▮ ITEM 1. BUSINESS Overview Roivant is a biopharmaceutical company that aims to improve the lives of patients by accelerating the development and commercialization of medicines that matter. Roivant’s pi [...]",
+      "fin": "[...] website is not part of this document nor any other document that we file with or furnish to the SEC. ▮FIN▮  Item 1A. RISK FACTORS Our business involves a high degree of risk. You should carefully consider the risks described below, together with the other information contained in this Annual Report on Form [...]"
+    },
+    "item1a": {
+      "inicio": "[...] ion by reference of the information contained on our website, and the information contained on our website is not part of this document nor any other document that we file with or furnish to the SEC.  ▮INICIO▮ Item 1A. RISK FACTORS Our business involves a high degree of risk. You should carefully consider the risks described below, together with the other information contained in this Annual Report on Form  [...]",
+      "fin": "[...] termine our PFIC status for each taxable year and make such determination available to U.S. holders. ▮FIN▮  ITEM 1B. UNRESOLVED STAFF COMMENTS None. ITEM 1C. CYBERSECURITY 131 Table of Contents ITEM 2. PROPERTIES Our principal executive offices are located at 7th Floor, 50 Broadway, London SW1H 0DB, United [...]"
+    }
+  },
+  "SMCI": {
+    "metodo": "edgartools",
+    "item1_len": 43512,
+    "item1a_len": 120601,
+    "gate3": {
+      "pass": true,
+      "risk_density": 1.21,
+      "biz_density": 1.03
+    },
+    "gate4": {
+      "pass": false,
+      "ratio": 0.343
+    },
+    "item1": {
+      "inicio": "[...] ntee future results, levels of activity, performance or achievements. Given these risks and uncertainties, readers are cautioned not to place undue reliance on such forward-looking statements. PART I  ▮INICIO▮ Item 1. Business Our Company We are a Silicon Valley-based provider of total IT solutions which address demanding workloads from the enterprise and cloud to the intelligent edge. We deliver rack-scale [...]",
+      "fin": "[...] nces to our website are intended to be inactive textual references only. SMCI | 2025 Form 10-K | 10  ▮FIN▮ Table of Contents Item 1A. Risk Factors Our business involves significant risks, some of which are described below. Other events that we do not currently anticipate or that we currently deem immateria [...]"
+    },
+    "item1a": {
+      "inicio": "[...] on Form 10-K or in any other report or document we file with (or furnish to) the SEC, and any references to our website are intended to be inactive textual references only. SMCI | 2025 Form 10-K | 10  ▮INICIO▮ Table of Contents Item 1A. Risk Factors Our business involves significant risks, some of which are described below. Other events that we do not currently anticipate or that we currently deem immateria [...]",
+      "fin": "[...] dversely affect our business, reputation, results of operations, financial position and stock price. ▮FIN▮  Item 1B. Unresolved Staff Comments None. Item 1C. Cybersecurity Risk Management and Strategy SMCI | 2025 Form 10-K | 34 Table of Contents Refer to “Risk Factors” in Item 1A of this Form 10-K for addi [...]"
+    }
+  }
+}

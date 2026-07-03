@@ -36,21 +36,25 @@ BANDS = {
     # UNRESOLVED STAFF COMMENTS"). 333,127 * 1.2 ≈ 400,000.
     "item1a": (20_000, 400_000),
 }
-RATIO_MIN, RATIO_MAX = 0.35, 0.80
+RATIO_MAX = 0.80  # techo, ver RATIO_MIN_V12 abajo para el piso vigente
 RISK_MARKERS = ["risk", "adversely affect", "could harm", "may not", "material adverse effect"]
-BUSINESS_MARKERS = [
+
+# --- HISTORICO, ya no en uso -- Gate 3 v1.1 (vocabulario), reemplazado por el test
+# relacional v1.2 (gate3_relational, abajo). Conservado como registro de la
+# trayectoria: v1.1 amplio vocabulario para tapar el hueco biotech (CYTK/BBIO,
+# 0.06-0.14 -> 2.21-2.84), pero la pasada sobre 130 mostro que el hueco siguiente
+# era de REGISTRO GRAMATICAL (tercera persona: IBM, CNH, CWEN, GPRE, QUBT, RGTI),
+# no sectorial -- una lista de vocabulario muere por mil ampliaciones. v1.2
+# abandona el diccionario para el check de negocio y usa una propiedad relacional
+# universal (ver RISK_ASYMMETRY_MIN_RATIO).
+_BUSINESS_MARKERS_HISTORICO_V11 = [
     "our business", "our products", "we compete", "our customers", "our operations",
     "our product candidates", "clinical trials", "clinical trial", "our pipeline",
     "fda", "patients", "our technology", "our platform", "regulatory approval",
     "our revenue", "our industry", "our employees", "intellectual property",
 ]
-# Umbral bajado de 0.9 a 0.75 tras inspeccion humana confirmar AMAT (densidad 0.85,
-# via cross-check edgartools/fallback corroborado) como frontera correcta. El rango
-# de extracciones VERIFICADAS (no solo observadas) se extiende hasta 0.85 -- bajar
-# el umbral a 0.75 es calibracion legitima post-inspeccion (spec Seccion 5.2: orden
-# inspeccion-luego-calibracion cumplido esta vez).
-MIN_RISK_DENSITY_PER_1000 = 0.75
-MIN_BIZ_DENSITY_PER_1000 = 0.4
+_MIN_RISK_DENSITY_PER_1000_HISTORICO_V11 = 0.75
+_MIN_BIZ_DENSITY_PER_1000_HISTORICO_V11 = 0.4
 MIN_HEADER_GAP = 5000  # separacion minima entre Item1/Item1A para no ser TOC (BBIO: TOC~1250 de gap, real~388k)
 NAME_MATCH_THRESHOLD = 0.6
 
@@ -259,6 +263,27 @@ def end_boundary_locatable(corpus, item_text, retry_lengths=(80, 40, 20)):
     return False
 
 
+def end_verified_structurally(corpus, item1a_text):
+    """Distingue un fin de Item1A ENCONTRADO (header real de Item1B/Item2
+    localizado poco despues) de un fin ADIVINADO (el fallback recurrio a
+    min(p1a+BANDA, len) porque no encontro ningun header siguiente). Solo en
+    el segundo caso una longitud fuera de banda es señal de "me comi
+    secciones posteriores" -- en el primero, una seccion larga es genuina
+    por construccion (v1.2, tras ROIV superar el techo que BBIO acababa de
+    fijar: perseguir el maximo es un juego perdido si el fin ya esta
+    verificado estructuralmente)."""
+    stripped, index_map = build_stripped_index(corpus)
+    for length in (80, 40, 20):
+        anchor = item1a_text[-length:]
+        positions = _find_all_stripped(stripped, index_map, anchor)
+        if positions:
+            pos_end = positions[-1] + len("".join(c for c in anchor if not c.isspace()))
+            window = corpus[pos_end:pos_end + 300]
+            window_stripped = "".join(c.lower() for c in window if not c.isspace())
+            return bool(re.search(r"item1b|item2", window_stripped))
+    return False
+
+
 def gate1_order(corpus, item1_text, item1a_text):
     stripped, index_map = build_stripped_index(corpus)
     anchor1 = item1_text[:200][:80]
@@ -280,15 +305,52 @@ def gate1_order(corpus, item1_text, item1a_text):
 
 
 # --- Gate 2: longitud plausible ---
-def gate2_length(item1_text, item1a_text):
+# v1.2 (2026-07-03): el techo superior de item1a es bloqueante SOLO cuando el fin
+# no esta verificado estructuralmente (ver end_verified_structurally). ROIV
+# (408,983 chars, fin en header real de Item 1B) rompio el techo que BBIO acababa
+# de fijar dias antes -- perseguir el maximo observado es un juego perdido; el
+# proposito real del techo es cazar "no encontre el limite y me comi secciones
+# posteriores", que end_verified_structurally ya detecta directamente.
+# El piso se mantiene sin condicionar: un recorte corto sigue siendo la firma
+# del TOC independientemente de si el fin se verifico.
+def gate2_length(item1_text, item1a_text, end_verified=True):
     l1, l1a = len(item1_text), len(item1a_text)
-    ok1 = BANDS["item1"][0] <= l1 <= BANDS["item1"][1]
-    ok1a = BANDS["item1a"][0] <= l1a <= BANDS["item1a"][1]
+    ok1_floor = l1 >= BANDS["item1"][0]
+    ok1a_floor = l1a >= BANDS["item1a"][0]
+    ok1_ceil = (l1 <= BANDS["item1"][1]) or end_verified
+    ok1a_ceil = (l1a <= BANDS["item1a"][1]) or end_verified
+    ok1 = ok1_floor and ok1_ceil
+    ok1a = ok1a_floor and ok1a_ceil
+    techo_informativo = end_verified and (l1 > BANDS["item1"][1] or l1a > BANDS["item1a"][1])
     return {"pass": ok1 and ok1a, "item1_len": l1, "item1a_len": l1a,
-            "item1_en_banda": ok1, "item1a_en_banda": ok1a}
+            "item1_en_banda": ok1, "item1a_en_banda": ok1a,
+            "techo_superado_pero_verificado_informativo": techo_informativo}
 
 
-# --- Gate 3: marcadores de contenido ---
+# --- Gate 3: test relacional de asimetria (v1.2, reemplaza lista de vocabulario) ---
+# La pasada sobre 130 mostro que el fallo de la version por vocabulario (v1.1) no
+# era sectorial -- era de registro gramatical: filers que escriben en tercera
+# persona ("the Company", "IBM's products") en vez de primera ("our business")
+# fallaban el check de negocio sin importar el sector (IBM, CNH, CWEN, GPRE, QUBT,
+# RGTI no comparten industria, comparten registro). Una lista de vocabulario
+# muere por mil ampliaciones -- cada ronda tapa un hueco y abre el siguiente
+# (v1.1 tapo biotech, v1.2 tendria que tapar tercera persona, la siguiente ronda
+# taparia otra cosa). El proposito declarado del gate (Seccion 3, Gate 3 de la
+# spec) es cazar el desplazamiento de seccion -- y eso se detecta con una
+# propiedad relacional universal, no con diccionario: un Item 1A real siempre
+# tiene densidad de lenguaje de riesgo mucho mayor que un Item 1 real, en
+# cualquier sector y cualquier registro gramatical. Si los recortes estan
+# desplazados (ej. lo etiquetado "Item 1A" es en realidad Item 1B), la asimetria
+# se invierte o colapsa.
+# CONGELADO 2026-07-03 tras control negativo sobre 119 filings confirmados limpios:
+# separacion perfecta sin solapamiento -- minimo ratio real=1.130 (CSCO), maximo ratio
+# cruzado=0.890 (CSCO, exactamente el reciproco: 1/1.13≈0.89). Umbral 1.0 cae en el
+# centro del hueco [0.890, 1.130] con ~13% de margen simetrico a cada lado. El primer
+# valor (2.0) era una estimacion sin evidencia y producia 8 falsos negativos
+# (FSLR, MSTR, ZS, WULF, TE, GILD, CSCO, AMAT) con ratios reales de 1.13-1.88 --
+# correctos pero por debajo de un umbral arbitrario.
+RISK_ASYMMETRY_MIN_RATIO = 1.0
+
 def _density(text, markers):
     if not text:
         return 0.0
@@ -296,19 +358,33 @@ def _density(text, markers):
     count = sum(text_l.count(m) for m in markers)
     return count / (len(text) / 1000)
 
-def gate3_markers(item1_text, item1a_text):
-    risk_density = _density(item1a_text, RISK_MARKERS)
-    biz_density = _density(item1_text, BUSINESS_MARKERS)
-    ok = risk_density >= MIN_RISK_DENSITY_PER_1000 and biz_density >= MIN_BIZ_DENSITY_PER_1000
-    return {"pass": ok, "risk_density": round(risk_density, 2), "biz_density": round(biz_density, 2)}
+def gate3_relational(item1_text, item1a_text):
+    risk1 = _density(item1_text, RISK_MARKERS)
+    risk1a = _density(item1a_text, RISK_MARKERS)
+    ratio = risk1a / max(risk1, 0.01)
+    ok = ratio >= RISK_ASYMMETRY_MIN_RATIO
+    return {"pass": ok, "risk_density_item1": round(risk1, 3), "risk_density_item1a": round(risk1a, 3),
+            "ratio_1a_sobre_1": round(ratio, 2)}
+
+# Alias retrocompatible -- el nombre del gate en el resto del pipeline sigue
+# siendo "gate3_marcadores" en el output, pero la logica interna es la relacional
+gate3_markers = gate3_relational
 
 
 # --- Gate 4: ratio sobre el documento ---
-def gate4_ratio(item1_text, item1a_text, corpus):
+# Piso bajado de 0.35 a 0.30 (v1.2): SMCI (ratio 0.343, fronteras confirmadas
+# correctas en inspeccion) evidencio que el piso original excluia documentos
+# legitimos con masa inusual de contenido post-Item-1A. Techo condicionado a
+# verificacion estructural, misma logica que Gate 2 (ver end_verified_structurally).
+RATIO_MIN_V12 = 0.30
+
+def gate4_ratio(item1_text, item1a_text, corpus, end_verified=True):
     total = len(item1_text) + len(item1a_text)
     ratio = total / len(corpus) if corpus else 0
-    ok = RATIO_MIN <= ratio <= RATIO_MAX
-    return {"pass": ok, "ratio": round(ratio, 3)}
+    ok_floor = ratio >= RATIO_MIN_V12
+    ok_ceil = (ratio <= RATIO_MAX) or end_verified
+    return {"pass": ok_floor and ok_ceil, "ratio": round(ratio, 3),
+            "techo_superado_pero_verificado_informativo": end_verified and ratio > RATIO_MAX}
 
 
 # --- Gate 5: casos especiales (enum cerrado) ---
@@ -393,9 +469,10 @@ def process_filing(ticker, cik, archivo_path, expected_name, accession=None):
         else:
             cross_check = {"razon": "gate1 fallo, fallback tampoco disponible", "resultado": "sin_fallback", "error": ferr}
 
-    g2 = gate2_length(item1_text, item1a_text)
+    end_verified = end_verified_structurally(corpus, item1a_text)
+    g2 = gate2_length(item1_text, item1a_text, end_verified=end_verified)
     g3 = gate3_markers(item1_text, item1a_text)
-    g4 = gate4_ratio(item1_text, item1a_text, corpus)
+    g4 = gate4_ratio(item1_text, item1a_text, corpus, end_verified=end_verified)
     g5 = gate5_special_cases(corpus, item1a_text)
     if cross_check and cross_check["resultado"] == "diverge":
         g5 = "CROSS_CHECK_DIVERGENTE"

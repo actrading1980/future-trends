@@ -1,0 +1,77 @@
+{
+  "total": 130,
+  "limpio_n": 120,
+  "tasa_paso_limpio": 0.9231,
+  "cola_por_etiqueta": {
+    "ERROR_PROCESAMIENTO": 2,
+    "INCORPORADO_POR_REFERENCIA": 6,
+    "CROSS_CHECK_DIVERGENTE": 1,
+    "FALLO_gate2_longitud": 1
+  },
+  "metodos": {
+    "edgartools": 110,
+    "regex_fallback": 12,
+    "NINGUNO": 2,
+    "edgartools_divergente+fallback_corroborado": 5,
+    "edgartools_divergente+fallback_no_coincide": 1
+  },
+  "necesitaron_fallback_o_cross_check": 20,
+  "distribucion_item1_len": {
+    "min": 10116,
+    "p25": 37258,
+    "mediana": 48222,
+    "p75": 68937,
+    "max": 239543
+  },
+  "distribucion_item1a_len": {
+    "min": 19053,
+    "p25": 85311,
+    "mediana": 131554,
+    "p75": 173002,
+    "max": 408983
+  },
+  "distribucion_risk_density_item1": {
+    "min": 0.0,
+    "p25": 0.129,
+    "mediana": 0.233,
+    "p75": 0.354,
+    "max": 1.296
+  },
+  "distribucion_risk_density_item1a": {
+    "min": 0.669,
+    "p25": 1.071,
+    "mediana": 1.254,
+    "p75": 1.411,
+    "max": 2.251
+  },
+  "distribucion_ratio_asimetria_1a_sobre_1": {
+    "min": 0.98,
+    "p25": 3.28,
+    "mediana": 5.13,
+    "p75": 9.46,
+    "max": 149.95
+  },
+  "distribucion_ratio_documento": {
+    "min": 0.343,
+    "p25": 0.519,
+    "mediana": 0.603,
+    "p75": 0.663,
+    "max": 1.353
+  },
+  "bandas_congeladas_v1_2": {
+    "item1": [
+      10000,
+      280000
+    ],
+    "item1a": [
+      20000,
+      400000
+    ],
+    "asimetria_riesgo_min": 1.0,
+    "ratio_documento": [
+      0.3,
+      0.8
+    ],
+    "nota": "techos de item1/item1a y de ratio_documento son informativos (no bloquean) cuando end_verified_structurally=True"
+  }
+}

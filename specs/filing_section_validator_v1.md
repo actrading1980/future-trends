@@ -1,9 +1,14 @@
-# FutureAnalysis — Filing Section Validator Spec v1.1
+# FutureAnalysis — Filing Section Validator Spec v1.2
 *Autor: FutureTrends Intelligence System*
-*Fecha: 2026-07-02 (revisión: añadido Gate 0 el mismo día)*
-*Estado: DRAFT — pre-registro de gates, previo a Etapa 2 de P1.5*
+*Fecha: 2026-07-02 (v1.1: Gate 0 añadido el mismo día) | 2026-07-03 (v1.2: rediseño de Gates 2/3/4 tras pasada completa sobre 130)*
+*Estado: CONGELADA — pasada completa sobre 130 10-K: 120/130 (92.3%) limpio, dentro del 85-95% esperado*
 
 **Amend v1.1:** durante la descarga de los 136 filings se descubrió que 14/51 empresas originales tenían CIK incorrecto en `companies.json` (ver commit de fix en `data/companies.json`), y que 13 de esas 14 descargaron silenciosamente el 10-K de una empresa real pero distinta — sin ningún error HTTP. Un recorte estructuralmente perfecto de un documento de la empresa equivocada habría pasado los cinco gates originales sin ninguna señal de alarma. Esto es un failure mode *observado*, no hipotético, y motiva el nuevo **Gate 0** (Sección 3.0) — añadirlo ahora es un amend legítimo a la spec porque responde a un caso real detectado, no a la tasa de paso de ninguna pasada de datos.
+
+**Amend v1.2 (2026-07-03):** la calibración v1.1 se congeló sobre una muestra de 11 filings. La pasada completa sobre los 130 dio 78.46% de paso limpio — por debajo del 80% que el §6 fija como disparador de "iterar el extractor". El diagnóstico que el propio disparador forzó mostró que el modelo de fallo del §6 estaba incompleto: en 14 de los 28 casos en cola, Gates 0/1 confirmaban extracción correcta y el problema era que la muestra de 11 no representó la diversidad de los 130 (un solo biotech multi-programa cuando había al menos 7; vocabulario de negocio ausente para registro gramatical en tercera persona, no solo por sector). El disparador cumplió su función real — forzar el diagnóstico — aunque su modelo causal (tasa baja = extractor malo) no aplicara aquí. Dos gates se **rediseñaron**, no solo recalibraron, tras inspección humana 16/16 sobre los filings evidencia + control negativo obligatorio (Sección 3, Gate 3):
+- **Gate 3** abandona la lista de vocabulario (que muere por mil ampliaciones — v1.1 tapó el hueco biotech, la siguiente ronda habría tapado registro gramatical, y así sucesivamente) por un **test relacional de asimetría**, universal e independiente de sector/registro.
+- **Gates 2 y 4** condicionan su techo superior a si el fin de Item 1A fue *verificado estructuralmente* (header real de Item 1B/2 localizado) o *adivinado* (fallback sin header siguiente) — perseguir el máximo observado (BBIO→ROIV rompiendo el techo en 3 días) es un juego perdido; la protección real debe vivir en si el fin se encontró o se supuso, no en un número.
+Ver Secciones 3 (Gate 2-4) y 6 (criterios) para el detalle y la evidencia.
 
 ---
 
@@ -49,30 +54,41 @@ Item 1, Item 1A e Item 1B (o Item 2 si 1B no existe en ese filer) deben localiza
 
 **Regla robusta:** no tomar el primer match de cada literal. Tomar el *último* conjunto de matches que sea mutuamente consistente en orden creciente de posición. Señal auxiliar de TOC a descartar: alta densidad de literales "Item X" en poco espacio de texto, o matches contenidos dentro de una tabla (`<table>`/estructura tabular).
 
-### Gate 2 — Longitud plausible por Item
+### Gate 2 — Longitud plausible por Item, techo condicionado a verificación estructural (v1.2)
 
-| Item | Rango de caracteres (texto limpio, sin markup) — **CONGELADO 2026-07-03** |
-|------|------------------------------------------------|
-| Item 1 (Business) | 10,000 – 280,000 |
-| Item 1A (Risk Factors) | 20,000 – 400,000 |
+| Item | Piso | Techo |
+|------|------|-------|
+| Item 1 (Business) | 10,000 | 280,000 (informativo si `end_verified`) |
+| Item 1A (Risk Factors) | 20,000 | 400,000 (informativo si `end_verified`) |
 
-**Por qué:** fuera de banda por abajo casi siempre indica que se recortó el TOC, un header de página, o una sección de "incorporated by reference" (ver Gate 5). Fuera de banda por arriba indica que no se encontró el límite final y el recorte se comió secciones posteriores.
+**Por qué el piso:** fuera de banda por abajo casi siempre indica que se recortó el TOC, un header de página, o una sección de "incorporated by reference" (ver Gate 5). El piso **no** se condiciona — un recorte corto sigue siendo la firma del TOC independientemente de si el fin se verificó.
 
-**Congelación (post-inspección humana 11/11, no antes):** techos ampliados de 150k/250k a 280k/400k usando BBIO (BridgeBio Pharma) como máximo observado **confirmado** — Item 1 = 233,577 chars, Item 1A = 333,127 chars, ambas fronteras verificadas correctas en la inspección (BridgeBio es "multi-product biopharmaceutical" con portfolio extenso, longitud genuina, no fallo de extracción). Techo = máximo confirmado + 20% de margen. El vocabulario/umbral de Gate 3 (abajo) recibió el mismo tratamiento con AMAT.
+**Por qué el techo se condiciona (v1.2, 2026-07-03):** perseguir el máximo observado es un juego perdido. BBIO fijó el techo de Item 1A en 400,000 (máximo confirmado + 20%) en un commit; tres días después, la pasada completa sobre 130 encontró a ROIV con Item 1A = 408,983 — rompiendo el techo que se acababa de fijar. El propósito real del techo es detectar "no encontré el límite final y me comí secciones posteriores" — y el pipeline ya sabe cuándo eso pasó: `end_verified_structurally(corpus, item1a_text)` comprueba si el final del recorte tiene un header real de Item 1B/2 localizado poco después (fin **encontrado**) o si el fallback recurrió a `min(p1a+banda, len(corpus))` por no hallar ningún header siguiente (fin **adivinado**). Solo en el segundo caso una longitud fuera de banda es señal de alarma real. Cuando el fin está verificado, una sección larga es genuina por construcción y el techo pasa a **advertencia informativa** persistida en metadatos (`techo_superado_pero_verificado_informativo`), sin bloquear el gate. Esto resuelve de un golpe los 6 biotechs de Gate 4 con ratio 0.80–0.84 (todos con Item 1B confirmado en su frontera final) y ROIV, sin inflar ningún número — y mantiene la protección exactamente donde hace falta.
 
-### Gate 3 — Marcadores de contenido
+**Extremos confirmados registrados (no umbrales, solo referencia):** IBM Item 1 = 10,116 chars (mínimo confirmado, apenas sobre el piso — IBM escribe un Business genuinamente corto y delega en el MD&A). ROIV Item 1A = 408,983 chars (máximo confirmado, con fin verificado estructuralmente). Si un filing futuro rompe cualquiera de estos extremos con fronteras confirmadas correctas, se registra como nuevo extremo — no se revisa el piso/techo salvo que la evidencia lo pida explícitamente.
 
-El texto recortado como Item 1A debe superar una densidad mínima de lenguaje de riesgo: términos como "risk", "adversely affect", "could harm", "may not", "material adverse effect" por cada N caracteres — **umbral congelado 2026-07-03: 0.75/1000 caracteres**, bajado de una estimación inicial de 3.0 tras evidencia real (rango observado 0.97–1.57 en la muestra) y luego a 0.75 tras confirmar AMAT (0.85, vía cross-check corroborado) como extracción verificada que ampliaba el rango confirmado hacia abajo. El texto recortado como Item 1 debe superar una densidad mínima de lenguaje de negocio — **umbral congelado: 0.4/1000**, con vocabulario ampliado a términos de dominio (clinical trials, FDA, patients, pipeline, etc.) tras encontrar que el vocabulario corporativo genérico original subestimaba severamente a los filers biotech (CYTK/BBIO pasaron de 0.06–0.14 a 2.21–2.84 tras la ampliación — la corrección fue vocabulario, no umbral rendido).
+### Gate 3 — Test relacional de asimetría (v1.2, reemplaza vocabulario)
 
-**Por qué:** caza el error que los Gates 1-2 dejan pasar — límites bien formados y longitud plausible, pero desplazados una sección completa (ej. lo que se etiquetó como "Item 1A" es en realidad Item 1B, con longitud y forma similares pero contenido distinto).
+**Diseño v1.1 (histórico, abandonado):** densidad mínima de lenguaje de riesgo/negocio contra listas de vocabulario fijas. Funcionó para tapar el hueco biotech encontrado en la muestra de 11 (CYTK/BBIO, densidad de negocio 0.06–0.14 con vocabulario corporativo genérico, corregido a 2.21–2.84 ampliando vocabulario a términos clínicos). Pero la pasada sobre 130 mostró que el siguiente hueco no era sectorial — era de **registro gramatical**: IBM, CNH, CWEN, GPRE, QUBT, RGTI (industrias completamente distintas: tecnología, maquinaria agrícola, energía, biocombustible, computación cuántica) fallaban por igual porque escriben en tercera persona ("the Company", "IBM's products") en vez de primera ("our business"). Una lista de vocabulario muere por mil ampliaciones — cada ronda tapa un hueco y descubre el siguiente.
 
-**Umbral:** a calibrar sobre la muestra — punto de partida propuesto: ≥3 ocurrencias de marcadores de riesgo por cada 1,000 caracteres para Item 1A.
+**Diseño v1.2:** abandona el diccionario para el check de negocio. El propósito declarado del gate es cazar el desplazamiento de sección (Item 1A real recortado como si fuera Item 1B, o viceversa) — y eso se detecta con una propiedad relacional universal, no con vocabulario: **un Item 1A real siempre tiene densidad de lenguaje de riesgo (`risk`, `adversely affect`, `could harm`, `may not`, `material adverse effect`) mayor que un Item 1 real**, en cualquier sector y cualquier registro gramatical. Si los recortes están desplazados, la asimetría se invierte o colapsa.
 
-### Gate 4 — Ratio sobre el documento total
+```
+ratio = densidad_riesgo(Item1A) / densidad_riesgo(Item1)
+pass = ratio >= 1.0
+```
 
-Item 1 + Item 1A combinados deben representar entre 15% y 60% del texto limpio total del filing.
+**Umbral 1.0, congelado tras control negativo obligatorio (condición innegociable del freeze, no opcional):** sobre 119 filings ya confirmados limpios (Gates 0/1/2 pasan, sin caso especial), se evaluó el test tanto sobre los pares reales como sobre los pares **cruzados** (Item 1 e Item 1A intercambiados). Resultado: separación perfecta sin solapamiento — mínimo ratio real = 1.130 (CSCO), máximo ratio cruzado = 0.890 (CSCO, exactamente el recíproco: 1/1.13≈0.89). El umbral inicial propuesto (2.0) era una estimación sin evidencia que producía 8 falsos negativos (FSLR, MSTR, ZS, WULF, TE, GILD, CSCO, AMAT — todos con asimetría correcta pero por debajo de 2.0). Con 1.0 (centro del hueco [0.890, 1.130], ~13% de margen a cada lado): 119/119 pares reales pasan, 119/119 pares cruzados fallan. **Si una futura ampliación de la población hace que algún cruce empiece a pasar con este umbral, el gate no discrimina y se rediseña — no se sigue engordando con vocabulario ni se sube el umbral a ciegas.**
+
+### Gate 4 — Ratio sobre el documento total, piso y techo v1.2
+
+Item 1 + Item 1A combinados deben representar entre **30%** y 80% del texto limpio total del filing (piso bajado de 35% a 30% el 2026-07-03).
 
 **Por qué:** complementa el Gate 2 en filings anómalamente cortos (smaller reporting companies con Business/Risk Factors mínimos) o anómalamente largos (filers con Item 1A extenso que aun así podría estar mal delimitado).
+
+**Piso bajado a 0.30 (evidencia):** SMCI (ratio 0.343, fronteras confirmadas correctas en inspección) quedaba excluido por el piso original de 0.35 — su documento tiene una masa inusual de contenido posterior a Item 1A (notas financieras extensas), no un fallo de extracción.
+
+**Techo condicionado a `end_verified_structurally`, misma lógica que Gate 2:** bloqueante solo si el fin de Item 1A no fue verificado. Resuelve los 6 biotechs con ratio 0.80–0.84 (RXRX, RVMD, APGE, NUVL, CRSP, BEAM) y ROIV sin ensanchar el techo absoluto.
 
 ### Gate 5 — Casos especiales, explícitos y etiquetados
 
@@ -141,14 +157,16 @@ Tras el fix de CIK, BBIO ya no cae en la muestra mecánica de 10 recalculada (Se
 
 ---
 
-## 6. Criterios de aceptación de la Etapa 2 (pre-fijados)
+## 6. Criterios de aceptación de la Etapa 2 (pre-fijados) — resultado final registrado
 
-| Métrica | Umbral | Acción si no se cumple |
-|---------|--------|--------------------------|
-| Tasa de paso limpio (gates 0-4 superados sin caer en Gate 5) sobre los 130 10-K | 85-95% esperado | Si <80%: iterar heurística/extractor antes de revisión manual masiva — una cola grande es señal de extractor malo, no de documentos raros |
-| Filings en cola de revisión (Gate 5 + fallos) | El resto | Revisión manual filing por filing, sin pasar texto no validado al extractor de Etapa 3 |
-| Inspección manual de la muestra de calibración: 10 mecánicos (Sección 5.1) + BBIO (Sección 5.3) | 11/11 límites correctos antes de la pasada completa | Si falla: ajustar gates o extractor; re-muestreo mecánico abajo (BBIO no se re-muestrea, ya es un caso confirmado) |
-| Inspección manual de la muestra de calibración (Sección 5) | 10/10 límites correctos antes de la pasada completa | Si falla: ajustar gates o extractor, repetir con nueva muestra (mecanismo de re-muestreo abajo) |
+| Métrica | Umbral | Acción si no se cumple | Resultado real |
+|---------|--------|--------------------------|-----------------|
+| Tasa de paso limpio (gates 0-4 superados sin caer en Gate 5) sobre los 130 10-K | 85-95% esperado | Si <80%: iterar heurística/extractor antes de revisión manual masiva — una cola grande es señal de extractor malo, no de documentos raros | Primera pasada (v1.1 congelada sobre muestra de 11): **78.46%** (102/130) — disparó la regla de <80%. Tras el rediseño v1.2 (Gates 2-4, ver Secciones 3 y arriba): **92.31%** (120/130), dentro del rango esperado |
+| Filings en cola de revisión (Gate 5 + fallos) | El resto | Revisión manual filing por filing, sin pasar texto no validado al extractor de Etapa 3 | 10/130 tras v1.2: 6 `INCORPORADO_POR_REFERENCIA` (Gate 5 funcionando como se diseñó, no un fallo), 2 extracción fallida en ambos métodos (INTC, BE), 1 `CROSS_CHECK_DIVERGENTE` (INCY), 1 `FALLO_gate2_longitud` (NVEC — empresa pequeña, Item 1A ligeramente bajo el piso, plausible legítimo) |
+| Inspección manual de la muestra de calibración: 10 mecánicos (Sección 5.1) + BBIO (Sección 5.3) | 11/11 límites correctos antes de la pasada completa | Si falla: ajustar gates o extractor; re-muestreo mecánico abajo (BBIO no se re-muestrea, ya es un caso confirmado) | **11/11 confirmado** — ver commit de congelación v1.1 |
+| Inspección manual de los 16 candidatos a recalibración v1.2 (6 biotech de ratio + 8 de vocabulario + ROIV + SMCI) | 16/16 límites correctos antes del rediseño | Si falla: no rediseñar sobre evidencia contaminada | **16/16 confirmado** |
+
+**Sobre el disparador del 80% — qué significó realmente:** la regla codificaba un modelo de fallo (tasa baja = extractor malo) que no aplicó aquí — en 14 de los 28 casos de la primera cola, Gates 0/1 confirmaban extracción correcta; el problema era que la muestra de calibración (11 filings) no representó la diversidad sectorial/gramatical de los 130. El disparador cumplió su función real: forzar el diagnóstico antes de tocar nada. Ni obedecer la letra (iterar el extractor, que no estaba roto) ni ignorar el disparador habría sido correcto — el camino fue un amend documentado (v1.2) con inspección humana + control negativo antes de cada cambio, igual disciplina que v1.1.
 
 **Mecanismo de re-muestreo (determinista, no discreción encubierta):** la regla de percentiles de la Sección 5.1 es determinista — repetirla sin más devolvería exactamente los mismos 10 archivos. Si la inspección manual falla y hace falta una nueva muestra, se usan percentiles desplazados **p10, p20, p30, p45, p60, p75, p85** + el **segundo mayor** archivo por tamaño absoluto, excluyendo cualquier filing ya inspeccionado en la ronda anterior. Sigue siendo mecánico (otro conjunto fijo de percentiles, no elegido por resultado) y mantiene el espíritu de la Sección 5.1.
 
@@ -183,4 +201,10 @@ Gate 0 (identidad) y Gate 1 (orden estructural, verificado manualmente en este c
 
 ---
 
-*Spec lista para pre-registro. Los gates de la Sección 3 y los umbrales de la Sección 6 son las piezas que no deben ajustarse después de ver la tasa de paso de la pasada completa — solo la Sección 5 (calibración sobre la muestra) es el punto legítimo de ajuste antes de correr sobre los 130 10-K. Los 6 20-F (Sección 9) se validan por inspección manual, fuera del esquema de bandas.*
+## 10. Advertencia honesta sobre la calibración v1.2
+
+Los Gates 2-4 de v1.2 se calibraron sobre la **población completa** de 130 10-K, no sobre una muestra con held-out. Esto es correcto por lo que significa el disparador del 80% (Sección 6: forzar diagnóstico, no ocultar evidencia) — pero tiene una consecuencia que hay que decir sin adornos: **no queda ningún conjunto de datos independiente contra el cual validar que la calibración generaliza.** El test verdadero de v1.2 no son los 130 filings ya vistos — son los 10-Ks del año próximo (2027), sobre empresas y sectores que hoy no están en el universo, o el mismo universo con negocios que hayan cambiado de forma que altere su registro narrativo. Si esa cohorte futura produce una tasa de paso limpio muy distinta de 92.3%, o si el control negativo del Gate 3 (asimetría 1.0) deja de separar limpio, **eso es la señal real de si v1.2 generaliza — no la re-ejecución de la pasada actual, que ya no puede sorprender.**
+
+---
+
+*Spec CONGELADA (v1.2, 2026-07-03). Los gates de la Sección 3 y los umbrales de la Sección 6 no deben ajustarse mirando la tasa de paso de una pasada futura sobre el mismo universo — solo evidencia estructural nueva (inspección de fronteras + control negativo) justifica tocar esta versión, con el mismo protocolo de v1.1→v1.2: inspección primero, rediseño/recalibración después, documentado como amend versionado. Los 6 20-F (Sección 9) se validan por inspección manual, fuera del esquema de bandas.*

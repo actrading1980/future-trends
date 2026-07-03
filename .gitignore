@@ -5,3 +5,7 @@ reports/phase0/
 __pycache__/
 *.pyc
 $env:TEMP
+
+data/filings/*.htm
+data/filings/fpi_20f/*.htm
+data/etf_sources/raw_downloads_*/

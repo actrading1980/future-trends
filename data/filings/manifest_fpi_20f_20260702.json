@@ -1,0 +1,55 @@
+{
+  "fecha": "2026-07-02",
+  "tipo": "20-F",
+  "filings": [
+    {
+      "ticker": "TSM",
+      "cik": "0001046179",
+      "accession": "0001628280-26-025362",
+      "filing_date": "2026-04-16",
+      "archivo": "TSM_0001628280-26-025362.htm",
+      "bytes": 10355816
+    },
+    {
+      "ticker": "ARM",
+      "cik": "0001973239",
+      "accession": "0001973239-26-000097",
+      "filing_date": "2026-05-26",
+      "archivo": "ARM_0001973239-26-000097.htm",
+      "bytes": 3136903
+    },
+    {
+      "ticker": "BABA",
+      "cik": "0001577552",
+      "accession": "0001193125-26-231755",
+      "filing_date": "2026-05-20",
+      "archivo": "BABA_0001193125-26-231755.htm",
+      "bytes": 11745163
+    },
+    {
+      "ticker": "ASML",
+      "cik": "0000937966",
+      "accession": "0001628280-26-011378",
+      "filing_date": "2026-02-25",
+      "archivo": "ASML_0001628280-26-011378.htm",
+      "bytes": 24864615
+    },
+    {
+      "ticker": "BIDU",
+      "cik": "0001329099",
+      "accession": "0001193125-26-109289",
+      "filing_date": "2026-03-17",
+      "archivo": "BIDU_0001193125-26-109289.htm",
+      "bytes": 6674808
+    },
+    {
+      "ticker": "SE",
+      "cik": "0001703399",
+      "accession": "0001140361-26-015366",
+      "filing_date": "2026-04-17",
+      "archivo": "SE_0001140361-26-015366.htm",
+      "bytes": 5641014
+    }
+  ],
+  "errores": []
+}

@@ -1,0 +1,112 @@
+{
+  "fecha": "2026-07-02",
+  "regla": "percentiles p5,p15,p25,p40,p55,p70,p80,p90,p95 de tamaño en bytes + mayor absoluto (filing_section_validator_v1.md Seccion 5.1)",
+  "distribucion": {
+    "min_kb": 854.7431640625,
+    "mediana_kb": 2628.05810546875,
+    "max_kb": 7966.8623046875,
+    "n": 130
+  },
+  "muestra": [
+    {
+      "ticker": "SHLS",
+      "cik": "1831651",
+      "accession": "0001831651-26-000021",
+      "filing_date": "2026-02-24",
+      "primary_doc": "shls-20251231.htm",
+      "archivo": "SHLS_0001831651-26-000021.htm",
+      "bytes": 1598609,
+      "percentil": 5
+    },
+    {
+      "ticker": "MTSI",
+      "cik": "1493594",
+      "accession": "0001493594-25-000054",
+      "filing_date": "2025-11-14",
+      "primary_doc": "mtsi-20251003.htm",
+      "archivo": "MTSI_0001493594-25-000054.htm",
+      "bytes": 2028517,
+      "percentil": 15
+    },
+    {
+      "ticker": "AMAT",
+      "cik": "0000006951",
+      "accession": "0001628280-25-056742",
+      "filing_date": "2025-12-12",
+      "primary_doc": "amat-20251026.htm",
+      "archivo": "AMAT_0001628280-25-056742.htm",
+      "bytes": 2221981,
+      "percentil": 25
+    },
+    {
+      "ticker": "ARRY",
+      "cik": "1820721",
+      "accession": "0001820721-26-000008",
+      "filing_date": "2026-02-25",
+      "primary_doc": "arry-20251231.htm",
+      "archivo": "ARRY_0001820721-26-000008.htm",
+      "bytes": 2558823,
+      "percentil": 40
+    },
+    {
+      "ticker": "ZS",
+      "cik": "1713683",
+      "accession": "0001713683-25-000158",
+      "filing_date": "2025-09-11",
+      "primary_doc": "zs-20250731.htm",
+      "archivo": "ZS_0001713683-25-000158.htm",
+      "bytes": 2743022,
+      "percentil": 55
+    },
+    {
+      "ticker": "REGN",
+      "cik": "872589",
+      "accession": "0000872589-26-000008",
+      "filing_date": "2026-02-04",
+      "primary_doc": "regn-20251231.htm",
+      "archivo": "REGN_0000872589-26-000008.htm",
+      "bytes": 3119136,
+      "percentil": 70
+    },
+    {
+      "ticker": "RTX",
+      "cik": "101829",
+      "accession": "0000101829-26-000006",
+      "filing_date": "2026-02-06",
+      "primary_doc": "rtx-20251231.htm",
+      "archivo": "RTX_0000101829-26-000006.htm",
+      "bytes": 3685295,
+      "percentil": 80
+    },
+    {
+      "ticker": "CYTK",
+      "cik": "1061983",
+      "accession": "0001193125-26-076495",
+      "filing_date": "2026-02-26",
+      "primary_doc": "cytk-20251231.htm",
+      "archivo": "CYTK_0001193125-26-076495.htm",
+      "bytes": 4719187,
+      "percentil": 90
+    },
+    {
+      "ticker": "HUT",
+      "cik": "1964789",
+      "accession": "0001104659-26-019392",
+      "filing_date": "2026-02-25",
+      "primary_doc": "hut-20251231x10k.htm",
+      "archivo": "HUT_0001104659-26-019392.htm",
+      "bytes": 5347553,
+      "percentil": 95
+    },
+    {
+      "ticker": "MSFT",
+      "cik": "789019",
+      "accession": "0000950170-25-100235",
+      "filing_date": "2025-07-30",
+      "primary_doc": "msft-20250630.htm",
+      "archivo": "MSFT_0000950170-25-100235.htm",
+      "bytes": 8158067,
+      "percentil": "max_absoluto"
+    }
+  ]
+}

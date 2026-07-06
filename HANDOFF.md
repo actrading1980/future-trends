@@ -34,6 +34,16 @@ ERROR: reporte demasiado corto (672-1137 bytes) - ver $env:TEMP\fa_report_YYYYMM
 ```
 Esto aborta el pipeline en el paso 3 (llamada Claude CLI → `reports/YYYYMMDD.md`), por lo que nunca llega al paso 4 (extracción de `SCORES_CSV_START/END` → `tech_scores`).
 
+### 🔒 Reglas pre-registradas sobre el hueco (fijadas 2026-07-06, antes de reanudar el pipeline)
+
+**Regla 1 — el hueco NO se rellena retroactivamente.** Cuando el pipeline vuelva a funcionar, no generar scores para 2026-06-25→2026-07-06 con fecha retroactiva. Un score para el 26-jun generado después de esa fecha lo produce un modelo que ya conoce eventos posteriores — look-ahead invisible en la DB, letal para cualquier IC. El hueco queda como hueco. Marcar cada día del rango con `day_quality='pipeline_gap'` (añadir esta columna/valor a `tech_scores` si no existe aún) en vez de dejarlo simplemente ausente, para que quede explícito y no como un olvido futuro.
+
+**Regla 2 — deltas que cruzan el hueco no son eventos.** El primer score tras la reanudación producirá, en `generate_comparative.py` y en cualquier evaluación de H2 (Δscore), un delta contra el 2026-06-24 que en realidad acumula ~3 semanas de noticias, no un evento diario. Ese delta debe marcarse `gap_spanning=true` y quedar excluido del conteo de eventos Tipo A+/A− de H2. Aplicar en `generate_comparative.py` (comparar contra la fecha inmediatamente anterior con datos, y si la distancia > 1 día hábil de mercado, marcar el registro en vez de tratarlo como delta normal) y documentarlo en la spec de H2 (`validation_engine_v1.1.md`) antes de que exista el primer delta post-hueco.
+
+**Regla 3 — todo escritor diario debe fallar ruidoso, no silencioso.** El fallo fue invisible 12 días porque los reportes de texto siguieron publicándose mientras el INSERT a `tech_scores` simplemente no ocurría — el humano ve el reporte, nadie ve el INSERT. Patrón ya visto antes en SPYCAST (`hybrid_5min_updater`, `exhaustion_updater`, `shadow_outcome`). Regla general para todos los pipelines de este proyecto: todo escritor diario a DB termina con una aserción `inserted >= umbral esperado`; si no se cumple, exit code ≠ 0 + línea `ERROR` explícita en el log que el paso de scheduler no pueda ignorar. Aplicar esto a `run_daily.ps1` paso 4 como parte del fix, no como limpieza aparte.
+
+**Nota sobre el gate F3**: el hueco no mueve su reloj — esos 12 días son del tramo `universe_version=1` que F3 ya excluye (cuenta desde P1.5 operativa con universo completo). El daño real es en diagnósticos exploratorios F1/F2 y en el arranque limpio de H2 (Regla 2).
+
 Sin embargo, existen `reports/20260629.md` … `reports/20260706.md` con contenido real (167-191 líneas, no vacíos) como **archivos untracked** — es decir, alguien (el usuario o una sesión de Claude Code manual) generó esos reportes por fuera del pipeline automático después de que el run fallara. **No hay CSV de scores asociado a ellos** — probablemente `tech_scores` quedó congelado en 06-24 aunque los reportes de texto sí se sigan produciendo y publicando.
 
 **No diagnosticado aún**: por qué el output de Claude CLI vía stdin colapsa a <2000 bytes desde el 06-25. Candidatos sin verificar: cambio en el prompt (`prompts/daily.md` v2), cambio de versión del CLI, timeout/truncamiento del stdin, o un cambio de entorno en la tarea programada (S4U). **Este es el ítem de mayor prioridad de esta lista** — cada día que pasa sin arreglarlo es un día de N perdido para el futuro gate de validación estadística.
@@ -120,7 +130,7 @@ Borrador de la spec del extractor de keywords (Etapa 3): trata contenido del fil
 ## Próximos pasos (en orden de prioridad real)
 
 ### 1. Diagnosticar y arreglar el pipeline de scoring roto (06-25→hoy)
-Revisar `$env:TEMP\fa_report_YYYYMMDD.md` de un run reciente fallido, comparar con `prompts/daily.md`, y determinar si el CLI está devolviendo error/truncamiento silencioso. Esto bloquea el N de cualquier validación futura — es la prioridad real de producción.
+Pregunta que ordena el diagnóstico: **¿qué cambió el 25 de junio?** — la caída es a una fecha exacta y estable (no degradación gradual), lo que huele a cambio discreto de entorno: versión del CLI, deprecación de modelo, expiración de auth/quota, o cambio de prompt/wrapper ese día. Tres datos en orden: (1) `scheduler.log` alrededor del 06-25 (el log actual no cubre 06-25→06-28, buscar si hay un log rotado o los eventos de Task Scheduler de Windows para esas fechas); (2) exit code + stderr de una ejecución manual del mismo comando del pipeline hoy; (3) diff de un reporte truncado reciente contra uno sano del 06-24 — ¿trunca a mitad de frase, o hay un error embebido en el texto? Con esos tres suele ser evidente. Al arreglarlo, incluir la aserción de la Regla 3 arriba (fail-loud) como parte del fix, no como limpieza aparte. Esto bloquea el N de cualquier validación futura — es la prioridad real de producción.
 
 ### 2. Cerrar los pendientes mecánicos de P1.5 (lista de 6 arriba)
 Antes de la sesión de inspección y antes de la spec del extractor.

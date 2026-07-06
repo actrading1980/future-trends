@@ -1,7 +1,7 @@
 # FutureAnalysis - Daily Run
 # Ejecutado por Windows Task Scheduler lunes-viernes 7:00 AM
 
-$ProjectDir = "C:\projects\FutureTrends"
+$ProjectDir = "c:\projects\FutureTrends"
 $Date       = Get-Date -Format "yyyyMMdd"
 $DateIso    = Get-Date -Format "yyyy-MM-dd"
 $Date7d     = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
@@ -179,6 +179,19 @@ $ParseScript = $ParseScript -creplace 'REPORT_PATH', ($ReportFile -replace '\\',
 $ParseScript = $ParseScript -creplace 'REPORT_DATE', $DateIso
 $ParseResult = python3 -c $ParseScript 2>&1
 Log "INFO: $ParseResult"
+
+# 8b. Asercion fail-loud: el escritor diario debe fallar ruidoso, no silencioso
+# (12 dias de pipeline roto en 2026-06 pasaron desapercibidos porque el reporte de texto
+# seguia publicandose mientras el INSERT a tech_scores simplemente no ocurria)
+$InsertedCount = 0
+if ($ParseResult -match 'DB_SAVED:\s*(\d+)\s*registros') {
+    $InsertedCount = [int]$matches[1]
+}
+$MinInsertedExpected = 40
+if ($InsertedCount -lt $MinInsertedExpected) {
+    Log "ERROR: solo $InsertedCount registros insertados en tech_scores (minimo esperado $MinInsertedExpected) - pipeline abortado, revisar $ReportFile"
+    exit 1
+}
 
 # 9. Guardar precios de cierre del dia
 Log "INFO: descargando precios de cierre..."

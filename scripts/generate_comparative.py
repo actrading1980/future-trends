@@ -5,12 +5,17 @@ generate_comparative.py — genera un informe comparativo entre hoy y ayer:
   - Empresas que entraron/salieron de BULLISH/BEARISH
 Salida: reports/comparative_YYYYMMDD.md
 """
-import sqlite3, re, sys
+import sqlite3, re, sys, json
 from datetime import date, timedelta
 from pathlib import Path
 
 DB_PATH      = r"C:\projects\FutureTrends\data\fa.db"
 REPORTS_DIR  = Path(r"C:\projects\FutureTrends\reports")
+
+# Un hueco de pipeline (ej. 2026-06-25 -> 2026-07-06) produce un "delta" que en
+# realidad acumula semanas de noticias, no un evento diario -- no es un evento de H2.
+# 4 dias calendario cubre un fin de semana largo tipico (vie->mar); mas que eso, se marca.
+MAX_NORMAL_GAP_DAYS = 4
 
 def extract_urls(md_text):
     return set(re.findall(r'https?://[^\s\)\]>,\"]+', md_text))
@@ -92,6 +97,9 @@ def main():
 
     date_yesterday = prev
 
+    gap_days = (date.fromisoformat(date_today) - date.fromisoformat(date_yesterday)).days
+    gap_spanning = gap_days > MAX_NORMAL_GAP_DAYS
+
     md_today     = load_report(date_today)
     md_yesterday = load_report(date_yesterday)
 
@@ -115,6 +123,11 @@ def main():
 
     a(f"# Comparativo {date_yesterday} → {date_today}")
     a("")
+    if gap_spanning:
+        a(f"> ⚠️ **GAP_SPANNING**: {gap_days} días entre `{date_yesterday}` y `{date_today}` (>{MAX_NORMAL_GAP_DAYS} normal). "
+          f"Los deltas de esta tabla acumulan noticias de todo el hueco, no son eventos diarios — "
+          f"**excluir de cualquier conteo de eventos H2 (Tipo A+/A−)**.")
+        a("")
     a(f"> Empresas comparadas: **{len(deltas)}** | Nuevas en universe: {len(new_ticks)} | Salieron: {len(gone_ticks)}")
     a("")
 
@@ -208,7 +221,17 @@ def main():
     output = "\n".join(lines)
     out_path = REPORTS_DIR / f"comparative_{date_today.replace('-','')}.md"
     out_path.write_text(output, encoding="utf-8")
-    print(f"COMPARATIVE_SAVED: {out_path.name} ({len(deltas)} empresas, {len(urls_repeated)} fuentes repetidas)")
+
+    meta_path = REPORTS_DIR / f"comparative_{date_today.replace('-','')}.json"
+    meta_path.write_text(json.dumps({
+        "date_today": date_today,
+        "date_yesterday": date_yesterday,
+        "gap_days": gap_days,
+        "gap_spanning": gap_spanning,
+    }, indent=2), encoding="utf-8")
+
+    gap_note = f" GAP_SPANNING={gap_spanning} ({gap_days}d)" if gap_spanning else ""
+    print(f"COMPARATIVE_SAVED: {out_path.name} ({len(deltas)} empresas, {len(urls_repeated)} fuentes repetidas){gap_note}")
 
 if __name__ == "__main__":
     main()

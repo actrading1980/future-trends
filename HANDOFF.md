@@ -7,7 +7,7 @@
 
 Dos líneas de trabajo activas y desacopladas:
 
-1. **Producción (Phase 1, universo de 51)**: pipeline diario autónomo vía Task Scheduler. Prompt v2 corriendo desde 2026-06-01. **Causa raíz del corte 2026-06-25→07-03 diagnosticada y fixeada esta sesión** (ver hallazgo crítico abajo); el hueco real quedó reducido a solo 2 días (06-25, 06-26) tras verificar e ingerir reportes generados manualmente durante la ventana. Pendiente: confirmar con el run de mañana (07-07) que el fix sostiene.
+1. **Producción (Phase 1, universo de 51)**: pipeline diario autónomo vía Task Scheduler. Prompt v2 corriendo desde 2026-06-01. **Causa raíz del corte 2026-06-25→07-03 (trust dialog) confirmada resuelta con el run de 2026-07-07** (ver hallazgo crítico abajo) — pero ese mismo run reveló un problema nuevo y distinto: solo 15/51 empresas cubiertas, y la aserción fail-loud recién implementada abortó el pipeline correctamente antes de propagarlo. El hueco de datos real quedó en 2 días completos (06-25, 06-26) + ahora un tercer día de cobertura insuficiente (07-07, 15/51) sumado a los 3 ya conocidos (07-02, 07-03, 07-06).
 2. **P1.5 (expansión a 136 empresas)**: en curso, no integrada a producción. `data/companies.json` sigue en 51 — el universo de 136 vive solo en `data/filings/universe_selection_20260702.json` + manifiestos, y aún no ha pasado el gate de extracción limpia (Etapa 2) ni existe el extractor de keywords (Etapa 3).
 
 Próximo hito de producción: gate P1→P2 requería 30 días sin fallos desde 2026-05-22 (~2026-06-22) — **ese gate está probablemente invalidado** por la ruptura del 06-25, hay que auditar si se cumplió antes de la ruptura o si el conteo se reinicia.
@@ -26,7 +26,7 @@ Próximo hito de producción: gate P1→P2 requería 30 días sin fallos desde 2
 | Fix: `WorkingDirectory` de la tarea programada a minúscula | ⏳ requiere PowerShell elevada — comando dado al usuario, no ejecutado aún |
 | Regla 2 (`gap_spanning`) implementada en `generate_comparative.py` | ✅ |
 | Regla 3 (aserción fail-loud `inserted >= 40`) implementada en `run_daily.ps1` paso 8b | ✅ |
-| Verificación de procedencia de los 6 reportes untracked (06-29→07-06) e ingesta con `day_quality='manual_session_verified'` | ✅ 202 registros ingeridos |
+| Verificación de procedencia de los 6 reportes untracked (06-29→07-06) e ingesta con `day_quality='pipeline_writetool_recovered'` | ✅ 202 registros ingeridos |
 | Continuación de P1.5 Etapa 2 (validador de gates, ver sección propia) | ⏳ en curso, ver "P1.5 — estado detallado" |
 
 ---
@@ -57,17 +57,18 @@ Confirmado con `logs/scheduler.log`: último éxito **2026-06-24** (26,585 bytes
 4. Regla 2 (`gap_spanning`) implementada en `scripts/generate_comparative.py`: calcula `gap_days` contra la fecha real anterior en DB; si `gap_days > 4`, marca banner de advertencia en el `.md` y escribe `reports/comparative_YYYYMMDD.json` con `{gap_days, gap_spanning}` para que el análisis de H2 filtre sin parsear markdown.
 5. Regla 3 (fail-loud) implementada en `scripts/run_daily.ps1` paso 8b: si `inserted < 40`, `ERROR` explícito en el log + `exit 1`. Antes, un fallo silencioso en el INSERT no abortaba nada aguas abajo.
 
-### Criterios de éxito del run de 2026-07-07 (escritos hoy, antes del run)
-Los cuatro deben cumplirse para dar el fix por confirmado:
-- [ ] Reporte >20,000 bytes (no el resumen corto de ~1,000-2,700 bytes de los fallos)
-- [ ] ~51 filas insertadas en `tech_scores` con `date='2026-07-07'` (aserción del paso 8b en verde, sin `ERROR` en el log)
-- [ ] `logs/scheduler.log` sin la línea `ERROR: reporte demasiado corto`
-- [ ] `reports/comparative_20260707.json` con `gap_spanning=false` (comparando contra 2026-07-06, 1 día — si comparara contra una fecha más vieja, algo más sigue roto)
+### Resultado del run de 2026-07-07 — causa raíz confirmada resuelta, pero surge un problema DISTINTO
+- [x] Reporte >20,000 bytes ~~— **NO**, 14,161 bytes, pero por una razón nueva, no la vieja~~
+- [ ] ~51 filas insertadas en `tech_scores` — **NO**, solo 15
+- [x] `logs/scheduler.log` sin la línea `ERROR: reporte demasiado corto` — **confirmado**, ese error específico no reaparece
+- [ ] `reports/comparative_20260707.json` con `gap_spanning=false` — no se generó, el pipeline abortó antes del paso 7
+
+**Lectura correcta**: el bug de trust-dialog está resuelto — `scheduler.log` de hoy muestra `OK: informe guardado en reports\20260707.md (14161 bytes)`, es decir, el CLI ya devolvió el reporte completo por stdout en vez de un resumen corto vía Write. Pero el reporte, aunque completo, solo cubrió **15 de 51 empresas** (`DB_SAVED: 15 registros insertados`) — un problema distinto, de contenido/cobertura, no de permisos. La Regla 3 (aserción fail-loud, implementada ayer) funcionó exactamente como se diseñó: `ERROR: solo 15 registros insertados en tech_scores (minimo esperado 40) - pipeline abortado` — cortó el pipeline antes de precios/notas/comparativo/deploy, evitando que un día de N parcial contaminara pasos aguas abajo en silencio. **Este es el nuevo pendiente de mayor prioridad**: diagnosticar por qué el reporte de hoy solo cubrió 15/51 tickers (candidatos sin verificar: el prompt genera menos contenido en runs cortos de ~4 minutos vs los ~9-15 min de los runs completos previos a la ruptura; revisar `reports/20260707.md` para ver si el informe se corta a mitad de sección o simplemente no menciona al resto del universo).
 
 ### Estado final del hueco tras verificación de procedencia
-Los 6 reportes untracked del rango (06-29, 06-30, 07-01, 07-02, 07-03, 07-06) se verificaron con dos criterios: (a) `mtime` del archivo dentro de ~10 minutos del timestamp de ejecución en `scheduler.log` (contemporáneo, no generado después en lote) y (b) sin referencias a fechas posteriores a la propia dentro del texto (sin look-ahead). Ambos pasaron para los 6. Se ingirieron con `python3 scripts/ingest_manual_reports.py` → 202 registros con `day_quality='manual_session_verified'` (columna nueva en `tech_scores`), **reemplazando el supuesto hueco de 12 días por uno real de solo 2 días: 2026-06-25 y 2026-06-26** (para esas dos fechas no existe ningún reporte, ni siquiera parcial — ahí el hueco se queda como hueco, sin generar nada retroactivo, tal como manda la Regla 1).
+Los 6 reportes untracked del rango (06-29, 06-30, 07-01, 07-02, 07-03, 07-06) **no los generó nadie a mano** — los escribió el propio CLI vía la herramienta Write mientras el workspace no estaba confiado: el modelo guardaba el reporte completo en disco y devolvía solo un resumen corto por stdout, que el wrapper medía y rechazaba antes de llegar al INSERT. La verificación de procedencia (mtime del archivo dentro de ~10 minutos del timestamp de la *tarea programada* en `scheduler.log`, y sin referencias a fechas posteriores a la propia dentro del texto) no encontró una sesión manual — confirmó exactamente el mecanismo de la causa raíz. Se ingirieron con `python3 scripts/ingest_manual_reports.py` → 202 registros con `day_quality='pipeline_writetool_recovered'` (columna nueva en `tech_scores`), **reemplazando el supuesto hueco de 12 días por uno real de solo 2 días: 2026-06-25 y 2026-06-26** (para esas dos fechas no existe ningún reporte, ni siquiera parcial — ahí el hueco se queda como hueco, sin generar nada retroactivo, tal como manda la Regla 1).
 
-**Nota sobre cobertura parcial**: 3 de los 6 días ingeridos tienen N menor a 51 (reportes más cortos → menos filas de CSV extraíbles): 07-02 (12), 07-03 (19), 07-06 (18). Esto no es un hueco pero sí reduce el N efectivo de esos días para cualquier cálculo — tenerlo presente en el futuro cálculo de IC/F3 al filtrar por `day_quality`.
+**Nota sobre cobertura parcial**: 3 de los 6 días recuperados tienen N menor a 51 (reportes más cortos → menos filas de CSV extraíbles): 07-02 (12), 07-03 (19), 07-06 (18). Esto es consistente con la causa raíz: sin `permissions.allow`, el modelo operaba bajo permisos por defecto y producía informes menos completos antes de que el wrapper los cortara. No es un hueco, pero sí reduce el N efectivo de esos días para cualquier cálculo futuro de IC/F3 — filtrar por `day_quality` cuando corresponda.
 
 ### 🔒 Reglas pre-registradas sobre el hueco (fijadas 2026-07-06, antes de reanudar el pipeline)
 
@@ -115,7 +116,7 @@ Los 6 reportes untracked del rango (06-29, 06-30, 07-01, 07-02, 07-03, 07-06) se
 ### DB (`data/fa.db`)
 | Tabla | Registros | Fechas disponibles |
 |-------|-----------|-------------------|
-| `tech_scores` | 1018 (158 v1 + 860 v2) | v1: 2026-05-26→05-29 · v2: 2026-06-01→06-24 (pipeline normal) + 2026-06-29→07-06 (`day_quality='manual_session_verified'`, N parcial en 3 de 6 días — ver hallazgo crítico) |
+| `tech_scores` | 1018 (158 v1 + 860 v2) | v1: 2026-05-26→05-29 · v2: 2026-06-01→06-24 (pipeline normal) + 2026-06-29→07-06 (`day_quality='pipeline_writetool_recovered'`, N parcial en 3 de 6 días — ver hallazgo crítico) |
 | `prices` | 715 | 2026-05-27 → 2026-07-01 |
 | `companies` | 51 | universo fijo de producción |
 
@@ -129,9 +130,9 @@ Distribución v2 por día revisada: estable en 48-51 empresas scoreadas/día, si
 | Item | Severidad | Nota |
 |------|-----------|------|
 | Pipeline de scoring roto 2026-06-25→07-03 | **Alta → fixeado, confirmar 07-07** | Causa raíz + fix en sección de hallazgo crítico arriba. No dar por cerrado hasta que el run de mañana cumpla los 4 criterios de éxito. |
-| Gate P1→P2 (30 días sin fallos) posiblemente invalidado por la ruptura | Alta | Auditar si se cumplió antes del 06-25 o si el contador debe reiniciarse tras el fix |
+| Gate P1→P2 (30 días sin fallos) posiblemente invalidado por la ruptura | Alta | **Criterio pre-registrado 2026-07-07** (antes de auditar cuántos días da cada lectura): el gate se evalúa sobre **integridad de datos**, no sobre uptime del proceso — un día cuenta como válido si `tech_scores` tiene N≥40 filas con procedencia contemporánea verificada para esa fecha, independientemente de qué vía las produjo (mismo umbral 40 que la aserción fail-loud de la Regla 3, un solo número de "día válido" en todo el proyecto). Bajo este criterio, el incidente deja **5 días inválidos**: 06-25 y 06-26 (sin datos) + 07-02, 07-03, 07-06 (N parcial 12/19/18 < 40). **Pendiente de decisión de Andrés**: si esos 5 días reinician el contador de 30 o solo se descuentan de la ventana — la parte objetiva (qué días fallan) ya está calculada aquí; la de criterio, no. |
 | `.claude.json` puede regenerarse y perder el `hasTrustDialogAccepted=true` de la variante mayúscula | Media | Mitigado en paralelo normalizando `$ProjectDir` en `run_daily.ps1` a minúscula — pero si se toca `.claude.json` de nuevo, revisar ambas variantes de ruta |
-| 3 de los 6 días ingeridos manualmente (07-02, 07-03, 07-06) tienen N parcial (12, 19, 18 de 51) | Media | No es un hueco pero reduce el N efectivo — filtrar/ponderar por `day_quality` en cualquier cálculo futuro de IC |
+| 3 de los 6 días recuperados (07-02, 07-03, 07-06) tienen N parcial (12, 19, 18 de 51) | Media | Consecuencia de la causa raíz (permisos degradados → informes menos completos). No es un hueco pero reduce el N efectivo — filtrar/ponderar por `day_quality` en cualquier cálculo futuro de IC |
 | Schema de 3 estados (`scored/no_catalyst/not_in_universe`) no implementado | Media | Sigue vigente y ahora es más urgente: cada día v2 sin `score_status` real infla el N futuro del IC. Implementar junto con el próximo cambio de schema por `universe_version` (ver P1.5), no por separado — evitar dos migraciones de schema seguidas. |
 | Sparklines + tab Histórico en el viewer HTML | Media | `prices` ya tiene >30 días de histórico; implementar cuando el usuario lo active |
 | `prices` con gaps ocasionales (ej. cuando el run falla antes del paso 6) | Baja | Dependiente del fix del hallazgo crítico |
@@ -162,8 +163,8 @@ Borrador de la spec del extractor de keywords (Etapa 3): trata contenido del fil
 
 ## Próximos pasos (en orden de prioridad real)
 
-### 1. Confirmar el fix del pipeline con el run de 2026-07-07
-Ejecutar (o dejar correr la tarea programada) y verificar los 4 criterios de éxito de la sección de hallazgo crítico. Si falla de nuevo, el siguiente sospechoso es que `.claude.json` se haya regenerado sin la variante mayúscula confiada, o que el `WorkingDirectory` de la tarea programada (aún no corregido, requiere PowerShell elevada) esté interactuando con algo más. Correr también el comando de `Set-ScheduledTask` pendiente (ver arriba) cuando se tenga una sesión elevada.
+### 1. Diagnosticar la cobertura parcial del run de 2026-07-07 (15/51 empresas)
+El bug de trust-dialog ya está confirmado resuelto (reporte completo por stdout, sin el resumen corto de Write) — este es un problema nuevo y distinto. Revisar `reports/20260707.md` directamente: ¿el informe se corta a mitad de sección (señal de límite de tokens/tiempo) o simplemente no menciona al resto del universo (señal de prompt/instrucción)? Comparar longitud y estructura contra un reporte completo pre-ruptura (ej. `20260624.md`, 26,585 bytes) y contra el propio `20260707.md` (14,161 bytes) para ver en qué sección exacta diverge. La aserción fail-loud ya está haciendo su trabajo (abortó antes de precios/notas/comparativo/deploy) — lo que falta es la causa, no una salvaguarda nueva. Correr también el comando de `Set-ScheduledTask` pendiente (ver arriba, requiere PowerShell elevada) para el segundo extremo del fix de trust-dialog.
 
 ### 2. Cerrar los pendientes mecánicos de P1.5 (lista de 6 arriba)
 Antes de la sesión de inspección y antes de la spec del extractor.

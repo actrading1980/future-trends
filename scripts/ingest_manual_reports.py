@@ -1,9 +1,14 @@
 """
-Ingesta puntual de reportes generados fuera del pipeline automatico (2026-06-29..07-06),
-verificados como contemporaneos (mtime ~= hora de ejecucion programada, sin referencias
-a fechas posteriores a la propia). Se marcan day_quality='manual_session_verified' para
-distinguirlos de filas insertadas por run_daily.ps1. NO se genera nada para 2026-06-25/26
-(no hay reporte -- ese hueco genuino se queda como hueco, ver HANDOFF.md Regla 1).
+Ingesta puntual de reportes escritos por el propio CLI via herramienta Write mientras
+el workspace no estaba confiado (2026-06-25->07-03, ver causa raiz en HANDOFF.md): el
+wrapper media el stdout corto y aborta, pero el reporte completo ya habia sido guardado
+en disco por el modelo. mtime coincide con la hora de la tarea programada (no con una
+sesion manual), y el contenido no referencia fechas posteriores a su propia fecha --
+misma fuente y momento que un run normal, solo que via una ruta de escritura distinta.
+Se marcan day_quality='pipeline_writetool_recovered' para distinguirlos de filas
+insertadas por el flujo normal de run_daily.ps1 (paso 8, INSERT via stdout+parser).
+NO se genera nada para 2026-06-25/26 (no hay reporte -- ese hueco genuino se queda
+como hueco, ver HANDOFF.md Regla 1).
 """
 import re, sqlite3
 from pathlib import Path
@@ -57,11 +62,11 @@ for d in TARGETS:
                 prompt_version, universe_version, day_quality)
                VALUES (?,?,?,?,?,?,?,?,?,?)""",
             (ticker, score, "daily_run", intensity, scenario, 0, date_iso,
-             "v2", 1, "manual_session_verified"),
+             "v2", 1, "pipeline_writetool_recovered"),
         )
         inserted += 1
 
-    print(f"OK {date_iso}: {inserted} registros insertados (day_quality=manual_session_verified)")
+    print(f"OK {date_iso}: {inserted} registros insertados (day_quality=pipeline_writetool_recovered)")
     total_inserted += inserted
 
 db.commit()

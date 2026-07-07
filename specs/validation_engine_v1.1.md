@@ -215,6 +215,8 @@ No existía en v1.0 pese a que el dato ya se genera como subproducto de `scripts
 
 Cada tipo se analiza por separado. A+ y A− nunca se agregan en el mismo CAAR.
 
+**Validez de eventos ante huecos de datos (añadido tras el incidente de pipeline 2026-06-25→07-03, ver `HANDOFF.md`):** un Δscore solo es evento si la fecha anterior con datos está a ≤1 día hábil de mercado; la comprobación se hace sobre las fechas reales de `tech_scores` en tiempo de análisis — los sidecars `comparative_*.json` con `gap_spanning` son ayuda, no fuente de verdad, porque no existen para rangos donde el pipeline abortó antes del paso de comparativo (ej. 06-25→07-06, donde el comparativo nunca se generó). Días con `day_quality` distinto de pipeline normal se tratan según su N efectivo, no se asumen completos solo por tener filas.
+
 **Cálculo — Cumulative Abnormal Return (CAR), ventana fija D=20 días hábiles (número único, no "ej."):**
 ```
 AR_i,d = excess_return_1d(ticker_i, evento_date + d)     para d = 1 .. 20

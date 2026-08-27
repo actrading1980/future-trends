@@ -58,6 +58,30 @@ El guard funcionó correctamente cada uno de los ~30 días: detectó la cobertur
 
 **Fix mínimo aplicado (parte del commit de este expediente):** el flag `PIPELINE_ERROR.txt` en escritorio, introducido el 07-28 para el síntoma de reporte-corto/escritura-directa, se extiende para disparar también en el guard de N≥40 (ya estaba parcialmente hecho en el mismo commit del 07-28 — `Write-PipelineErrorMarker` se invoca en ambos puntos de fallo de `run_daily.ps1`). Es el canal mínimo, no resuelve la causa — solo la hace visible sin tener que ir a leer el log.
 
-## 6. Estado y siguiente paso
+## 6. Discriminador final — histograma de tamaños de `reports/*.md` (2026-08-27)
 
-**ABIERTO — causa acotada a una familia (cobertura narrativa del paso 3-4), mecanismo exacto sin aislar, sin fix aplicado todavía.** No cerrar sin: (a) leer el generador de prompt de la llamada 1 para confirmar si pide estructura por-ticker o narrativa libre — determina si el fix es de prompt o de reintentos; (b) aplicar el fix que la lectura indique y verificar N≥40 sostenido una semana antes de declarar cerrado con fecha de fin; (c) decidir si `compute_validation.py` (cuando se construya) pondera o excluye las fechas de este tramo por cobertura declarada. El canal (d) ya está resuelto — ver Sección 4.
+Tamaño en bytes de los 34 informes desde 2026-07-07 (uno por fecha con reporte):
+
+```
+min=8,560  max=19,122  N=34
+ordenado: 8560, 9143, 9147, 9899, 9914, 10325, 10342, 10605, 10811, 11018,
+11720, 12218, 12441, 12563, 12580, 12870, 13097, 13216, 13356, 13684,
+13706, 13715, 14139, 14191, 14232, 14447, 14466, 14694, 15035, 15433,
+15546, 17074, 18661, 19122
+```
+
+**No hay apilamiento contra un techo.** La distribución es continua y sin plateau — ningún valor se repite cerca del máximo, no hay un grupo de días "topando" en el mismo número de bytes/tokens. Si fuera límite duro de salida esperaríamos varios días agolpados justo bajo un techo común; en su lugar el rango sube y baja libremente entre 8.5k y 19k sin ningún valor recurrente.
+
+**Veredicto: rama del prompt.** El modelo no tiene un tope estructural que lo corte — decide, día a día, cuánta narrativa dedicar a cuántas empresas, sin que el prompt exija cobertura completa. **Fix reclasificado en firme: formato estructurado por-ticker obligatorio** en la llamada de generación del informe (no trocear en 2-3 llamadas — esa rama era para el escenario de techo duro, descartado por este histograma), de forma que la completitud sea verificable entre el paso 4 y el paso 7, no solo al final de la corrida.
+
+## 7. Mejora estructural nombrada (no implementada) — guard aguas arriba
+
+El guard actual (paso 13) mide el síntoma a las 23h del día ya perdido. La mejora que este incidente pide, nombrada para cuando se implemente el fix de prompt: verificación "tickers-mencionados == universo" **entre la generación (paso 3-4) y la extracción (paso 7)** — un déficit se detecta ahí mismo y se re-pide solo lo faltante en el momento, en vez de anotarse como día degradado más tarde. Es la versión FutureTrends del fail-closed-con-reintento, y depende directamente de que el prompt ya pida formato por-ticker (Sección 6) — sin eso no hay nada verificable a mitad de camino.
+
+## 8. Pregunta abierta, sin investigar — profundidad, no solo cobertura
+
+Si el modelo comprime bajo presupuesto no controlado, la varianza podría no ser solo de *cuántos* tickers entran sino de *cuánto análisis* recibe cada uno en los días de `.md` corto — un ticket mencionado en un día de 8,560 bytes puede llevar una lectura más superficial que el mismo ticker en un día de 19,122 bytes. No investigable barato (exige comparar calidad narrativa entre días, no solo presencia/ausencia). La era degradada ya declarada (Sección 3) cubre el riesgo para cualquier lectura retrospectiva; el fix de formato por-ticker (Sección 6) lo elimina hacia adelante al forzar profundidad mínima declarada por entrada, no solo presencia.
+
+## 9. Estado y siguiente paso
+
+**ABIERTO — mecanismo aislado con evidencia (histograma descarta techo duro, confirma rama de prompt), fix nombrado, sin aplicar todavía.** No cerrar sin: (a) editar el prompt de la llamada de generación del informe para exigir formato estructurado por-ticker (todas las 51 empresas, aunque sea con una línea mínima cada una); (b) añadir la verificación intermedia de cobertura (Sección 7) cuando el prompt lo permita; (c) verificar N≥40 sostenido una semana antes de declarar cerrado con fecha de fin; (d) decidir si `compute_validation.py` (cuando se construya) pondera o excluye las fechas de este tramo por cobertura declarada. El canal ya está resuelto (Sección 4).

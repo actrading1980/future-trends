@@ -16,7 +16,7 @@ from pathlib import Path
 REPORTS_DIR = Path(r"C:\projects\FutureTrends\reports")
 DB_PATH = r"C:\projects\FutureTrends\data\fa.db"
 
-TARGETS = ["20260629", "20260630", "20260701", "20260702", "20260703", "20260706"]
+TARGETS = ["20260714", "20260717", "20260720", "20260721", "20260723"]
 
 db = sqlite3.connect(DB_PATH)
 valid = {r[0] for r in db.execute("SELECT ticker FROM companies").fetchall()}

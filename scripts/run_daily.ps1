@@ -2,6 +2,7 @@
 # Ejecutado por Windows Task Scheduler lunes-viernes 7:00 AM
 
 $ProjectDir = "c:\projects\FutureTrends"
+$RunStart   = Get-Date
 $Date       = Get-Date -Format "yyyyMMdd"
 $DateIso    = Get-Date -Format "yyyy-MM-dd"
 $Date7d     = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
@@ -9,12 +10,21 @@ $LogFile    = "$ProjectDir\logs\scheduler.log"
 $ReportFile = "$ProjectDir\reports\$Date.md"
 $TmpPrompt  = "$env:TEMP\fa_prompt_$Date.md"
 
+function Write-PipelineErrorMarker($msg) {
+    $desktop = [Environment]::GetFolderPath('Desktop')
+    $marker  = Join-Path $desktop "PIPELINE_ERROR.txt"
+    $ts = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    "$ts - FutureAnalysis run $Date`n$msg`nVer: $LogFile" | Out-File -FilePath $marker -Encoding utf8 -Force
+}
+
 function Log($msg) {
     $ts = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     "$ts $msg" | Tee-Object -FilePath $LogFile -Append
 }
 
 Log "=== FutureAnalysis daily run $Date ==="
+$DesktopMarker = Join-Path ([Environment]::GetFolderPath('Desktop')) "PIPELINE_ERROR.txt"
+Remove-Item $DesktopMarker -Force -ErrorAction SilentlyContinue
 
 # 1. Cargar variables de entorno desde .env
 $EnvFile = "$ProjectDir\.env"
@@ -101,18 +111,34 @@ try {
     exit 1
 }
 
-# 5. Validar output minimo
-$ReportSize = (Get-Item $TmpReport -ErrorAction SilentlyContinue).Length
-if (-not $ReportSize -or $ReportSize -lt 3000) {
-    Log "ERROR: reporte demasiado corto ($ReportSize bytes) - ver $TmpReport"
+# 5. Validar output minimo — contrato dual: el modelo puede devolver el
+# informe por stdout (Move-Item lo publica) o escribirlo el mismo directamente
+# en reports\$Date.md via su propia herramienta Write (--dangerously-skip-permissions
+# permite ambos modos; ninguno es "el bug"). Se acepta cualquiera de los dos,
+# verificado con mtime posterior al arranque del run para no dar falso exito
+# recogiendo el reporte de un dia anterior.
+$StdoutSize = (Get-Item $TmpReport -ErrorAction SilentlyContinue).Length
+$StdoutOk   = $StdoutSize -and $StdoutSize -ge 3000
+
+$DirectFile = Get-Item $ReportFile -ErrorAction SilentlyContinue
+$DirectOk   = $DirectFile -and $DirectFile.Length -ge 3000 -and $DirectFile.LastWriteTime -ge $RunStart
+
+if (-not $StdoutOk -and -not $DirectOk) {
+    Log "ERROR: reporte demasiado corto (stdout=$StdoutSize bytes, sin escritura directa valida) - ver $TmpReport"
+    Write-PipelineErrorMarker "Reporte demasiado corto (stdout=$StdoutSize bytes) y no hay reports\$Date.md valido escrito directamente. Pipeline abortado antes del paso 6."
+    python3 "$ProjectDir\scripts\generate_health_dashboard.py" 2>&1 | Out-Null
     exit 1
 }
 
 # 6. Guardar informe definitivo
-Move-Item $TmpReport $ReportFile -Force
+if ($StdoutOk) {
+    Move-Item $TmpReport $ReportFile -Force
+    Log "OK: informe guardado en reports\$Date.md ($StdoutSize bytes, via stdout)"
+} else {
+    Remove-Item $TmpReport -Force -ErrorAction SilentlyContinue
+    Log "OK: informe ya presente en reports\$Date.md ($($DirectFile.Length) bytes, escrito directamente por el modelo)"
+}
 Remove-Item $TmpPrompt -Force -ErrorAction SilentlyContinue
-
-Log "OK: informe guardado en reports\$Date.md ($ReportSize bytes)"
 
 # 7. Segunda llamada: extraer scores del informe en formato CSV
 $TmpScorePrompt = "$env:TEMP\fa_scoreprompt_$Date.md"
@@ -180,19 +206,6 @@ $ParseScript = $ParseScript -creplace 'REPORT_DATE', $DateIso
 $ParseResult = python3 -c $ParseScript 2>&1
 Log "INFO: $ParseResult"
 
-# 8b. Asercion fail-loud: el escritor diario debe fallar ruidoso, no silencioso
-# (12 dias de pipeline roto en 2026-06 pasaron desapercibidos porque el reporte de texto
-# seguia publicandose mientras el INSERT a tech_scores simplemente no ocurria)
-$InsertedCount = 0
-if ($ParseResult -match 'DB_SAVED:\s*(\d+)\s*registros') {
-    $InsertedCount = [int]$matches[1]
-}
-$MinInsertedExpected = 40
-if ($InsertedCount -lt $MinInsertedExpected) {
-    Log "ERROR: solo $InsertedCount registros insertados en tech_scores (minimo esperado $MinInsertedExpected) - pipeline abortado, revisar $ReportFile"
-    exit 1
-}
-
 # 9. Guardar precios de cierre del dia
 Log "INFO: descargando precios de cierre..."
 $PriceResult = python3 "$ProjectDir\scripts\fetch_prices.py" $DateIso 2>&1
@@ -208,9 +221,28 @@ Log "INFO: generando comparativo..."
 $CompResult = python3 "$ProjectDir\scripts\generate_comparative.py" $DateIso 2>&1
 Log "INFO: $CompResult"
 
-# 11. Generar HTML y publicar en Cloudflare Pages via GitHub
+# 12. Generar HTML y publicar en Cloudflare Pages via GitHub
 Log "INFO: desplegando reporte..."
 $DeployResult = powershell.exe -ExecutionPolicy Bypass -File "$ProjectDir\scripts\deploy_report.ps1" -ReportFile $ReportFile -ProjectDir $ProjectDir 2>&1
 Log "INFO: deploy: $DeployResult"
 
+# 13. Alarma fail-loud (no compuerta): el escritor diario debe fallar ruidoso, no silencioso.
+# (12 dias de pipeline roto en 2026-06, y de nuevo 07-09..07-23, pasaron desapercibidos
+# porque el reporte de texto seguia publicandose - o el ERROR quedaba enterrado en un log
+# que nadie mira a diario - mientras el INSERT a tech_scores simplemente no ocurria.
+# Precios, notas y comparativo ya corrieron arriba pase lo que pase con N; esto solo alarma.)
+$InsertedCount = 0
+if ($ParseResult -match 'DB_SAVED:\s*(\d+)\s*registros') {
+    $InsertedCount = [int]$matches[1]
+}
+$MinInsertedExpected = 40
+if ($InsertedCount -lt $MinInsertedExpected) {
+    Log "ERROR: solo $InsertedCount registros insertados en tech_scores (minimo esperado $MinInsertedExpected) - dia de cobertura baja, revisar $ReportFile"
+    Write-PipelineErrorMarker "Solo $InsertedCount/$MinInsertedExpected registros insertados en tech_scores el $DateIso. Reporte: $ReportFile"
+    python3 "$ProjectDir\scripts\generate_health_dashboard.py" 2>&1 | Out-Null
+    Log "=== Run completado (degradado) ==="
+    exit 1
+}
+
+python3 "$ProjectDir\scripts\generate_health_dashboard.py" 2>&1 | Out-Null
 Log "=== Run completado ==="

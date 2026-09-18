@@ -1,6 +1,13 @@
 # FutureAnalysis - Daily Run
 # Ejecutado por Windows Task Scheduler lunes-viernes 7:00 AM
 
+# Ruta absoluta al interprete real. NO usar "python3" a secas: bajo el logon S4U
+# del Task Scheduler (no interactivo), "python3" resuelve al stub de Windows Store
+# (AppData\Local\Microsoft\WindowsApps\python3.exe), que falla en silencio -sin
+# stdout, sin stderr, sin excepcion- cuando no hay sesion interactiva que respalde
+# el alias. Eso causo 0 registros en tech_scores durante 6 dias (09-10..09-16) sin
+# que ningun traceback lo delatara. Ver reports/incident_20260918_python3_alias.md
+$PythonExe  = "C:\Users\tatym\AppData\Local\Programs\Python\Python313\python.exe"
 $ProjectDir = "c:\projects\FutureTrends"
 $RunStart   = Get-Date
 $Date       = Get-Date -Format "yyyyMMdd"
@@ -42,7 +49,7 @@ if (Test-Path $EnvFile) {
 
 # 2. Exportar tendencias activas desde SQLite
 $TrendsFile = "$ProjectDir\data\trends.json"
-$SqliteResult = python3 -c "
+$SqliteResult = & $PythonExe -c "
 import sqlite3, json
 try:
     db = sqlite3.connect(r'$ProjectDir\data\fa.db')
@@ -77,7 +84,7 @@ def fmt(rows):
     return chr(10).join(f'- [{r[0] or "general"}] {r[1]}' for r in rows)
 print('AUTO|||' + fmt(auto) + '|||MANUAL|||' + fmt(manual))
 "@
-$NotesRaw = python3 -c $NotesScript 2>$null
+$NotesRaw = & $PythonExe -c $NotesScript 2>$null
 $NotesAuto   = if ($NotesRaw -match 'AUTO\|\|\|(.+)\|\|\|MANUAL') { $matches[1] } else { '(ninguna)' }
 $NotesManual = if ($NotesRaw -match 'MANUAL\|\|\|(.+)$')          { $matches[1] } else { '(ninguna)' }
 Log "INFO: notas carry-forward cargadas"
@@ -126,7 +133,7 @@ $DirectOk   = $DirectFile -and $DirectFile.Length -ge 3000 -and $DirectFile.Last
 if (-not $StdoutOk -and -not $DirectOk) {
     Log "ERROR: reporte demasiado corto (stdout=$StdoutSize bytes, sin escritura directa valida) - ver $TmpReport"
     Write-PipelineErrorMarker "Reporte demasiado corto (stdout=$StdoutSize bytes) y no hay reports\$Date.md valido escrito directamente. Pipeline abortado antes del paso 6."
-    python3 "$ProjectDir\scripts\generate_health_dashboard.py" 2>&1 | Out-Null
+    & $PythonExe "$ProjectDir\scripts\generate_health_dashboard.py" 2>&1 | Out-Null
     exit 1
 }
 
@@ -203,22 +210,22 @@ open(report_path, 'w', encoding='utf-8').write(clean)
 
 $ParseScript = $ParseScript -creplace 'REPORT_PATH', ($ReportFile -replace '\\', '/')
 $ParseScript = $ParseScript -creplace 'REPORT_DATE', $DateIso
-$ParseResult = python3 -c $ParseScript 2>&1
+$ParseResult = & $PythonExe -c $ParseScript 2>&1
 Log "INFO: $ParseResult"
 
 # 9. Guardar precios de cierre del dia
 Log "INFO: descargando precios de cierre..."
-$PriceResult = python3 "$ProjectDir\scripts\fetch_prices.py" $DateIso 2>&1
+$PriceResult = & $PythonExe "$ProjectDir\scripts\fetch_prices.py" $DateIso 2>&1
 Log "INFO: $PriceResult"
 
 # 10. Extraer y clasificar notas de seccion 7 (carry-forward)
 Log "INFO: extrayendo notas de revision..."
-$NotesResult = python3 "$ProjectDir\scripts\extract_notes.py" $ReportFile $DateIso 2>&1
+$NotesResult = & $PythonExe "$ProjectDir\scripts\extract_notes.py" $ReportFile $DateIso 2>&1
 Log "INFO: $NotesResult"
 
 # 11. Generar informe comparativo
 Log "INFO: generando comparativo..."
-$CompResult = python3 "$ProjectDir\scripts\generate_comparative.py" $DateIso 2>&1
+$CompResult = & $PythonExe "$ProjectDir\scripts\generate_comparative.py" $DateIso 2>&1
 Log "INFO: $CompResult"
 
 # 12. Generar HTML y publicar en Cloudflare Pages via GitHub
@@ -239,10 +246,10 @@ $MinInsertedExpected = 40
 if ($InsertedCount -lt $MinInsertedExpected) {
     Log "ERROR: solo $InsertedCount registros insertados en tech_scores (minimo esperado $MinInsertedExpected) - dia de cobertura baja, revisar $ReportFile"
     Write-PipelineErrorMarker "Solo $InsertedCount/$MinInsertedExpected registros insertados en tech_scores el $DateIso. Reporte: $ReportFile"
-    python3 "$ProjectDir\scripts\generate_health_dashboard.py" 2>&1 | Out-Null
+    & $PythonExe "$ProjectDir\scripts\generate_health_dashboard.py" 2>&1 | Out-Null
     Log "=== Run completado (degradado) ==="
     exit 1
 }
 
-python3 "$ProjectDir\scripts\generate_health_dashboard.py" 2>&1 | Out-Null
+& $PythonExe "$ProjectDir\scripts\generate_health_dashboard.py" 2>&1 | Out-Null
 Log "=== Run completado ==="

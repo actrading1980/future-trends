@@ -122,6 +122,22 @@ Para cada tendencia que supere ese umbral:
    - Si aparece en MAS DE UNA tendencia: "TICKER | Empresa | Sc.:NN | T1(score1): NombreTendencia1 + T2(score2): NombreTendencia2 | Int.: +N (NIVEL)"
    Ejemplo multi-tendencia: "AMD | Advanced Micro Devices | Sc.:85 | T1(85): AI Chip Share + T2(79): Semiconductores 2nm | Int.: +3 (CORE)"
 
+6. **Cobertura obligatoria del resto del universo (fix 2026-09-22, ver `docs/incident_guard_n40_coverage_20260827.md`).**
+   Los pasos 1-5 solo asignan score a empresas vinculadas a una tendencia con ≥2 catalizadores
+   materiales — el resto del universo de 51 queda sin evaluar si no se hace explícito este paso.
+   Recorre `data/companies.json` completo. Para CADA empresa que no haya recibido ya un score en
+   los pasos 1-5:
+   - Si tienes alguna información puntual sobre ella hoy (aunque no alcance el umbral de
+     tendencia de 2 catalizadores), asígnale un score con la misma fórmula del paso 4, usando esa
+     información como único catalizador.
+   - Si no tienes ningún dato relevante sobre ella hoy, asígnale explícitamente **NEUTRAL, Score=50,
+     Intensidad=0** — no la omitas del CSV final. "Sin novedad hoy" es un resultado válido y
+     esperado para la mayoría de las 51 empresas la mayoría de los días; omitir la fila no lo es.
+
+   El bloque `SCORES_CSV_START`/`SCORES_CSV_END` de la Fase 5 debe contener **exactamente 51
+   filas, una por cada ticker de `data/companies.json`, sin excepción** — es la condición de
+   cobertura completa que el guard N≥40 verifica después de la corrida.
+
 ---
 
 ## Fase 4 — Output estructurado
@@ -169,6 +185,19 @@ TICKER | Empresa | Score | Tendencia | Intensidad
 - Por qué está bajo presión: mecanismo específico (2-3 líneas)
 - Señal de reversión: qué tendría que ocurrir para que el score suba
 ```
+
+### 5.5. Cobertura del universo completo (obligatorio, una línea por ticker)
+
+Checklist compacto, no narrativo — una línea por cada una de las 51 empresas de
+`data/companies.json`, en el mismo orden del archivo, para que la cobertura sea verificable
+contando líneas sin tener que parsear el bloque CSV de la Fase 5. Empresas ya cubiertas en las
+secciones 4/5 se repiten aquí en una línea (no hace falta repetir la tesis completa):
+
+```
+TICKER | Score | NEUTRAL/BULLISH/BEARISH | (ya en sec.4 / ya en sec.5 / sin novedad hoy)
+```
+
+Esta sección debe tener exactamente 51 líneas. Si tiene menos, la corrida está incompleta.
 
 ### 6. Conflictos detectados (si los hay)
 ### 7. Notas para revisión humana

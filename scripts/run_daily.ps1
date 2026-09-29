@@ -58,12 +58,21 @@ try:
         FROM tech_scores WHERE date=(SELECT MAX(date) FROM tech_scores) LIMIT 10''').fetchone()[0]
     db.close()
     print(rows)
-except: print('[]')
+except Exception as e:
+    print('[]')
+    print('PYERR: ' + repr(e))
 " 2>$null
 
-$trendsContent = if ($SqliteResult) { $SqliteResult } else { "[]" }
+# Fail-loud: un [] escrito "con exito" oculto durante meses un error de sintaxis SQL.
+$TrendsLines   = @($SqliteResult)
+$TrendsErr     = $TrendsLines | Where-Object { $_ -like 'PYERR:*' }
+$trendsContent = ($TrendsLines | Where-Object { $_ -notlike 'PYERR:*' }) -join "`n"
+if (-not $trendsContent) { $trendsContent = "[]" }
 [System.IO.File]::WriteAllText($TrendsFile, $trendsContent, [System.Text.Encoding]::UTF8)
-Log "INFO: trends.json actualizado"
+if ($TrendsErr) { Log "ERROR: exportacion de tendencias fallo: $TrendsErr" }
+$TrendsCount = try { ($trendsContent | ConvertFrom-Json).Count } catch { 0 }
+if ($TrendsCount -eq 0) { Log "WARN: trends.json actualizado: 0 entradas (prompt sin contexto de tendencias)" }
+else                    { Log "INFO: trends.json actualizado: $TrendsCount entradas" }
 
 # 3. Construir prompt con contexto dinamico
 $PromptTemplate = Get-Content "$ProjectDir\prompts\daily.md" -Raw -Encoding utf8
@@ -74,20 +83,27 @@ $Queries = Get-Content "$ProjectDir\data\queries.json" -Raw -Encoding utf8
 $NotesScript = @"
 import sqlite3
 from datetime import date
-db = sqlite3.connect(r'C:\projects\FutureTrends\data\fa.db')
-today = date.today().isoformat()
-auto = db.execute('''SELECT ticker, note FROM review_notes WHERE resolve_trigger='auto' AND resolved=0 AND (expires IS NULL OR expires >= ?)''', (today,)).fetchall()
-manual = db.execute('''SELECT ticker, note FROM review_notes WHERE resolve_trigger='manual' AND resolved=0''').fetchall()
-db.close()
-def fmt(rows):
-    if not rows: return '(ninguna)'
-    return chr(10).join(f'- [{r[0] or "general"}] {r[1]}' for r in rows)
-print('AUTO|||' + fmt(auto) + '|||MANUAL|||' + fmt(manual))
+try:
+    db = sqlite3.connect(r'C:\projects\FutureTrends\data\fa.db')
+    today = date.today().isoformat()
+    auto = db.execute('''SELECT ticker, note FROM review_notes WHERE resolve_trigger='auto' AND resolved=0 AND (expires IS NULL OR expires >= ?)''', (today,)).fetchall()
+    manual = db.execute('''SELECT ticker, note FROM review_notes WHERE resolve_trigger='manual' AND resolved=0''').fetchall()
+    db.close()
+    def fmt(rows):
+        if not rows: return '(ninguna)'
+        return chr(10).join(f'- [{r[0] or "general"}] {r[1]}' for r in rows)
+    print('AUTO|||' + fmt(auto) + '|||MANUAL|||' + fmt(manual))
+except Exception as e:
+    print('PYERR: ' + repr(e))
 "@
 $NotesRaw = & $PythonExe -c $NotesScript 2>$null
+$NotesErr = @($NotesRaw) | Where-Object { $_ -like 'PYERR:*' }
+if ($NotesErr)        { Log "ERROR: carga de notas carry-forward fallo: $NotesErr" }
+elseif (-not $NotesRaw) { Log "ERROR: carga de notas carry-forward sin salida" }
 $NotesAuto   = if ($NotesRaw -match 'AUTO\|\|\|(.+)\|\|\|MANUAL') { $matches[1] } else { '(ninguna)' }
 $NotesManual = if ($NotesRaw -match 'MANUAL\|\|\|(.+)$')          { $matches[1] } else { '(ninguna)' }
-Log "INFO: notas carry-forward cargadas"
+if ($NotesAuto -eq '(ninguna)' -and $NotesManual -eq '(ninguna)') { Log "WARN: notas carry-forward: 0 inyectadas en el prompt" }
+else { Log "INFO: notas carry-forward cargadas (auto: $($NotesAuto.Length) chars, manual: $($NotesManual.Length) chars)" }
 
 $Prompt = $PromptTemplate `
     -replace '\{FECHA\}',              $DateIso `

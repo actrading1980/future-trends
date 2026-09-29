@@ -10,3 +10,4 @@ data/filings/*.htm
 data/filings/fpi_20f/*.htm
 data/etf_sources/raw_downloads_*/
 local_dashboard/
+data/fa.db.bak_*

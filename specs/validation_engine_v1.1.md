@@ -489,3 +489,13 @@ v1.0 estimaba T≈65 "observaciones" en 2 días. El primer borrador de v1.1 corr
 ---
 
 *Spec v1.1 (revisión 2) lista para pre-registro. La Sección 6.2 (tamaño de muestra y potencia estadística) es la sección que más cambió respecto al primer borrador y la que más condiciona el resto: fuerza el horizonte primario a 30d, fuerza la ampliación de universo a prerequisito (Fase P1.5, Sección 10), y fija el T mínimo en un número único. Junto con la Sección 4.1 (gate) y la 4.7 (criterios de H2), son las tres secciones que deciden si el gate F3 es válido cuando llegue el momento de evaluarlo — pre-registradas ahora, antes de que exista tentación de ajustar criterios mirando resultados.*
+
+---
+
+## Adenda 2026-09-30 — registro de regímenes de prompt (no modifica el texto pre-registrado de arriba)
+
+**1. Sub-régimen `v2.1` (desde 2026-09-23).** El commit `ff380b6` (2026-09-22 15:32) cambió `prompts/daily.md` en producción sin subir `prompt_version`: obliga a cubrir las 51 empresas y asigna NEUTRAL explícito (Score=50, Intensidad=0) a las que no tienen catalizador, cuando antes las omitía. Primer run afectado: 2026-09-23. Cambia la composición del cross-section: filas con 50/0 por día → 09-23: 38/51, 09-24: 47/51, 09-28: 50/51, 09-29: 44/51 (antes, N variable de 13 a 40 y solo empresas puntuadas). Se re-etiquetaron en `tech_scores` las 204 filas con `date >= 2026-09-23` de `v2` a `v2.1` (backup: `data/fa.db.bak_20260930_prompt_v21`) y el INSERT de `run_daily.ps1` escribe `v2.1` desde ahora. Consecuencia: los filtros `prompt_version='v2'` de esta spec excluyen estos días. Los Δscore que cruzan 09-21→09-23 no se comparan (Regla 2, aplicada a un corte de prompt).
+
+**2. Discrepancia en la frontera v1/v2.** La línea de `prompt_version` de la Sección 3 dice «'v1' (hasta 2026-06-09) | 'v2' (desde 2026-06-10)», pero la DB tiene `v1` en 2026-05-26..05-29 y `v2` desde 2026-06-01. Queda registrada sin resolver: hay que decidir cuál es la frontera real antes de calcular F3.
+
+**3. Contexto de continuidad: ausente en toda la serie (homogéneo).** Diagnóstico del 2026-09-29: `{TENDENCIAS_ACTIVAS}` siempre ha llegado vacío (`[]`, desde 2026-05-27) y `{NOTAS_AUTO}`/`{NOTAS_MANUAL}` siempre como `(ninguna)` (desde 2026-06-02). Son bugs de comillas en `run_daily.ps1`, ocultos por `except`; fail-loud en `b4f371e`. Ningún tramo de v1/v2/v2.1 tuvo memoria entre días, así que no hay que marcar ningún tramo. Activar la continuidad es un corte de régimen deliberado: irá empaquetado con la migración v3, con su propio pre-registro fechado antes del primer día.

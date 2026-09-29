@@ -85,3 +85,7 @@ Si el modelo comprime bajo presupuesto no controlado, la varianza podría no ser
 ## 9. Estado y siguiente paso
 
 **ABIERTO — mecanismo aislado con evidencia (histograma descarta techo duro, confirma rama de prompt), fix nombrado, sin aplicar todavía.** No cerrar sin: (a) editar el prompt de la llamada de generación del informe para exigir formato estructurado por-ticker (todas las 51 empresas, aunque sea con una línea mínima cada una); (b) añadir la verificación intermedia de cobertura (Sección 7) cuando el prompt lo permita; (c) verificar N≥40 sostenido una semana antes de declarar cerrado con fecha de fin; (d) decidir si `compute_validation.py` (cuando se construya) pondera o excluye las fechas de este tramo por cobertura declarada. El canal ya está resuelto (Sección 4).
+
+---
+
+**Nota 2026-09-30 — hipótesis descartada por construcción.** Las notas carry-forward y el contexto de tendencias nunca llegaron al prompt en ningún día de la serie (bugs de comillas en `run_daily.ps1`, diagnosticados el 2026-09-29, fail-loud en `b4f371e`). Por tanto, ninguna variación de ese contexto (notas congeladas, tendencias vacías) puede explicar la caída de cobertura desde 07-07: el input era idéntico (vacío) antes y después del onset. Además, la cobertura quedó resuelta por diseño con `ff380b6` (relleno NEUTRAL, sub-régimen `v2.1`; ver adenda en `specs/validation_engine_v1.1.md`).

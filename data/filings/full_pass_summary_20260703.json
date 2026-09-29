@@ -1,17 +1,17 @@
 {
   "total": 130,
-  "limpio_n": 120,
-  "tasa_paso_limpio": 0.9231,
+  "limpio_n": 121,
+  "tasa_paso_limpio": 0.9308,
   "cola_por_etiqueta": {
-    "ERROR_PROCESAMIENTO": 2,
+    "ERROR_PROCESAMIENTO": 1,
     "INCORPORADO_POR_REFERENCIA": 6,
     "CROSS_CHECK_DIVERGENTE": 1,
     "FALLO_gate2_longitud": 1
   },
   "metodos": {
     "edgartools": 110,
-    "regex_fallback": 12,
-    "NINGUNO": 2,
+    "regex_fallback": 13,
+    "NINGUNO": 1,
     "edgartools_divergente+fallback_corroborado": 5,
     "edgartools_divergente+fallback_no_coincide": 1
   },
@@ -27,21 +27,21 @@
     "min": 19053,
     "p25": 85311,
     "mediana": 131554,
-    "p75": 173002,
+    "p75": 170607,
     "max": 408983
   },
   "distribucion_risk_density_item1": {
     "min": 0.0,
     "p25": 0.129,
-    "mediana": 0.233,
-    "p75": 0.354,
+    "mediana": 0.23,
+    "p75": 0.35,
     "max": 1.296
   },
   "distribucion_risk_density_item1a": {
     "min": 0.669,
     "p25": 1.071,
     "mediana": 1.254,
-    "p75": 1.411,
+    "p75": 1.405,
     "max": 2.251
   },
   "distribucion_ratio_asimetria_1a_sobre_1": {
@@ -54,8 +54,8 @@
   "distribucion_ratio_documento": {
     "min": 0.343,
     "p25": 0.519,
-    "mediana": 0.603,
-    "p75": 0.663,
+    "mediana": 0.602,
+    "p75": 0.662,
     "max": 1.353
   },
   "bandas_congeladas_v1_2": {

@@ -3052,9 +3052,12 @@
   },
   {
     "ticker": "BE",
-    "metodo": "NINGUNO",
-    "error": "no se encontraron headers de Item 1 o Item 1A",
-    "gate0": {
+    "metodo": "regex_fallback",
+    "edgartools_meta": {
+      "error": "'part_i_item_1a'"
+    },
+    "cross_check": null,
+    "gate0_identidad": {
       "pass": true,
       "metodo": "mecanico_cik_accession",
       "detalle_mecanico": {
@@ -3063,7 +3066,33 @@
         "accession": "0001628280-26-006516"
       },
       "match_portada_informativo": false
-    }
+    },
+    "gate1_orden": {
+      "pass": true,
+      "pos_item1": 12861,
+      "pos_item1a": 91036,
+      "gap": 78175
+    },
+    "gate2_longitud": {
+      "pass": true,
+      "item1_len": 78175,
+      "item1a_len": 147366,
+      "item1_en_banda": true,
+      "item1a_en_banda": true,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate3_marcadores": {
+      "pass": true,
+      "risk_density_item1": 0.141,
+      "risk_density_item1a": 1.405,
+      "ratio_1a_sobre_1": 9.98
+    },
+    "gate4_ratio": {
+      "pass": true,
+      "ratio": 0.571,
+      "techo_superado_pero_verificado_informativo": false
+    },
+    "gate5_caso_especial": null
   },
   {
     "ticker": "NXT",

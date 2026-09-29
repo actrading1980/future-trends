@@ -5,7 +5,7 @@
 
 ## Estado del proyecto
 
-- **Producción (Phase 1, universo de 51):** el pipeline diario funciona y **vuelve al prompt v2 desde el run del 2026-10-01**, tras revertir `ff380b6`. v2 es el mal menor conocido, no un régimen sano.
+- **Producción (Phase 1, universo de 51):** el pipeline diario funciona y **vuelve al prompt v2 desde el run del 2026-09-30**, tras revertir `ff380b6`. v2 es el mal menor conocido, no un régimen sano.
 - **P1.5 (universo de 136):** sin avances desde julio. Está bloqueada en la sesión humana de inspección.
 - **Camino crítico:** dos sesiones humanas (inspección P1.5 + triaje de 98 notas MANUAL) → migración v3 como un único corte de régimen. El reloj del gate F3 no arranca hasta entonces.
 
@@ -26,7 +26,7 @@
 | Filings P1.5: diff por filing de la pasada 07-03 → **solo cambia BE** (fix em-dash `65c16d7`), 121/130. IBM/CSCO no se mueven. Commit `9797ead` + tabla §6 actualizada | ✅ |
 | `scripts/build_context.py`: continuidad (opción b: parseo determinista de tendencias de secciones 4/5 + notas AUTO con tope de 14 días). **En seco, sin conectar** | ✅ |
 | `docs/v3_migration_notes.md`: requisitos de v3 con motivación citada (`no_catalyst`, continuidad, bump de versión, salud >24h) | ✅ |
-| Verificar el primer run v2 (2026-10-01) con los 3 criterios pre-fijados | ⏳ |
+| Verificar el primer run v2 (2026-09-30) con los 3 criterios pre-fijados | ⏳ |
 
 ---
 
@@ -35,7 +35,7 @@
 ### Pipeline diario (`scripts/run_daily.ps1`)
 Task Scheduler `\FutureAnalysis\FutureAnalysis_DailyRun`, lunes a viernes 7:00, LogonType=S4U. Pasos: tendencias (rotas, WARN) → notas (rotas, ERROR) → prompt → Claude CLI → segunda llamada con CSV → `tech_scores` (etiqueta `prompt_version` **hardcodeada en el INSERT, hoy `'v2'`**) → guard N≥40 (alarma sin abortar) → precios → notas → comparativo → `deploy_report.ps1` (git push → Cloudflare Pages).
 
-**Estado esperado del log desde 2026-10-01 (no son incidentes):**
+**Estado esperado del log desde 2026-09-30 (no son incidentes):**
 - `ERROR: exportacion de tendencias fallo` + `WARN: trends.json actualizado: 0 entradas`
 - `ERROR: carga de notas carry-forward fallo` + `WARN: notas carry-forward: 0 inyectadas`
 - Guard N≥40 disparando casi a diario (propio de v2)
@@ -44,7 +44,7 @@ Task Scheduler `\FutureAnalysis\FutureAnalysis_DailyRun`, lunes a viernes 7:00, 
 | Versión | Fechas | Prompt | Nota |
 |---|---|---|---|
 | v1 | 2026-05-26 → 05-29 | 9806 chars | anexo exploratorio |
-| v2 | 2026-06-01 → 09-21, y desde 2026-10-01 | 10156 (06-01..02) / 10352 | cobertura efectiva ~24/día; onset de caída 07-07 sin causa |
+| v2 | 2026-06-01 → 09-21, y desde 2026-09-30 | 10156 (06-01..02) / 10352 | cobertura efectiva ~24/día; onset de caída 07-07 sin causa |
 | v2.1 | 2026-09-23 → 09-29 | 12183 | paréntesis cerrado; 50/0 = `no_catalyst` |
 
 ### Deuda técnica activa
@@ -74,7 +74,7 @@ Task Scheduler `\FutureAnalysis\FutureAnalysis_DailyRun`, lunes a viernes 7:00, 
 
 ## Próximos pasos (en orden de prioridad)
 
-### 1. Verificar el run del 2026-10-01 (primer run v2 revertido)
+### 1. Verificar el run del 2026-09-30 (primer run v2 revertido)
 Criterios pre-fijados (adenda 7):
 - (a) `prompt generado (10352 chars)` en `logs/scheduler.log`
 - (b) filas nuevas con `prompt_version='v2'`
@@ -106,7 +106,7 @@ Get-Content C:\projects\FutureTrends\logs\scheduler.log -Tail 30
 C:\Users\tatym\AppData\Local\Programs\Python\Python313\python.exe -c "import sqlite3;db=sqlite3.connect(r'C:\projects\FutureTrends\data\fa.db');print(db.execute('SELECT date,prompt_version,COUNT(*),SUM(score=50 AND intensity=0) FROM tech_scores WHERE date>=''2026-09-29'' GROUP BY 1,2').fetchall())"
 
 # Vista previa del contexto de continuidad (en seco)
-C:\Users\tatym\AppData\Local\Programs\Python\Python313\python.exe C:\projects\FutureTrends\scripts\build_context.py --as-of 2026-10-01
+C:\Users\tatym\AppData\Local\Programs\Python\Python313\python.exe C:\projects\FutureTrends\scripts\build_context.py --as-of 2026-09-30
 
 # Run manual
 powershell.exe -ExecutionPolicy Bypass -File C:\projects\FutureTrends\scripts\run_daily.ps1

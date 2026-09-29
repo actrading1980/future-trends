@@ -212,7 +212,7 @@ for line in m.group(1).strip().splitlines():
     if scenario not in ('BULLISH','STRONG_BULLISH','NEUTRAL','BEARISH'):
         scenario = 'BULLISH' if score >= 70 else ('BEARISH' if score < 30 else 'NEUTRAL')
     db.execute('INSERT OR REPLACE INTO tech_scores (ticker, score, trend_name, intensity, scenario, conflicto, date, prompt_version, universe_version) VALUES (?,?,?,?,?,?,?,?,?)',
-        (ticker, score, 'daily_run', intensity, scenario, 0, date, 'v2.1', 1))
+        (ticker, score, 'daily_run', intensity, scenario, 0, date, 'v2', 1))
     inserted += 1
 
 db.commit()

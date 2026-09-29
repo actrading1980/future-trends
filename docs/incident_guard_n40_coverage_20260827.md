@@ -89,3 +89,9 @@ Si el modelo comprime bajo presupuesto no controlado, la varianza podría no ser
 ---
 
 **Nota 2026-09-30 — hipótesis descartada por construcción.** Las notas carry-forward y el contexto de tendencias nunca llegaron al prompt en ningún día de la serie (bugs de comillas en `run_daily.ps1`, diagnosticados el 2026-09-29, fail-loud en `b4f371e`). Por tanto, ninguna variación de ese contexto (notas congeladas, tendencias vacías) puede explicar la caída de cobertura desde 07-07: el input era idéntico (vacío) antes y después del onset. Además, la cobertura quedó resuelta por diseño con `ff380b6` (relleno NEUTRAL, sub-régimen `v2.1`; ver adenda en `specs/validation_engine_v1.1.md`).
+
+**Cierre 2026-09-30 — sin causa raíz establecida.** Ninguna hipótesis sobre el *onset* del 2026-07-07 quedó confirmada:
+- La narrativa de trabajo de julio (ventana `$Date7d` sobre `tech_scores` vaciándose + notas congeladas desde 06-24 degradando el contexto) nunca se verificó y es falsa: `$Date7d` es solo el filtro de fecha de la búsqueda de GitHub y no toca `tech_scores`, y las notas nunca llegaron al prompt.
+- La «rama de prompt» (el umbral de ≥2 catalizadores deja sin puntuar al resto) explica el *mecanismo* por el que N puede ser bajo, pero no el onset. El prompt generado midió exactamente 10352 chars del 2026-06-03 al 2026-09-22 (`logs/scheduler.log`): el input no cambió el 07-07. Junio corrió con ese mismo prompt y dio N≈51.
+- El síntoma quedó enmascarado, no resuelto, con `ff380b6` (sub-régimen v2.1): la cobertura efectiva, contando las filas que no son relleno 50/0, cayó a una media de 6.3/día (rango 1-13), frente a 24.2 en v2.
+Lección, ya pagada dos veces: la verificación pendiente «de un minuto» era justo la que tumbaba la teoría.
